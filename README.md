@@ -83,11 +83,13 @@ bisa menyimpan angka apa saja?
 | >=                    | lebih besar sama dengan  |
 | <=                    | lebih kecil sama dengan  |
 
+        ``` js
         var x = 10;
         console.log(x == 10); // true
 
         var x = 12
         console.log(x != 10) // true
+        ```
 
 ### logika / logical
 
@@ -97,36 +99,47 @@ bisa menyimpan angka apa saja?
 | !!              | OR         |
 | !               | NOT        |
 
+        ``` js
         var x = 10;
         console.log(x < 20 && x == 10); // true
         console.log(x < 10 && x % 2); // false
         // && butuh semua benar untuk mendapatkan true
+        ```
 
+        ```js
         var x = 20;
         console.log(x % 2 == 0 || x < 10); // cukup stau yang benar untuk true
+        ```
 
+        ```js
         var x = 10;
         console.log(!x == 10); // false
+        ```
 
 ### String
 
 ( + ) menggabungkan kalimat.
 
+        ```js
         var x = "Hello "
         var y = "World!"
         console.log(x + y); // Hello World!
+        ```
 
+        ```js
         var x = "10";
         var y = 10;
         var z = 10;
 
         console.log(x + y + z); // 101010
         console.log(y + z + x); // 2010
+        ```
 
 ### Typeof
 
 untuk mengetahui type data
 
+        ```js
         var x = 10;
         var y = "Hello World!";
         var z = true;
@@ -134,10 +147,13 @@ untuk mengetahui type data
         console.log(typeof x); // number
         console.log(typeof y); // string
         console.log(typeof z); // boolean
+        ```
 
 ### kondisional
 
 > membutuhkan 3 operand
 
+        ```js
         var x = 10;
         console.log(x % 2 == 0 ? "genap" : "ganjil"); // genap
+        ```
