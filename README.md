@@ -109,9 +109,7 @@ bisa menyimpan angka apa saja?
         ```js
         var x = 20;
         console.log(x % 2 == 0 || x < 10); // cukup stau yang benar untuk true
-        ```
 
-        ```js
         var x = 10;
         console.log(!x == 10); // false
         ```
@@ -124,9 +122,9 @@ bisa menyimpan angka apa saja?
         var x = "Hello "
         var y = "World!"
         console.log(x + y); // Hello World!
-        ```
 
-        ```js
+
+
         var x = "10";
         var y = 10;
         var z = 10;
