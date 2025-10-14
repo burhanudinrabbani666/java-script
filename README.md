@@ -151,5 +151,56 @@ console.log(typeof z); // boolean
 
 ```js
 var x = 10;
-console.log(x % 2 == 0 ? "genap" : "ganjil"); // genap
+console.log(x % 2 == 0 ? "genap" : "ganjil"); // gena
 ```
+
+## String
+
+tipe data **String** dalam JavaScript digunakan untuk merepresentasikan **data tekstual**/ plain text.
+
+> "", '', ``
+
+```js
+"Hello World!";
+"Hello World!"`Hello World!`; // paling rekomendasi
+```
+
+```js
+console.log(`Hello World! Im "Pro" col`);
+```
+
+## boolean
+
+sebuah tipe data yang merepresentasikan logika **true** atau **false**. biasanya digunakan pada statment pengkondisian, untuk menentukan aksi yang berbeda dan mengatur alur pengendalian.
+
+```js
+true : false
+
+var x = 10;
+console.log(x == 10); // true
+
+console.log(Boolean(10 < 20)); // menggunakan function Boolean
+```
+
+| truthy          | falsy     |
+| --------------- | --------- |
+| true            | false     |
+| non-zero number | 0         |
+| "string'        | ""        |
+| object          | undefined |
+| array           | null      |
+| Functions       | NaN       |
+
+> undefined adalah deklarasi sebuah variable tapi belum diisi nilai ⬇️
+
+```js
+var x=; // undefined
+```
+
+> null nilai kosong yang bisa di berikan ke variable ⬇️
+
+```js
+var x = null; // null
+```
+
+## variable
