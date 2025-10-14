@@ -108,3 +108,39 @@ console.log(`done`);
 ```
 
 ### for
+
+```js
+for (nilai awal ; kondisi; increment++/decrement--){
+  console.log(`Hello World!)
+}
+```
+
+```js
+for (let index = 0; index < 10; index++) {
+  console.log(`Hello World! ${index}`);
+}
+```
+
+## if else
+
+```js
+if (kondisi) {
+  aksi; // lakukan aksi jika kondisi bernilai true
+} // jika false keluar
+```
+
+```js
+var angka = 1;
+if (angka <= 5) {
+  console.log(`angka < 5`);
+}
+```
+
+```js
+var angka = 10;
+if (angka % 2 == 0) {
+  console.log(`${angka} adalah genap`);
+} else {
+  console.log(`${angka} adalah ganjil`);
+}
+```
