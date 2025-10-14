@@ -1,4 +1,4 @@
-## Control Flow
+# Control Flow
 
 1. Normal Flow
    Apabila program kita memiliki lebih dari satu stetment, maka statement tersebut akan dieksekusi dari **atas ke bawah** atau **kiri ke kanan**.
@@ -46,9 +46,11 @@ if (x < 5) {
 }
 ```
 
-### pengulang / loop / iteration
+## pengulang / loop / iteration
 
-**while:** Dalam JavaScript, while loop adalah pernyataan alur kontrol yang mengeksekusi blok kode secara berulang selama kondisi yang ditentukan tetap **benar**. Kondisi dievaluasi sebelum tiap iterasi loop.
+### while
+
+Dalam JavaScript, while loop adalah pernyataan alur kontrol yang mengeksekusi blok kode secara berulang selama kondisi yang ditentukan tetap **benar**. Kondisi dievaluasi sebelum tiap iterasi loop.
 
 ```js
 while (condition) {
@@ -104,3 +106,5 @@ while (x > 0) {
 }
 console.log(`done`);
 ```
+
+### for
