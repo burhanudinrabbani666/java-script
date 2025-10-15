@@ -27,6 +27,23 @@ for (let index = 1; index <= 10; index++) {
 
 console.log("------");
 
+let x = "";
+for (let index = 0; index < 5; index++) {
+  x += "*";
+  console.log(x);
+}
+
+console.log("------");
+
+let y = "";
+for (let index = 5; index > 0; index--) {
+  for (let j = 0; j < index; j++) {
+    y += "*";
+  }
+  y += `\n`;
+}
+console.log(y);
+
 // var angka = 10;
 // if (angka % 2 == 0) {
 //   console.log(`${angka} adalah genap`);
