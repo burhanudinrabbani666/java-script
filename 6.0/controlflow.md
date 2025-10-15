@@ -144,3 +144,41 @@ if (angka % 2 == 0) {
   console.log(`${angka} adalah ganjil`);
 }
 ```
+
+## Switch
+
+The **switch** statement evaluates an expression, matching the expression's value against a series of case clauses, and executes statements after the first case clause with a matching value, until a break statement is encountered. The default clause of a switch statement will be jumped to if no case matches the expression's value.
+
+```js
+switch (ekspresi) {
+  case `nilai 1`:
+    console.log(); // aksi
+
+    break;
+
+  default:
+    break;
+}
+```
+
+```js
+var validatedHalal = "onta";
+
+switch (validatedHalal) {
+  case "kurma":
+  case "air zam-zam":
+  case "indomie":
+    console.log("halal ✅");
+    break;
+
+  case "babi":
+  case "alcohol":
+  case "judi":
+    console.log("Haram ❎");
+
+  default:
+    console.log("mending jadi kapal laut ⛴️");
+
+    break;
+}
+```
