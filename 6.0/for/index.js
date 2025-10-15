@@ -25,6 +25,8 @@ for (let index = 1; index <= 10; index++) {
   console.log(`${index} x ${a} = ${b}`);
 }
 
+console.log("------");
+
 // var angka = 10;
 // if (angka % 2 == 0) {
 //   console.log(`${angka} adalah genap`);
