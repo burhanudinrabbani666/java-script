@@ -1,0 +1,86 @@
+# 🧠 JavaScript Study Journey
+
+![Status](https://img.shields.io/badge/Status-Ongoing-brightgreen?style=flat-square)
+![Language](https://img.shields.io/badge/Language-JavaScript-yellow?style=flat-square)
+![Platform](https://img.shields.io/badge/Learning-Udemy-orange?style=flat-square)
+![Focus](https://img.shields.io/badge/Focus-Frontend_Development-blue?style=flat-square)
+![Last Updated](https://img.shields.io/badge/Updated-Nov_2025-lightgrey?style=flat-square)
+
+---
+
+## 👋 About This Repo
+
+This repo documents my personal journey to **master JavaScript** — not just by learning syntax,  
+but by truly understanding the **logic, patterns, and inner workings** behind the code.
+
+My goal is to become a **frontend developer** who can think critically, solve complex problems,  
+and write **clean, reusable, and efficient functions** — not just follow tutorials.
+
+**main source of learning** : [The Complete JavaScript Course 2025: From Zero to Expert!
+](https://www.udemy.com/share/101WeY3@sXSP7n4QR_6aAQVX439OCSf-9V0xK6WKA-Law7KloXdUiW3lWn1ZtssI4ajDTPDPbQ==/)
+
+## 🎯 My Goals
+
+### 🎯 Short-Term (Next 1 Month)
+
+- Refactor and improve my **personal website** & **address book project**
+- Deepen my understanding of **JavaScript fundamentals**
+- Write **better, cleaner, and reusable** functions
+
+### 🚀 Long-Term
+
+- Work **remotely** as a web developer
+- Build and publish my own **JavaScript library**
+- Create a **portfolio** that demonstrates strong technical and logical thinking
+
+---
+
+## 📆 Weekly Learning Tracker
+
+| Week | Focus                                                      | Status | Notes |
+| ---- | ---------------------------------------------------------- | ------ | ----- |
+| 1    | JavaScript Fundamentals (Variables, Data Types, Functions) | 👣     |       |
+| 2    | DOM Manipulation & Events                                  | ⏳     |       |
+| 3    | Scope, Hoisting, Closures, `this`, Prototype               | ⏳     |       |
+| 4    | Data Structure, Modern Operator and Strings                | ⏳     |       |
+| 5    | Deep Dive Function, Array, Numbers                         | ⏳     |       |
+| 6    | Object Oriented Programing(OOP) With JavaScript            | ⏳     |       |
+| 7    | External Libraries                                         | ⏳     |       |
+| 8    | Asynchronus JavaScript: Promises, Async/Await, and Ajax    | ⏳     |       |
+
+---
+
+## 🧠 Topics I’m Exploring
+
+- Variables, scope, closure, and hoisting
+- Arrays, objects, and functional methods (map, filter, reduce)
+- DOM manipulation and event handling
+- ES6+ features: destructuring, spread/rest, classes, modules
+- Async programming: promises, async/await, callbacks
+- Writing clean, reusable, and modular functions
+
+---
+
+## 🧰 Tools & Environment
+
+| Tool                | Purpose            |
+| ------------------- | ------------------ |
+| **Editor**          | Visual Studio Code |
+| **Runtime**         | Bun                |
+| **Version Control** | Git & GitHub       |
+| **Platform**        | Udemy              |
+| **Browser**         | Firefox            |
+
+---
+
+## 💬 Personal Notes
+
+> “Progress doesn’t have to be fast — it just has to keep going.”  
+> I’m learning JavaScript not to memorize syntax, but to **understand how it thinks**.
+
+Each week I’ll update my `/notes` and `/exercises` folders with new learnings, insights, and experiments.  
+My goal is to be able to explain _why_ something works — not just _how_.
+
+---
+
+## 📁 Repository Structure
