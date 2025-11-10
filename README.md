@@ -21,13 +21,13 @@ and write **clean, reusable, and efficient functions** — not just follow tutor
 
 ## 🎯 My Goals
 
-### 🎯 Short-Term (Next 1 Month)
+### Short-Term (Next 1 Month)
 
 - Refactor and improve my **personal website** & **address book project**
 - Deepen my understanding of **JavaScript fundamentals**
 - Write **better, cleaner, and reusable** functions
 
-### 🚀 Long-Term
+### Long-Term
 
 - Work **remotely** as a web developer
 - Build and publish my own **JavaScript library**
@@ -87,11 +87,11 @@ My goal is to be able to explain _why_ something works — not just _how_.
 
 ```bash
 javascript-study/
-├── 📘 notes/              # Theoretical notes & concept breakdowns
-├── 🧩 exercises/          # Practice problems & small code experiments
-├── 💻 projects/           # Reworked old projects & new mini builds
-├── 📑 resources.md        # Helpful links and study resources
-└── README.md              # You’re here!
+├── notes/              # Theoretical notes & concept breakdowns
+├── exercises/          # Practice problems & small code experiments
+├── projects/           # Reworked old projects & new mini builds
+├── resources.md        # Helpful links and study resources
+└── README.md           # You’re here!
 ```
 
 ## 🌟 Why This Matters
