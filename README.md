@@ -84,3 +84,29 @@ My goal is to be able to explain _why_ something works — not just _how_.
 ---
 
 ## 📁 Repository Structure
+
+```bash
+javascript-study/
+├── 📘 notes/              # Theoretical notes & concept breakdowns
+├── 🧩 exercises/          # Practice problems & small code experiments
+├── 💻 projects/           # Reworked old projects & new mini builds
+├── 📑 resources.md        # Helpful links and study resources
+└── README.md              # You’re here!
+```
+
+## 🌟 Why This Matters
+
+Understanding JavaScript deeply is the key to becoming a **self-sufficient frontend developer**.  
+Once the fundamentals are strong, frameworks like React, Vue, or Next.js are just tools — not barriers.
+
+---
+
+## 🏆 Current Learning Stats
+
+![Learning Progress](https://img.shields.io/badge/Progress-Week_1_of_12-blueviolet?style=for-the-badge)
+![Consistency](https://img.shields.io/badge/Consistency-High-success?style=for-the-badge)
+![Mindset](https://img.shields.io/badge/Mindset-Growth_&_Patience-yellow?style=for-the-badge)
+
+---
+
+### ⚡ One step, one concept — learning JavaScript with purpose and clarity.
