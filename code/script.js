@@ -39,6 +39,11 @@ const restaurant = {
       `Here is your delicious pasta with ${ing1}, ${ing2}, and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIng, ...otherIng) {
+    console.log(mainIng);
+    console.log(otherIng);
+  },
 };
 
 /*
@@ -183,4 +188,45 @@ newRestaurantCopy.founder = `Jokowi`;
 
 console.log(newRestaurantCopy.founder); //copy // Jokowi
 console.log(newRestaurant.founder); // original // Rabbani
+
+// REST PATTERN
+
+// 1. Detructuring
+// spread because on RIGHT side of the operator =
+const arr = [1, 2, ...[3, 4]];
+
+// rest because on LEFT side of the operator =
+const [a, b, ...other] = [1, 2, 3, 4, 5];
+console.log(a, b, other); // 1 2 [ 3, 4, 5]
+
+// use REST and SPREAD togheter
+const [pizza, , risoto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risoto, otherFood); // otherFood collect all item after risoto and not include any skipped element
+
+// Object
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(weekdays);
+
+// 2. Function
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (const number of numbers) {
+    sum += number;
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(3, 4, 6, 5, 7, 2, 3, 1, 8);
+
+const x = [23, 5, 7];
+add(...x);
+
+restaurant.orderPizza(`Mushrooms`, `Onion`, `Olives`, `Spinach`);
 */
