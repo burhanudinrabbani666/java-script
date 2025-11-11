@@ -268,4 +268,14 @@ if (restaurant.orderPizza) {
 
 restaurant.orderPizza && restaurant.orderPizza("Mushrooms", "Chess");
 // if the first operand is true the execut next operand
+
+restaurant.numGuests = 0;
+
+const guests = restaurant.numGuests || 10;
+console.log(guests); // 23
+
+// NULLISH COALESING Operator
+const guestsCorrect = restaurant.numGuests ?? 10;
+
+console.log(guestsCorrect); // 0
 */

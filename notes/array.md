@@ -340,3 +340,14 @@ restaurant.orderPizza && restaurant.orderPizza("Mushrooms", "Chess");
 ```
 
 > As a practical applications, we can use the OR operator to set default value, and we can use the AND operator to execute code in the second operand, if the first one is true
+
+### NULLISH coalescing operator
+
+NULLISH coalescing operator works with the idea or with the concept of **nullish** value instead of falsy values. nullish value is **null** and **undefined**
+
+```js
+restaurant.numGuests = 0;
+
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect); // 0
+```
