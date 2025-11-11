@@ -278,4 +278,41 @@ console.log(guests); // 23
 const guestsCorrect = restaurant.numGuests ?? 10;
 
 console.log(guestsCorrect); // 0
+
+
+// logical assigment operator
+
+const rest1 = {
+  name: " Capri1",
+  // numGuest: 20,
+  numGuest: 0, // falsy value
+};
+
+const rest2 = {
+  name: " La porta",
+  founder: "Asep del piero",
+};
+
+// OR assigment  operator
+// add new property
+// rest1.numGuest = rest1.numGuest || 10;
+// rest2.numGuest = rest2.numGuest || 10;
+
+// much shorter
+// rest1.numGuest ||= 10;
+// rest2.numGuest ||= 10;
+
+// NULLISH assigment operator
+rest1.numGuest ??= 10;
+rest2.numGuest ??= 10;
+
+// AND assigment
+// rest1.founder = rest1.founder === undefined && `<Unknown>`;
+// rest2.founder = rest2.founder && `<Unknown>`;
+
+rest1.founder &&= `<Unknown>`;
+rest2.founder &&= `<Unknown>`;
+
+console.log(rest1);
+console.log(rest2);
 */
