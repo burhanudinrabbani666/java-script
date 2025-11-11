@@ -346,7 +346,6 @@ for (let index = 0; index < books.length; index++) {
     );
 }
 
-*/
 
 // 7.1
 // Some of the book objects from the books array are missing the edition property. Loop over the books array, and assign this property with a number 1 (if it doesn't already exist). Use logical assignment operators.
@@ -363,3 +362,5 @@ for (let index = 0; index < books.length; index++) {
     books[index].thirdParty.goodreads.rating < 4.2
   );
 }
+
+*/
