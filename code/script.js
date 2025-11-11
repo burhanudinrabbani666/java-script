@@ -315,4 +315,18 @@ rest2.founder &&= `<Unknown>`;
 
 console.log(rest1);
 console.log(rest2);
+
+
+// FOR OF LOOP
+
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+
+for (const item of menu) {
+  console.log(item);
+}
+
+// for of loop with entries method
+for (const [index, food] of menu.entries()) {
+  console.log(`${index + 1}: ${food}`);
+}
 */

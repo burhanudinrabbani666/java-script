@@ -98,5 +98,5 @@ function printGoals2(...players) {
   console.log(`${players.length} Goals in this Game`);
 }
 
-team1 < team2 && console.log(`${game.team1} More likely Win`);
-team2 < team1 && console.log(`${game.team2} More likely Win`);
+// team1 < team2 && console.log(`${game.team1} More likely Win`);
+// team2 < team1 && console.log(`${game.team2} More likely Win`);
