@@ -1,5 +1,5 @@
 const weekdays = [`mon`, "tue", `wed`, `thu`, `fri`, `sat`, `sun`];
-const hours = {
+const openingHours = {
   [weekdays[3]]: {
     open: 12,
     close: 22,
@@ -22,7 +22,7 @@ const restaurant = {
   mainMenu: ["Pizza", "Pasta", "Risoto"],
 
   // ES6 enhanced object literals
-  hours,
+  openingHours,
 
   order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
@@ -329,4 +329,24 @@ for (const item of menu) {
 for (const [index, food] of menu.entries()) {
   console.log(`${index + 1}: ${food}`);
 }
+
+// Optional Chaining
+console.log(restaurant.openingHours?.mon?.open); // undefined because mon? is undefined
+
+const days = [`mon`, "tue", `wed`, `thu`, `fri`, `sat`, `sun`];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? `closed`;
+
+  console.log(`on ${day} we are open at ${open}`);
+}
+
+// On Methods
+console.log(restaurant.orderRissoto?.(0, 1) ?? `method does not exist`);
+
+// On Arrays
+const userArr = [{ name: `Bani`, email: `bani@exm.io` }];
+
+console.log(userArr[0]?.name ?? `user array empty`);
+
 */
