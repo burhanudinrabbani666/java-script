@@ -294,7 +294,7 @@ function spellWord(word) {
   console.log(...word);
 }
 
-*/
+
 
 // 4.1
 // Destructure the keywords property (array) of the first book from the books array into variables called mainKeyword and rest. The first keyword should be assigned to mainKeyword, and the rest of the keywords should be assigned to the rest variable (it should be an array).
@@ -312,4 +312,25 @@ const { publisher, ...restOfTheBook } = bookPublisher;
 
 function printBookAuthorsCount(title, ...author) {
   console.log(` The Book "${title}" has ${author.length} authors`);
+}
+*/
+
+//5.1
+//Some of the book objects have the programmingLanguage property, which specifies what programming language is used in the book, for example
+//Write a function called hasExamplesInJava that takes a book object from the books array as an argument. This function should return true if the book uses Java, or a string 'no data available' if it uses other language or no programming language at all. Use short-circuiting.
+
+function hasExamplesInJava(book) {
+  console.log(book.programmingLanguage === `Java` || `No Data Avaible`);
+}
+hasExamplesInJava(books[0]); // true
+hasExamplesInJava(books[3]); // No Data Avaible
+
+// 5.2
+// Some of the book objects have the onlineContent property, which is either true or false. Loop over the books array, and for the books that provide online content, log to the console a string in this format: "${title}" provides online content. Use short-circuiting.
+
+for (let index = 0; index < books.length; index++) {
+  console.log(
+    books[index].onlineContent &&
+      `"${books[index].title}" provides online content`
+  );
 }

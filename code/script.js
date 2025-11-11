@@ -229,4 +229,43 @@ const x = [23, 5, 7];
 add(...x);
 
 restaurant.orderPizza(`Mushrooms`, `Onion`, `Olives`, `Spinach`);
+
+
+// SHORT CIRCUITING
+
+// OR
+console.log(`Bani` || 3); // Bani
+console.log(`` || `Bani`); // Bani
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || null || `` || 0 || `Bani` || 23); //Bani
+
+// case
+restaurant.numGuests = 23;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+// More short
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2); // 23
+
+console.log(`-----------AND---------`);
+
+// AND
+console.log(0 && `Bani`); // 0
+console.log(`Bani` && undefined); // undefined
+console.log(null && 0);
+null;
+
+console.log(`Bani` && 23 && null && `bani`); // null
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushroom", "chess");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("Mushrooms", "Chess");
+// if the first operand is true the execut next operand
 */

@@ -289,3 +289,54 @@ restaurant.orderPizza(`Mushrooms`, `Onion`, `Olives`, `Spinach`);
 // mainIng = `Mushroom`
 // othering = [`Onion`, `Olives`, `Spinach`]
 ```
+
+## Short circuiting ( && And || )
+
+can use **ANY** Data type, return **ANY** data type, short circuiting
+
+### OR ||
+
+if the first value is truthy value, it will immadeatly retunr that first value.
+
+```js
+console.log(`Bani` || 3); // Bani
+console.log(`` || `Bani`); // Bani
+console.log(true || 0); // true
+console.log(undefined || null); // null
+
+console.log(undefined || null || `` || 0 || `Bani` || 23); // Bani // Because Bani is the first truthy value
+
+// case
+restaurant.numGuests = 23;
+
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+// More short
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2); // 23
+```
+
+### AND
+
+The AND operator shirt circuits, when the first value is falsy, and then immediatly returns that falsy value without even evaluating the second operand
+
+```js
+// AND
+console.log(0 && `Bani`); // 0
+console.log(`Bani` && undefined); // undefined
+console.log(null && 0);
+null;
+
+console.log(`Bani` && 23 && null && `bani`); // null
+
+// Practical example
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushroom", "chess");
+}
+
+restaurant.orderPizza && restaurant.orderPizza("Mushrooms", "Chess");
+// if the first operand is true the execut next operand
+```
+
+> As a practical applications, we can use the OR operator to set default value, and we can use the AND operator to execute code in the second operand, if the first one is true
