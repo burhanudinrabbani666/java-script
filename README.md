@@ -16,8 +16,11 @@ but by truly understanding the **logic, patterns, and inner workings** behind th
 My goal is to become a **frontend developer** who can think critically, solve complex problems,  
 and write **clean, reusable, and efficient functions** — not just follow tutorials.
 
-**main source of learning** : [The Complete JavaScript Course 2025: From Zero to Expert!
-](https://www.udemy.com/share/101WeY3@sXSP7n4QR_6aAQVX439OCSf-9V0xK6WKA-Law7KloXdUiW3lWn1ZtssI4ajDTPDPbQ==/)
+**main source of learning** :
+
+- [The Complete JavaScript Course 2025: From Zero to Expert!](https://www.udemy.com/course/the-complete-javascript-course/?couponCode=KEEPLEARNING)
+- [JavaScript Algorithms and Data Structures Masterclass](https://www.udemy.com/course/js-algorithms-and-data-structures-masterclass/?couponCode=KEEPLEARNING)
+- [JavaScript - MDN Web Docs - Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## 🎯 My Goals
 
