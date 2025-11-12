@@ -42,10 +42,10 @@ and write **clean, reusable, and efficient functions** — not just follow tutor
 
 | Week | Focus                                                      | Status | Notes |
 | ---- | ---------------------------------------------------------- | ------ | ----- |
-| 1    | JavaScript Fundamentals (Variables, Data Types, Functions) | 👣     |       |
+| 1    | JavaScript Fundamentals (Variables, Data Types, Functions) | ⏳     |       |
 | 2    | DOM Manipulation & Events                                  | ⏳     |       |
 | 3    | Scope, Hoisting, Closures, `this`, Prototype               | ⏳     |       |
-| 4    | Data Structure, Modern Operator and Strings                | ⏳     |       |
+| 4    | Data Structure, Modern Operator and Strings                | 📝     |       |
 | 5    | Deep Dive Function, Array, Numbers                         | ⏳     |       |
 | 6    | Object Oriented Programing(OOP) With JavaScript            | ⏳     |       |
 | 7    | External Libraries                                         | ⏳     |       |
@@ -69,7 +69,7 @@ and write **clean, reusable, and efficient functions** — not just follow tutor
 | Tool                | Purpose            |
 | ------------------- | ------------------ |
 | **Editor**          | Visual Studio Code |
-| **Runtime**         | Bun                |
+| **Runtime**         | Node.js            |
 | **Version Control** | Git & GitHub       |
 | **Platform**        | Udemy              |
 | **Browser**         | Firefox            |
