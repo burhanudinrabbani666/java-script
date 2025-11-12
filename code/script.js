@@ -542,3 +542,5 @@ checkMiddelSeat(`11B`); // your got the middle Seat 😥
 checkMiddelSeat(`23C`); // Your got lucky 🥳
 checkMiddelSeat(`14E`); // your got the middle Seat 😥
 */
+
+const airline = `TAP air Portugal`;

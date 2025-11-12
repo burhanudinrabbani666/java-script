@@ -522,7 +522,6 @@ const firstBookMap = new Map(Object.entries(books[0]));
 for (const [key, Value] of firstBookMap) {
   typeof Value === "number" && console.log(key);
 }
-*/
 
 // 15.1
 //Take the ISBN property of the first book from the books array, and log to the console characters at index 6, 4, 9 and 8. Use bracket notation to access individual characters.
@@ -551,3 +550,4 @@ function isContributor(name) {
 
 isContributor("Julie Sussman (Contributor)");
 isContributor("Robert Sedgewick");
+*/
