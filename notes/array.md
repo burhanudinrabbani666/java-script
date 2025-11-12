@@ -500,11 +500,19 @@ for (const day of properties) {
 }
 
 console.log(str);
+```
 
+#### Properti Values
+
+```js
 // Properties Values
 const values = Object.values(openingHours);
 console.log(values);
+```
 
+#### Properti Entries
+
+```js
 // Properties Entries (keys: Value)
 const entries = Object.entries(openingHours);
 console.log(entries);
