@@ -485,7 +485,6 @@ const uniqueKeywordsArr = [...uniqueKeywords];
 // 12.6
 // Delete all items from the uniqueKeywords set.
 uniqueKeywords.clear();
-*/
 
 // 13.1
 //Create a new book, but this time, as a Map. Assign it to the bookMap variable. Use this array as initial data:
@@ -512,3 +511,4 @@ console.log(bookMap.size);
 bookMap.has(`author`)
   ? console.log(`The author of the book is known`)
   : undefined;
+*/

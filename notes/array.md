@@ -654,3 +654,11 @@ const description = rest.get(
 console.log(`I wanna go to your restaurant at ${currentTime}`);
 console.log(opening, description);
 ```
+
+## Which Data Structure To Use?
+
+#### sources of data
+
+- **From the program itself:** Data written directly in source code (e.g status message)
+- **From the UI:** Data input from user or data written in DOM (e.g tasks in todo App)
+- **From external sources:** Data fetched for example from Web API (e.g recipe object)
