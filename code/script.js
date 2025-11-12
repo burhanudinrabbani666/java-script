@@ -420,4 +420,46 @@ const uniqueStaff = [...new Set(restaurantStaff)];
 console.log(uniqueStaff);
 
 console.log(new Set(restaurantStaff).size);
+
+// more operator
+
+// Data needed for a later exercise
+
+const italianFoods = new Set([
+  "pasta",
+  "gnocchi",
+  "tomatoes",
+  "olive oil",
+  "garlic",
+  "basil",
+]);
+
+const mexicanFoods = new Set([
+  "tortillas",
+  "beans",
+  "rice",
+  "tomatoes",
+  "avocado",
+  "garlic",
+]);
+
+// intersection methode
+const commonFood = italianFoods.intersection(mexicanFoods);
+console.log([...commonFood], `this is intersection method, in Array`); // Set [ "tomatoes", "garlic" ]
+
+// union method
+const italianMexicanFusion = italianFoods.union(mexicanFoods);
+console.log(italianMexicanFusion, ` This union method`);
+
+// same as
+console.log([...new Set([...italianFoods, ...mexicanFoods])], `this is array`);
+
+// difference method
+const uniqueItailianFood = italianFoods.difference(mexicanFoods);
+console.log(uniqueItailianFood, `this is difference method`); // Set(4) [ "pasta", "gnocchi", "olive oil", "basil" ]
+
+//symmetricalDifference
+const uniqueItalianAndMExicanFood =
+  italianFoods.symmetricDifference(mexicanFoods);
+console.log(uniqueItalianAndMExicanFood);
 */
