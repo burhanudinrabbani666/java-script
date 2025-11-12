@@ -521,3 +521,39 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and closed at ${close}`);
 }
 ```
+
+## Sets
+
+sets is collection of unique values. sets can never **have** any duplicate.
+
+```js
+const orderSet = new Set([
+  `pasta`,
+  `pizza`,
+  `pizza`,
+  `rissoto`,
+  `pasta`,
+  `rissoto`,
+]);
+
+console.log(orderSet); // [ "pasta", "pizza", "rissoto" ]
+```
+
+for checking set use **size**, not length like normal array. and have another methode
+
+```js
+console.log(orderSet.size); // 3
+
+// has
+console.log(orderSet.has(`pizza`)); // true
+console.log(orderSet.has(`Bakwan`)); // false
+
+// add new element
+orderSet.add(`garlic bread`); // the value still unique or just one in order set
+orderSet.add(`garlic bread`);
+
+// delete
+orderSet.delete(`garlic bread`);
+```
+
+> in set dont have any index. use .has for return properti form set

@@ -376,4 +376,48 @@ for (const [key, { open, close }] of entries) {
   console.log(`On ${key} we open at ${open} and closed at ${close}`);
 }
 
+
+// SETS
+
+const orderSet = new Set([
+  `pasta`,
+  `pizza`,
+  `pizza`,
+  `rissoto`,
+  `pasta`,
+  `rissoto`,
+]);
+
+console.log(orderSet); // [ "pasta", "pizza", "rissoto" ]
+
+// set  Methode
+
+//size
+console.log(orderSet.size); // 3
+
+// has
+console.log(orderSet.has(`pizza`)); // true
+console.log(orderSet.has(`Bakwan`)); // false
+
+// add new element
+orderSet.add(`garlic bread`); // the value still unique or just one in order set
+orderSet.add(`garlic bread`);
+
+// delete
+orderSet.delete(`garlic bread`);
+
+//Example
+const restaurantStaff = [
+  `Waiter`,
+  `Chef`,
+  `Waiter`,
+  `Manager`,
+  `Chef`,
+  `Waiter`,
+];
+
+const uniqueStaff = [...new Set(restaurantStaff)];
+console.log(uniqueStaff);
+
+console.log(new Set(restaurantStaff).size);
 */
