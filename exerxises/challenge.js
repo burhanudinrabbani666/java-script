@@ -253,12 +253,14 @@ document.querySelector(`button`).addEventListener(`click`, function () {
   const text = document.querySelector(`textarea`).value;
   const rows = text.split("\n");
 
+  let checkBox = ``;
   for (const row of rows) {
-    const rowSplit = row.trim().split(`_`);
+    const rowSplit = row.trim().toLowerCase().split(`_`);
     let camelCaseName = [];
     for (const word of rowSplit) {
       camelCaseName.push(word.replace(word[0], word[0].toUpperCase()));
     }
-    console.log(camelCaseName.join(``));
+    checkBox += `✅`;
+    console.log(`${camelCaseName.join(``).padEnd(20, ` `)} ${checkBox}`);
   }
 });
