@@ -1,5 +1,4 @@
-`use strict`;
-
+```js
 const bookings = [];
 
 const createdBooking = function (
@@ -19,3 +18,4 @@ const createdBooking = function (
 createdBooking(`Lh123`, 3);
 createdBooking(`Lh123`, 6);
 createdBooking(`Lh123`, 10);
+```
