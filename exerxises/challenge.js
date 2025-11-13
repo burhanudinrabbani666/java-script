@@ -73,6 +73,41 @@ whether it's in the first half or second half (after 45 min) of the game, like t
 [FIRST HALF] 17: GOAL
 GOOD LUCK 😀
 */
+
+/*
+Write a program that receives a list of variable names written in underscore_case and convert them to camelCase.
+The input will come from a textarea inserted into the DOM (see code below to insert the elements), and conversion will happen when the button is pressed.
+
+Test data (pasted to textarea, including spaces):
+
+underscore_case
+  first_name
+Some_Variable
+   calculate_AGE
+delayed_departure
+
+Should produce this output (5 separate console.log outputs):
+underscoreCase        ✅
+firstName             ✅✅
+someVariable          ✅✅✅
+calculateAge          ✅✅✅✅
+delayedDeparture      ✅✅✅✅✅
+Hints:
+
+Hint:
+
+- Remember which character defines a new line in the textarea 😉
+
+- The solution only needs to work for a variable made out of 2 words, like a_b
+
+- Start without worrying about the ✅. Tackle that only after you have the variable
+name conversion working 😉
+
+- This challenge is difficult on purpose, so start watching the solution in caseyou're stuck. Then pause and continue!
+
+Afterwards, test with your own test data!
+GOOD LUCK 😀
+*/
 const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
@@ -210,3 +245,20 @@ for (const [min, event] of gameEvents.entries()) {
   console.log(`[${half} HALF] ${min}: ${event}`);
 }
 */
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector(`button`).addEventListener(`click`, function () {
+  const text = document.querySelector(`textarea`).value;
+  const rows = text.split("\n");
+
+  for (const row of rows) {
+    const rowSplit = row.trim().split(`_`);
+    let camelCaseName = [];
+    for (const word of rowSplit) {
+      camelCaseName.push(word.replace(word[0], word[0].toUpperCase()));
+    }
+    console.log(camelCaseName.join(``));
+  }
+});
