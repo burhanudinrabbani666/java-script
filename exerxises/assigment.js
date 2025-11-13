@@ -550,7 +550,6 @@ function isContributor(name) {
 
 isContributor("Julie Sussman (Contributor)");
 isContributor("Robert Sedgewick");
-*/
 
 // 16.1
 //Write a function called normalizeAuthorName that takes an author's name (string) as an argument, and returns the same string, but the first name and last name are capitalized, and the "(Contributor)" part is removed (if exists).
@@ -603,3 +602,35 @@ function logBookTheme(bookTitle) {
     );
   }
 }
+*/
+
+// 17.1
+// Below is the bookCategories variable that stores a string of categories. Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
+// Write a function called logBookCategories that takes a string of categories separated with semicolons, and logs each category to the console (as separate strings).
+
+const bookCategories =
+  "science;computing;computer science;algorithms;business;operating systems;networking;electronics";
+
+const logBookCategories = function (name) {
+  const categories = name.split(`;`);
+  for (const category of categories) {
+    console.log(category);
+  }
+};
+
+// 17.2
+// Now, the opposite. Each book from the books array has the keywords property.
+// Write a function called getKeywordsAsString that takes the books array as an argument, collects keywords from each book, removes duplicates, and then joins them to create a single string where keywords are separated by a semicolon.
+
+const getKeywordsAsString = function (books) {
+  let keywordArr = [];
+  for (const book of books) {
+    keywordArr.push(...book.keywords);
+  }
+  const newKeyword = new Set(keywordArr);
+  keywordArr = [...newKeyword];
+
+  console.log(keywordArr.join(`;`));
+};
+
+getKeywordsAsString(books);

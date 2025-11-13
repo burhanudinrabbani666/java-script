@@ -143,3 +143,75 @@ checkBadge(`I have a Laptop, some Food and a Pocket Knife`);
 checkBadge(`i have Sock and Camera`);
 checkBadge(`got some a Snack and Gun for protection`);
 ```
+
+#### split
+
+The split() method of String values takes a pattern and divides this string into an ordered list of substrings by searching for the pattern, puts these substrings into an array, and returns the **array.**
+
+```js
+console.log(`a+very+nice+string`.split(`+`)); // [ "a", "very", "nice", "string" ]``
+```
+
+#### join
+
+The join() method of Array instances creates and returns a new string by concatenating all of the elements in this array, separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+
+```js
+const matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9],
+];
+
+console.log(matrix.join()); // 1,2,3,4,5,6,7,8,9
+console.log(matrix.join(";")); // 1,2,3;4,5,6;7,8,9
+```
+
+```js
+const capitalizeName = function (name) {
+  const nameArr = name.trim().split(` `);
+  const newNameCapt = [];
+
+  for (const nameWord of nameArr) {
+    newNameCapt.push(nameWord.replace(nameWord[0], nameWord[0].toUpperCase()));
+  }
+
+  console.log(newNameCapt.join(` `));
+};
+
+capitalizeName(`burhanudin rabbani aurelius`);
+capitalizeName(`alexander agus napoleon khan`);
+```
+
+#### padding. padStart() and padEnd()
+
+The padStart() method of String values pads this string with a given string (repeated and/or truncated, if needed) so that the resulting string has a given length. The padding is applied from the start of this string.
+
+The padEnd() method of String values pads this string with a given string (repeated and/or truncated, if needed) so that the resulting string has a given length. The padding is applied from the end of this string.
+
+```js
+const message = `Go to Gate 23!`;
+console.log(message.padStart(20, `*`).padEnd(`35`, `*`));
+console.log(`Nuraisa`.padStart(20, `*`).padEnd(`35`, `*`));
+
+const massCreditCard = function (number) {
+  const strNumber = number + ``; //  convert oprand to stirng
+  const lastNumber = strNumber.slice(-4);
+  return lastNumber.padStart(strNumber.length, `*`);
+};
+
+console.log(massCreditCard(5126451749189)); // *********9189
+```
+
+#### repeat()
+
+The repeat() method of String values constructs and returns a new string which contains the specified number of copies of this string, concatenated together.
+
+```js
+const message2 = `Bad Weather... All depatures delayed-- `;
+console.log(message2.repeat(5));
+
+const planeInLine = function (n) {
+  console.log(`They are ${n} planes in line ${`✈️`.repeat(n)}`);
+};
+```

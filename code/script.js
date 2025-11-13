@@ -611,4 +611,54 @@ const checkBadge = function (item) {
 checkBadge(`I have a Laptop, some Food and a Pocket Knife`);
 checkBadge(`i have Sock and Camera`);
 checkBadge(`got some a Snack and Gun for protection`);
+
+console.log(`a+very+nice+string`.split(`+`)); // [ "a", "very", "nice", "string" ]
+console.log(`Burhanudin Rabbani`.split(` `)); //  "Burhanudin", "Rabbani" ]
+
+const [firstName, lastName] = `Burhanudin Rabbani`.split(` `);
+
+const newName = [`Mr`, firstName, lastName.toUpperCase()].join(` `);
+console.log(newName);
+
+const capitalizeName = function (name) {
+  const nameArr = name.trim().split(` `);
+  const newNameCapt = [];
+
+  for (const nameWord of nameArr) {
+    newNameCapt.push(nameWord.replace(nameWord[0], nameWord[0].toUpperCase()));
+  }
+
+  console.log(newNameCapt.join(` `));
+};
+
+capitalizeName(`burhanudin rabbani aurelius`);
+capitalizeName(`alexander agus napoleon khan`);
+
+// PADDING
+
+const message = `Go to Gate 23!`;
+console.log(message.padStart(20, `*`).padEnd(`35`, `*`));
+console.log(`Nuraisa`.padStart(20, `*`).padEnd(`35`, `*`));
+
+const massCreditCard = function (number) {
+  const strNumber = number + ``; //  convert oprand to stirng
+  const lastNumber = strNumber.slice(-4);
+  return lastNumber.padStart(strNumber.length, `*`);
+};
+
+console.log(massCreditCard(51264517491898)); // *********9189
+
+//  repeat
+
+const message2 = `Bad Weather... All depatures delayed-- `;
+console.log(message2.repeat(5));
+
+const planeInLine = function (n) {
+  console.log(`They are ${n} planes in line ${`✈️`.repeat(n)}`);
+};
+
+planeInLine(5);
+planeInLine(6);
+planeInLine(8);
+planeInLine(12);
 */
