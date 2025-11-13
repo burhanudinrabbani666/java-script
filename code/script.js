@@ -541,6 +541,74 @@ const checkMiddelSeat = function (seat) {
 checkMiddelSeat(`11B`); // your got the middle Seat 😥
 checkMiddelSeat(`23C`); // Your got lucky 🥳
 checkMiddelSeat(`14E`); // your got the middle Seat 😥
-*/
 
 const airline = `TAP air Portugal`;
+
+// toLowerCase and toUpperCase
+console.log(airline.toLowerCase()); // tap air portugal
+console.log(airline.toUpperCase()); // TAP AIR PORTUGAL
+
+// fix capitalize
+const passenger = `bAnI`; // fix to Bani
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect); //Bani
+
+function fixName(name) {
+  const nameToLower = name.toLowerCase();
+  const nameCorrect = nameToLower[0].toUpperCase() + nameToLower.slice(1);
+  console.log(nameCorrect);
+}
+
+// comparing email
+
+const email = `bani@exm.co`;
+const loginEmail = `   BanI@EXm.cO \n `;
+
+// const loginEmailLower = loginEmail.toLowerCase();
+// const trimEmail = loginEmailLower.trim();
+// console.log(trimEmail); // bani@exm.co
+
+// short way using chaining
+const normalizeEmail = loginEmail.toLowerCase().trim();
+console.log(normalizeEmail); // bani@exm.co
+
+function normalize(email) {
+  console.log(email.toLowerCase().trim());
+}
+
+// Replacing
+const priceGB = `288,97£`;
+const priceUS = priceGB.replace(`,`, `.`).replace(`£`, `$`);
+console.log(priceUS);
+
+const announcment = `All passenger come to boarding door 23, boarding door 23, boarding door 23!`;
+// replaceall()
+console.log(announcment.replaceAll(`door`, `gate`));
+
+// startWith and endWith
+
+const newPlane = `Airbus AB666neo`;
+
+console.log(newPlane.includes`AB6`); // true
+console.log(newPlane.includes`boeing`); ///false
+
+console.log(newPlane.startsWith(`Air`)); // true
+
+newPlane.startsWith(`Air`) && newPlane.endsWith(`neo`)
+  ? console.log(`Part of the New Aribus Family`)
+  : console.log(`not part  of the New Aribus Family`);
+
+// example
+const checkBadge = function (item) {
+  const baggage = item.toLowerCase();
+  baggage.includes(`gun`) || baggage.includes(`knife`)
+    ? console.log(`your not allowed on board`)
+    : console.log(`welcome on the board`);
+};
+
+checkBadge(`I have a Laptop, some Food and a Pocket Knife`);
+checkBadge(`i have Sock and Camera`);
+checkBadge(`got some a Snack and Gun for protection`);
+*/
