@@ -252,15 +252,33 @@ document.body.append(document.createElement("button"));
 document.querySelector(`button`).addEventListener(`click`, function () {
   const text = document.querySelector(`textarea`).value;
   const rows = text.split("\n");
-
   let checkBox = ``;
+
   for (const row of rows) {
+    // loop
     const rowSplit = row.trim().toLowerCase().split(`_`);
     let camelCaseName = [];
     for (const word of rowSplit) {
+      // loop
       camelCaseName.push(word.replace(word[0], word[0].toUpperCase()));
     }
     checkBox += `✅`;
     console.log(`${camelCaseName.join(``).padEnd(20, ` `)} ${checkBox}`);
   }
 });
+
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+const flightArr = flights.split(`+`);
+
+for (const flight of flightArr) {
+  const [tipe, from, to, time] = flight.split(`;`);
+  const output = `${tipe.replaceAll(`_`, ` `)} from ${from
+    .slice(0, 3)
+    .toUpperCase()} to ${to.slice(0, 3).toUpperCase()} (${time})`;
+
+  output.trim().startsWith(`Delayed`)
+    ? console.log(`🔴${output}`.padStart(45, ` `))
+    : console.log(output.padStart(45, ` `));
+}
