@@ -5,6 +5,8 @@
 
 ## Topic
 
+### Array
+
 - [Destructing-Array](./data-modern-string/destructing-array.md)
 - [Destructing-Object](./data-modern-string/destructing-object.md)
 - [Spread-Operator](./data-modern-string/spread-operator.md)
@@ -17,3 +19,5 @@
 - [Sets](./data-modern-string/sets.md)
 - [Maps](./data-modern-string/maps.md)
 - [Strings](./data-modern-string/strings.md)
+
+### Function
