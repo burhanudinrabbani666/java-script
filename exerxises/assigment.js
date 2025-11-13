@@ -602,7 +602,6 @@ function logBookTheme(bookTitle) {
     );
   }
 }
-*/
 
 // 17.1
 // Below is the bookCategories variable that stores a string of categories. Each category is separated with a semicolon, for example, in a string "science;computing", 'science' and 'computing' are separate categories.
@@ -634,3 +633,19 @@ const getKeywordsAsString = function (books) {
 };
 
 getKeywordsAsString(books);
+
+const bookChapters = [
+  ["The Basics", 14],
+  ["Sorting", 254],
+  ["Searching", 372],
+  ["Graphs", 526],
+  ["Strings", 706],
+];
+
+const logBookChapters = function (bookChapters) {
+  for (const book of bookChapters) {
+    const [chapter, pages] = book;
+    console.log(`${chapter.padEnd(25, `_`)} ${pages}`);
+  }
+};
+*/
