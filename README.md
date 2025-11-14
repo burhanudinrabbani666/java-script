@@ -45,8 +45,8 @@ and write **clean, reusable, and efficient functions** — not just follow tutor
 | 1    | JavaScript Fundamentals (Variables, Data Types, Functions) | ⏳     |       |
 | 2    | DOM Manipulation & Events                                  | ⏳     |       |
 | 3    | Scope, Hoisting, Closures, `this`, Prototype               | ⏳     |       |
-| 4    | Data Structure, Modern Operator and Strings                | 📝     |       |
-| 5    | Deep Dive Function, Array, Numbers                         | ⏳     |       |
+| 4    | Data Structure, Modern Operator and Strings                | ✅     |       |
+| 5    | Deep Dive Function, Array, Numbers                         | ✍️     |       |
 | 6    | Object Oriented Programing(OOP) With JavaScript            | ⏳     |       |
 | 7    | External Libraries                                         | ⏳     |       |
 | 8    | Asynchronus JavaScript: Promises, Async/Await, and Ajax    | ⏳     |       |

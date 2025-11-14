@@ -1,29 +1,4 @@
-`use strict`;
-
-/*
-//  DEAULT PARAMETERS
-
-const bookings = [];
-
-const createdBooking = function (
-  flightNum,
-  numPassengers = 1, // Default Value
-  price = 199 * numPassengers // Default Value
-) {
-  const booking = {
-    flightNum,
-    numPassengers,
-    price,
-  };
-  bookings.push(booking);
-  console.log(bookings);
-};
-
-createdBooking(`Lh123`, 3);
-createdBooking(`Lh123`, 6);
-createdBooking(`Lh123`, 10);
-*/
-
+```js
 const flight = `LH123`; // primitve
 const bani = {
   name: "Burhanudin rabbani",
@@ -42,14 +17,19 @@ const checkin = function (flightNum, passengers) {
 checkin(flight, bani);
 console.log(flight); // didn't change
 console.log(bani); // change
-//
-// same as doing this...
-const flightNum = flight;
-const passengers = bani;
+```
 
+JavaScript does not have passing by reference, only passing by value, even though its look like it's passing by reference.
+
+languages like C++, where you can pass a reference to any value, instead the value itself. This work even with primitive, so you could pass a reference to the value of five, and the original value **outside of the function**, would be changed. and this is called pass by reference.
+
+but once again, JavaScript doesnot have pass by reference.
+
+```js
 const newPassport = function (person) {
   person.passport = Math.trunc(Math.random() * 1000000000);
 };
 
 newPassport(bani);
 checkin(flight, bani); // wrong passport
+```
