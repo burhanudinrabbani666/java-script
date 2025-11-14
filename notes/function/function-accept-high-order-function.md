@@ -1,3 +1,5 @@
+## Function Accepting Callback Function
+
 ```js
 // FUNCTION ACCEPTING CALLBACK FUNCTION
 

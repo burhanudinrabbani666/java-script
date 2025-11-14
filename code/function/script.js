@@ -81,7 +81,6 @@ const high5 = function () {
 };
 
 document.body.addEventListener(`click`, high5);
-*/
 
 const greet = function (greeting) {
   return function (name) {
@@ -103,3 +102,53 @@ greet2(`Adili`)(`Jokowi`); // Adili, Jokowi
 
 const greet3 = (greeting) => (name) => console.log(`${greeting}, ${name}`); // Jonas Work
 greet3(`Hola`)(`Senorita`); // Hola, Senorita
+*/
+
+// Call and apply method
+
+const luthansa = {
+  airline: `Luthansa`,
+  iataCode: `LH`,
+  bookings: [],
+
+  booking: function (flightNum, name) {
+    console.log(
+      `${name} book a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+const euroWings = {
+  airline: `Euro Wings`,
+  iataCode: `EU`,
+  bookings: [],
+};
+
+const swiss = {
+  airline: `Swiss Air Line`,
+  iataCode: `LX`,
+  bookings: [],
+};
+
+luthansa.booking(123, `Burhanudin`);
+luthansa.booking(124, `Nuraisa`);
+console.log(luthansa);
+
+// take other method
+const book = luthansa.booking; // "this" in here is point to nothing
+
+// CALL
+book.call(euroWings, 123, `Rabbani`);
+console.log(euroWings);
+
+book.call(luthansa, 125, `Jokowi`);
+console.log(luthansa);
+
+book.call(swiss, 123, `Jokowi`);
+console.log(swiss);
+
+// APPLY METHOD
+const flightData = [583, `M. Salah`];
+book.apply(swiss, flightData);
+console.log(swiss);

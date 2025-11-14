@@ -1,3 +1,5 @@
+## Default Parameters
+
 ```js
 const bookings = [];
 

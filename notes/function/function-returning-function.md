@@ -1,3 +1,5 @@
+## Function Returning Function
+
 ```js
 const greet = function (greeting) {
   return function (name) {
