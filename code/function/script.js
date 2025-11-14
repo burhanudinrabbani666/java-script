@@ -102,7 +102,6 @@ greet2(`Adili`)(`Jokowi`); // Adili, Jokowi
 
 const greet3 = (greeting) => (name) => console.log(`${greeting}, ${name}`); // Jonas Work
 greet3(`Hola`)(`Senorita`); // Hola, Senorita
-*/
 
 // Call and apply method
 
@@ -152,3 +151,4 @@ console.log(swiss);
 const flightData = [583, `M. Salah`];
 book.apply(swiss, flightData);
 console.log(swiss);
+*/

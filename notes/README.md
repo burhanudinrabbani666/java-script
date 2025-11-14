@@ -23,3 +23,8 @@
 ### Function
 
 - [Default-Parameters](./function/default-parameters.md)
+- [Value-vs-Reference](./function/value-vs-reference.md)
+- [High-order-Function](./function/function-accept-high-order-function.md)
+- [Function-return-Function](./function/function-returning-function.md)
+- [Call-and-Apply](./function/call-and-apply.md)
+- [](./function/)
