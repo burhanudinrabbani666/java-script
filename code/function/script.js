@@ -242,7 +242,6 @@ const runOnce = function () {
   var globe = 14;
 }
 console.log(globe);
-*/
 
 // CLOSURES
 
@@ -256,7 +255,50 @@ const secureBooking = function () {
 
 const booker = secureBooking();
 booker();
-booker();
-booker();
 
-console.dir(booker);
+// Example 1
+let f;
+const g = function () {
+  const a = 23;
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f();
+
+h();
+f();
+
+// Example 2
+
+const boardPadssengers = function (numPassengers, wait) {
+  const perGroup = numPassengers / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${numPassengers}, passengers`);
+    console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  }, wait * 1000);
+
+  console.log(`Wear star boarding in ${wait} second`);
+};
+
+boardPadssengers(180, 3);
+*/
+
+(function () {
+  const header = document.querySelector(`h1`);
+  header.style.color = "red";
+
+  document.querySelector("body").addEventListener(`click`, function () {
+    header.style.color = `blue`;
+  });
+})();
