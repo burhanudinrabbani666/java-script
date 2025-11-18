@@ -188,7 +188,6 @@ const addTaxRate = (rate) => (value) => value + value * rate;
 
 const adddVat2 = addTaxRate(0.23);
 console.log(adddVat2(100));
-*/
 
 const poll = {
   question: "What is your favourite programming language?",
@@ -225,3 +224,22 @@ poll.displayResults("5, 2, 3");
 poll.displayResults([5, 2, 3]);
 poll.displayResults([1, 5, 3, 9, 6, 1]);
 poll.displayResults("1, 5, 3, 9, 6, 1");
+
+const runOnce = function () {
+  console.log(`this function only runing for once`);
+};
+
+(function () {
+  console.log(`this () function only runing for once`);
+})();
+
+(() => {
+  console.log(`This is Also only Once`);
+})();
+
+{
+  isPrivate: 23;
+  var globe = 14;
+}
+console.log(globe);
+*/
