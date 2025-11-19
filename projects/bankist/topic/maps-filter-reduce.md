@@ -4,6 +4,23 @@
 
 The map() method of Array instances creates a new array populated with the results of calling a provided function on every element in the calling array.
 
+```js
+const euroToUsd = 1.1;
+const movementsUsd = movements.map((movement) => movement * euroToUsd);
+console.log(movementsUsd);
+```
+
+```js
+const moveDesc = movements.map((movement, index) => {
+  const movCheck =
+    movement > 0 ? `deposited ${movement}` : `withdrew ${Math.abs(movement)}`;
+
+  return `Movement ${index + 1}: You ${movCheck}`;
+});
+
+console.log(moveDesc.join(`\n`));
+```
+
 #### Filter
 
 The filter() method of Array instances creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
