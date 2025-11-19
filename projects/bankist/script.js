@@ -112,7 +112,6 @@ console.log([...arr, ...arr2]);
 
 // JOIN
 console.log(letters.join(`-`)); // a-b-c-d-e-m-l-k-j-i
-*/
 
 const arr = [23, 1234, 666];
 console.log(arr[0]); // traditional
@@ -127,3 +126,24 @@ console.log(arr.at(-2)); // 1234
 
 console.log(`Bani`.at(0)); // B
 console.log(`Bani`.at(-1)); // i
+*/
+
+// FOREACH
+
+for (const [index, movement] of movements.entries()) {
+  movement > 0
+    ? console.log(`Movement ${index + 1}: Your deposite id ${movement} `)
+    : console.log(`Movement ${index + 1}: You Withdre ${Math.abs(movement)}`);
+} // Traditional
+
+console.log(`-------------FOREACH--------------`);
+
+movements.forEach((movement, index, array) => {
+  movement > 0
+    ? console.log(`Movement ${index + 1}: Your deposite id ${movement} `)
+    : console.log(`Movement ${index + 1}: You Withdre ${Math.abs(movement)}`);
+});
+// 0: function(200)
+// 1: function(450)
+// 2: function(400)
+// ...
