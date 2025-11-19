@@ -138,3 +138,18 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+const firstWithdrawel = movements.find((mov) => mov < 0);
+
+console.log(movements);
+console.log(firstWithdrawel);
+console.log(accounts);
+
+const account = accounts.find((acc) => acc.owner === `Jessica Davis`);
+
+// Traditional
+for (const account of accounts) {
+  account.owner == `Jessica Davis` && console.log(account);
+}
+
+// console.log(account);
