@@ -117,3 +117,31 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+const calAvarageHumanAge = (dogAgeData) => {
+  // calc in human age
+  const inHumanAge = dogAgeData.map((dogAge) => {
+    if (dogAge <= 2) return 2 * dogAge;
+    else if (dogAge > 2) return 16 + dogAge * 4;
+  });
+  console.log(inHumanAge);
+
+  // filter under 18 age
+  const filterUnder18 = inHumanAge.filter((dogAge) => {
+    return dogAge > 18;
+  });
+  console.log(filterUnder18);
+
+  // calc avg
+  const avgAge =
+    filterUnder18.reduce((acc, curr) => acc + curr, 0) / filterUnder18.length;
+
+  //
+  console.log(Math.trunc(avgAge));
+};
+
+const data1 = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+calAvarageHumanAge(data1);
+console.log(`======= Separator =======`);
+calAvarageHumanAge(data2);

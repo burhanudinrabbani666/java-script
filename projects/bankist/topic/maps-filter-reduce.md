@@ -66,3 +66,13 @@ const balance = movements.reduce(
   0
 );
 ```
+
+```js
+// Maximum value
+const maximumValue = movements.reduce((acc, curr) => {
+  if (acc > curr) return acc;
+  else return curr;
+}, movements[0]);
+
+console.log(maximumValue);
+```
