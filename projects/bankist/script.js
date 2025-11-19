@@ -75,6 +75,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
 let arr = [`a`, `b`, `c`, `d`, `e`];
 
 // slice
@@ -111,3 +112,18 @@ console.log([...arr, ...arr2]);
 
 // JOIN
 console.log(letters.join(`-`)); // a-b-c-d-e-m-l-k-j-i
+*/
+
+const arr = [23, 1234, 666];
+console.log(arr[0]); // traditional
+console.log(arr.at(0)); // more symantix and modern
+
+// last value
+console.log(arr[arr.length - 1]);
+console.log(arr.slice(-1)[0]);
+
+console.log(arr.at(-1)); // 666
+console.log(arr.at(-2)); // 1234
+
+console.log(`Bani`.at(0)); // B
+console.log(`Bani`.at(-1)); // i
