@@ -100,18 +100,18 @@ const printBalance = (movements) => {
   labelBalance.textContent = `${balance} EUR`;
 };
 
-const calcDisplaySummary = (movements) => {
-  const incomes = movements
+const calcDisplaySummary = (acc) => {
+  const incomes = acc.movements
     .filter((mov) => mov > 0)
     .reduce((acc, curr) => acc + curr, 0);
 
-  const outcomes = movements
+  const outcomes = acc.movements
     .filter((mov) => mov < 0)
     .reduce((acc, curr) => acc + curr, 0);
 
-  const interest = movements
+  const interest = acc.movements
     .filter((mov) => mov > 0)
-    .map((deposite) => (deposite * 1.2) / 100)
+    .map((deposite) => (deposite * acc.interestRate) / 100)
     .filter((int, i, arr) => int >= 1)
     .reduce((acc, curr) => acc + curr, 0);
 
@@ -120,11 +120,42 @@ const calcDisplaySummary = (movements) => {
   labelSumInterest.textContent = `${interest}€`;
 };
 
+// Event handler
+let currentAccount;
+
+btnLogin.addEventListener(`click`, function (event) {
+  event.preventDefault(); // stop default behavior
+
+  currentAccount = accounts.find(
+    (acc) => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // display UI and massage
+    labelWelcome.textContent = `Welcome Back ${
+      currentAccount.owner.split(` `)[0]
+    }`;
+
+    containerApp.style.opacity = 100;
+    // Clear Field
+    inputLoginUsername.value = inputLoginPin.value = ``;
+    inputLoginPin.blur();
+
+    // Display movements
+    displayMovement(currentAccount.movements);
+    // Display balance
+    printBalance(currentAccount.movements);
+    // Display Summary
+    calcDisplaySummary(currentAccount);
+  }
+});
+
 // using Function
-displayMovement(account1.movements);
+// displayMovement(account1.movements);
 createUserName(accounts);
-printBalance(account1.movements);
-calcDisplaySummary(account1.movements);
+// printBalance(account1.movements);
+// calcDisplaySummary(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -138,18 +169,3 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
-const firstWithdrawel = movements.find((mov) => mov < 0);
-
-console.log(movements);
-console.log(firstWithdrawel);
-console.log(accounts);
-
-const account = accounts.find((acc) => acc.owner === `Jessica Davis`);
-
-// Traditional
-for (const account of accounts) {
-  account.owner == `Jessica Davis` && console.log(account);
-}
-
-// console.log(account);
