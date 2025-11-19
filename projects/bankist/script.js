@@ -74,15 +74,40 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
 let arr = [`a`, `b`, `c`, `d`, `e`];
 
-console.log(arr.slice(2));
-console.log(arr.slice(2, 4));
-console.log(arr.slice(1, 3));
-console.log(arr.slice(1, -1));
-console.log(arr.slice());
+// slice
+console.log(arr.slice(1, 3)); // [`b`, `c`]
+console.log(arr.slice(0, -1)); // [ "a", "b", "c", "d" ]
+console.log(arr.slice(4)); // [ "e" ]
+console.log(arr.slice(-3, -1)); // [`c`, `d`]
+
+console.log(arr.slice()); // same to copy array
+console.log([...arr]);
 
 // Splice
-// console.log(arr.splice(2)); // mutate the origial array
 arr.splice(-1);
-console.log(arr);
+console.log(arr, `this is original`); // [ "a", "b", "c", "d" ]
+
+// change array value
+arr.splice(1, 0, `X`); // Insert at index 1
+console.log(arr); // [ "a", "X", "b", "c", "d" ]
+
+arr.splice(2, 1, `Uhuy`); // replace element 1 at index 2
+console.log(arr, `Change`); //[ "a", "X", "Uhuy", "c", "d" ]
+
+// REVERSE
+arr = [`a`, `b`, `c`, `d`, `e`];
+const arr2 = [`i`, `j`, `k`, `l`, `m`];
+
+console.log(arr2.reverse()); //[ "m", "l", "k", "j", "i" ]
+console.log(arr2); // mutate the original array
+
+// CONCAT
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+
+// JOIN
+console.log(letters.join(`-`)); // a-b-c-d-e-m-l-k-j-i
