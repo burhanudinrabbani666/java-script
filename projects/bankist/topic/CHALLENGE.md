@@ -96,3 +96,5 @@ calAvarageHumanAge(data1);
 console.log(`======= Separator =======`);
 calAvarageHumanAge(data2);
 ```
+
+## CHALLENGE #3

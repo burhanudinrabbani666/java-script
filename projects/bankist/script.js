@@ -100,10 +100,31 @@ const printBalance = (movements) => {
   labelBalance.textContent = `${balance} EUR`;
 };
 
+const calcDisplaySummary = (movements) => {
+  const incomes = movements
+    .filter((mov) => mov > 0)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const outcomes = movements
+    .filter((mov) => mov < 0)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  const interest = movements
+    .filter((mov) => mov > 0)
+    .map((deposite) => (deposite * 1.2) / 100)
+    .filter((int, i, arr) => int >= 1)
+    .reduce((acc, curr) => acc + curr, 0);
+
+  labelSumIn.textContent = `${incomes}€`;
+  labelSumOut.textContent = `${Math.abs(outcomes)}€`;
+  labelSumInterest.textContent = `${interest}€`;
+};
+
 // using Function
 displayMovement(account1.movements);
 createUserName(accounts);
 printBalance(account1.movements);
+calcDisplaySummary(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -117,31 +138,8 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-const calAvarageHumanAge = (dogAgeData) => {
-  // calc in human age
-  const inHumanAge = dogAgeData.map((dogAge) => {
-    if (dogAge <= 2) return 2 * dogAge;
-    else if (dogAge > 2) return 16 + dogAge * 4;
-  });
-  console.log(inHumanAge);
 
-  // filter under 18 age
-  const filterUnder18 = inHumanAge.filter((dogAge) => {
-    return dogAge > 18;
-  });
-  console.log(filterUnder18);
-
-  // calc avg
-  const avgAge =
-    filterUnder18.reduce((acc, curr) => acc + curr, 0) / filterUnder18.length;
-
-  //
-  console.log(Math.trunc(avgAge));
-};
-
-const data1 = [5, 2, 4, 1, 15, 8, 3];
-const data2 = [16, 6, 10, 5, 6, 1, 4];
-
-calAvarageHumanAge(data1);
-console.log(`======= Separator =======`);
-calAvarageHumanAge(data2);
+const depositeToUsd = movements
+  .filter((movement) => movement > 0)
+  .map((movement) => movement * 1.1)
+  .reduce((acc, curr) => acc + curr, 0);
