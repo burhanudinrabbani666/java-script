@@ -61,6 +61,7 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+// Function
 const displayMovement = function (movements) {
   // text Content = 0
   containerMovements.innerHTML = ``;
@@ -81,8 +82,19 @@ const displayMovement = function (movements) {
     containerMovements.insertAdjacentHTML(`afterbegin`, html);
   });
 };
+const createUserName = (accounts) => {
+  accounts.forEach((account) => {
+    account.username = account.owner // add new properti
+      .toLowerCase()
+      .split(` `)
+      .map((word) => word[0])
+      .join(``); // ; sign
+  });
+};
 
 displayMovement(account1.movements);
+createUserName(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
