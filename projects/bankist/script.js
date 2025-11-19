@@ -92,9 +92,9 @@ const createUserName = (accounts) => {
   });
 };
 
+// using Function
 displayMovement(account1.movements);
 createUserName(accounts);
-console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES

@@ -25,6 +25,21 @@ console.log(moveDesc.join(`\n`));
 
 The filter() method of Array instances creates a shallow copy of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
 
+```js
+const deposit = movements.filter((movement) => movement > 0);
+const withdrawal = movements.filter((movement) => movement < 0);
+
+console.log(deposit); // [ 200, 450, 3000, 70, 1300 ]
+console.log(withdrawal); // [ -400, -650, -130 ]
+
+// FOR OF
+const depositFor = [];
+for (const movement of movements) {
+  movement > 0 && depositFor.push(movement);
+}
+console.log(depositFor); // [ 200, 450, 3000, 70, 1300 ]
+```
+
 #### Reduce
 
 The reduce() method of Array instances executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
