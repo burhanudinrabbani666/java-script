@@ -62,7 +62,7 @@ const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
 // Function
-const displayMovement = function (movements) {
+const displayMovement = (movements) => {
   // text Content = 0
   containerMovements.innerHTML = ``;
 
@@ -82,6 +82,7 @@ const displayMovement = function (movements) {
     containerMovements.insertAdjacentHTML(`afterbegin`, html);
   });
 };
+
 const createUserName = (accounts) => {
   accounts.forEach((account) => {
     account.username = account.owner // add new properti
@@ -92,9 +93,17 @@ const createUserName = (accounts) => {
   });
 };
 
+const printBalance = (movements) => {
+  const balance = movements.reduce((prev, current) => {
+    return (prev += current);
+  }, 0); // in last
+  labelBalance.textContent = `${balance} EUR`;
+};
+
 // using Function
 displayMovement(account1.movements);
 createUserName(accounts);
+printBalance(account1.movements);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -108,5 +117,3 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
-//

@@ -45,3 +45,24 @@ console.log(depositFor); // [ 200, 450, 3000, 70, 1300 ]
 The reduce() method of Array instances executes a user-supplied "reducer" callback function on each element of the array, in order, passing in the return value from the calculation on the preceding element. The final result of running the reducer across all elements of the array is a single value.
 
 The first time that the callback is run there is no "return value of the previous calculation". If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element (index 1 instead of index 0).
+
+> reduce(callbackfn: (previousValue: number, currentValue: number, currentIndex: number, array: number[]) => number, initialValue: number): number
+
+```js
+const balance = movements.reduce((accumulator, movement, index, array) => {
+  console.log(
+    `Iteration ${index}: ${accumulator} + ${movement} = ${
+      accumulator + movement
+    }`
+  );
+  return (accumulator += movement);
+}, 0);
+
+console.log(balance);
+
+// arrow function without console.log
+const balance = movements.reduce(
+  (accumulator, movement) => (accumulator += movement),
+  0
+);
+```
