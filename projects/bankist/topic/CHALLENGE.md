@@ -98,3 +98,12 @@ calAvarageHumanAge(data2);
 ```
 
 ## CHALLENGE #3
+
+```js
+const calAvarageHumanAge2 = (dogAgeData) => {
+  dogAgeData
+    .map((dogAge) => (dogAge <= 2 ? 2 * dogAge : 16 + dogAge * 4))
+    .filter((dogAge1) => dogAge1 > 18)
+    .reduce((acc, curr, index, arr) => acc + curr / arr.length, 0);
+};
+```
