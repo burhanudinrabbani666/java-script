@@ -185,6 +185,24 @@ btnTransfer.addEventListener("click", function (event) {
   }
 });
 
+btnLoan.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((movement) => movement >= amount * 0.1)
+  ) {
+    currentAccount.movements.push(amount);
+  } // 10%
+
+  // update UI
+  updateUI(currentAccount);
+
+  inputLoanAmount.value = ``;
+});
+
 btnClose.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -220,17 +238,4 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
-console.log(movements); // [200, 450, -400, 3000, -650, -130, 70, 1300];
-const lastWithdrawal = movements.findLast((mov) => mov < 0);
-console.log(lastWithdrawal); // -130
-
-const latestLargeMovementIndex = movements.findLastIndex((mov) =>
-  Math.abs(mov > 2000)
-);
-
-console.log(
-  ` Your latest alarge movemenet was ${
-    movements.length - latestLargeMovementIndex - 1
-  } movements ago`
-);
+const deposit = (mov) => mov > 0;
