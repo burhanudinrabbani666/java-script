@@ -220,3 +220,17 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+console.log(movements); // [200, 450, -400, 3000, -650, -130, 70, 1300];
+const lastWithdrawal = movements.findLast((mov) => mov < 0);
+console.log(lastWithdrawal); // -130
+
+const latestLargeMovementIndex = movements.findLastIndex((mov) =>
+  Math.abs(mov > 2000)
+);
+
+console.log(
+  ` Your latest alarge movemenet was ${
+    movements.length - latestLargeMovementIndex - 1
+  } movements ago`
+);
