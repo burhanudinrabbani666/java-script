@@ -66,12 +66,14 @@ let currentAccount;
 //
 
 // Function
-const displayMovement = (movements) => {
+const displayMovement = (movements, sort = false) => {
   // text Content = 0
   containerMovements.innerHTML = ``;
 
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
   // for display all data
-  movements.forEach((movement, index) => {
+  movs.forEach((movement, index) => {
     const type = movement > 0 ? `deposit` : `withdrawal`;
 
     const html = `
@@ -225,6 +227,13 @@ btnClose.addEventListener("click", function (event) {
     containerApp.style.opacity = 0;
   }
 });
+
+let sortedState = false;
+btnSort.addEventListener("click", function (event) {
+  event.preventDefault();
+  displayMovement(currentAccount.movements, !sortedState);
+  sortedState = !sortedState;
+});
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -238,3 +247,18 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+const owner = [`Jonas`, `Zach`, `Adam`, `Martha`];
+console.log(owner.sort());
+console.log(owner);
+
+console.log(movements);
+
+// return < 0 : A, B
+// return > 0 : B, A
+movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (a < b) return -1;
+});
+
+console.log(movements);
