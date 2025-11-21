@@ -252,6 +252,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
 
+/*
 // 1.
 const bankDepostiSum = accounts
   .flatMap((acc) => acc.movements)
@@ -260,12 +261,45 @@ const bankDepostiSum = accounts
 console.log(bankDepostiSum);
 
 // 2.
-
 const numDeposits1000 = accounts
   .flatMap((acc) => acc.movements)
   .reduce((num, mov) => (mov >= 1000 ? ++num : num), 0); // prefixed ++ operator
 
 // accounts.flatMap((acc) => acc.movements)
 //   .filter((mov) => mov >= 1000).length;
-
 console.log(numDeposits1000, ` Movement over 1000`);
+
+// 3.
+const { deposits, withdrawal } = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce(
+    (sum, cur) => {
+      // cur > 0 ? (sum.deposits += cur) : (sum.withdrawal += cur);
+      sum[cur > 0 ? "deposits" : "withdrawal"] += cur;
+      return sum;
+    },
+    { deposits: 0, withdrawal: 0 } // make new object
+  );
+
+console.log(deposits, withdrawal);
+
+// 4.
+
+const converTitleCase = (title) => {
+  const capitalize = (str) => str.replace(str[0], str[0].toUpperCase());
+
+  const exceptions = [`a`, `an`, `and`, `the`, `or`, `but`, `on`, `in`, `with`];
+
+  const titleCase = title
+    .toLowerCase()
+    .split(` `)
+    .map((word) => (exceptions.includes(word) ? word : capitalize(word)))
+    .join(` `);
+
+  return capitalize(titleCase);
+};
+
+console.log(converTitleCase(`this is a nice title`));
+console.log(converTitleCase(`this is a LONG title but not too long`));
+console.log(converTitleCase(`and here is another title with an EXAMPLE`));
+*/
