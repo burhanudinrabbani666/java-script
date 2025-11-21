@@ -251,3 +251,21 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// 1.
+const bankDepostiSum = accounts
+  .flatMap((acc) => acc.movements)
+  .filter((acc) => acc > 0)
+  .reduce((sum, cur) => sum + cur, 0);
+console.log(bankDepostiSum);
+
+// 2.
+
+const numDeposits1000 = accounts
+  .flatMap((acc) => acc.movements)
+  .reduce((num, mov) => (mov >= 1000 ? ++num : num), 0); // prefixed ++ operator
+
+// accounts.flatMap((acc) => acc.movements)
+//   .filter((mov) => mov >= 1000).length;
+
+console.log(numDeposits1000, ` Movement over 1000`);
