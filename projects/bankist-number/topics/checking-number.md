@@ -1,5 +1,7 @@
 ## Checking Number
 
+> Use **.isfinite()** to checking a number ⚠️.
+
 ```js
 console.log(23 == 23.0);
 

@@ -302,7 +302,6 @@ const converTitleCase = (title) => {
 console.log(converTitleCase(`this is a nice title`));
 console.log(converTitleCase(`this is a LONG title but not too long`));
 console.log(converTitleCase(`and here is another title with an EXAMPLE`));
-*/
 
 const dogs = [
   { weight: 22, curFood: 250, owners: ["Alice", "Bob"] },
@@ -341,7 +340,7 @@ console.log(
 );
 
 // 5.
-console.log(dogs.some((dog) => dog.curFood === dog.recommendedFood));
+  console.log(dogs.some((dog) => dog.curFood === dog.recommendedFood));
 
 //6.
 console.log(
@@ -361,3 +360,4 @@ const okayAmount = dogs.filter(
 const copyDogs = dogs.slice();
 
 console.log(copyDogs);
+*/
