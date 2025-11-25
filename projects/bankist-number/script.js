@@ -249,66 +249,18 @@ btnSort.addEventListener("click", function (event) {
 /////////////////////////////////////////////////
 // LECTURES
 
-/*
-console.log(23 == 23.0);
+// 287.460.000.000
+const diameter = 287_460_000_000;
+console.log(diameter);
 
-console.log(+"23"); // +
-console.log(+"23"); // +
+const princeInCent = 345_99;
+console.log(princeInCent);
 
-// Parsing
-console.log(Number.parseInt("300px", 10)); // 300 string should be start with number
+const transferFee1 = 15_00;
+const transferFee2 = 1_500;
 
-// Float
-console.log(Number.parseFloat("2.5rem", 10)); // 2.5
-console.log(Number.parseInt("2.5rem", 10)); // 2
+const PI = 3.1485;
+console.log(PI);
 
-// isNaN : boolean
-console.log(Number.isNaN("2.5rem")); // false
-console.log(Number.isNaN(10)); // false
-console.log(Number.isNaN(+"25px")); // true
-console.log(Number.isNaN(23 / 0)); // false
-
-// isFinite : boolean
-console.log(Number.isFinite(10)); // true
-console.log(Number.isFinite("20px")); // false
-console.log(Number.isFinite(23 / 0)); // false
-
-// MATH and ROUNDING
-console.log(Math.sqrt(25)); // 5
-console.log(25 ** (1 / 2)); // 5
-console.log(8 ** (1 / 3)); // 2
-
-console.log(Math.max(5, 16, 34, 11, 3)); // 34
-console.log(Math.max(5, 161, "342", 113, 38)); // 342
-console.log(Math.min(5, 16, 34, 11, 3)); // 3
-
-console.log(Math.PI * Number.parseFloat(`10px`) ** 2); //314
-
-console.log(Math.trunc(Math.random() * 6) + 1); /// 1-6
-
-const renderInt = (min, max) => {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-// integer Rounding
-console.log(renderInt(10, 20));
-console.log(renderInt(0, 3));
-
-console.log(Math.trunc(20.5)); // 20
-console.log(Math.round(23.9)); // 24
-
-console.log(Math.ceil(23.3)); // 24
-console.log(Math.ceil(23.9)); // 24
-
-console.log(Math.floor(23.9)); // 23
-console.log(Math.floor(23.2)); // 23
-
-console.log(Math.trunc(-23.3)); // 23
-console.log(Math.floor(-23.3)); // 24 ✅ lebih bagus pakai ini
-
-// decimals rounding
-console.log((2.7).toFixed(0)); // 3 //return string
-console.log((2.7).toFixed(3)); // 2.700 // return string
-console.log((3.123).toFixed(2)); // 3.12 // return string
-console.log(+(2.7).toFixed(0)); // 3 return Number
-*/
+console.log(Number("230_000")); // NaN
+console.log(parseInt("230_000")); // NaN
