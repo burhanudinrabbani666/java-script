@@ -84,15 +84,21 @@ const displayMovement = (acc, sort = false) => {
   // text Content = 0
   containerMovements.innerHTML = ``;
 
-  const movs = sort
-    ? acc.movements.slice().sort((a, b) => a - b)
-    : acc.movements;
+  const combineMovements = acc.movements.map((mov, index) => {
+    return {
+      movement: mov,
+      movementDate: acc.movementsDates.at(index),
+    };
+  });
+
+  if (sort) combineMovements.sort((a, b) => a.movement - b.movement);
 
   // for display all data
-  movs.forEach((movement, index) => {
+  combineMovements.forEach((obj, index) => {
+    const { movement, movementDate } = obj;
     const type = movement > 0 ? `deposit` : `withdrawal`;
 
-    const date = new Date(acc.movementsDates[index]);
+    const date = new Date(movementDate);
     const day = `${date.getDate()}`.padStart(2, 0);
     const month = `${date.getMonth() + 1}`.padStart(2, 0);
     const year = date.getFullYear();
@@ -273,7 +279,7 @@ btnClose.addEventListener("click", function (event) {
 let sortedState = false;
 btnSort.addEventListener("click", function (event) {
   event.preventDefault();
-  displayMovement(currentAccount.movements, !sortedState);
+  displayMovement(currentAccount, !sortedState);
   sortedState = !sortedState;
 });
 /////////////////////////////////////////////////
