@@ -77,8 +77,6 @@ const inputClosePin = document.querySelector(".form__input--pin");
 let currentAccount;
 //
 
-// FAKE ALLWAYS LOGIN
-
 // Function
 
 const formatCur = (value, locale, currency) => {
@@ -89,7 +87,6 @@ const formatCur = (value, locale, currency) => {
 };
 
 const displayMovement = (acc, sort = false) => {
-  // text Content = 0
   containerMovements.innerHTML = ``;
 
   const combineMovements = acc.movements.map((mov, index) => {
@@ -132,26 +129,22 @@ const displayMovement = (acc, sort = false) => {
   });
 };
 
-const createUserName = (accounts) => {
-  accounts.forEach((account) => {
-    account.username = account.owner // add new properti
+const createUserName = (acc) => {
+  acc.forEach((account) => {
+    account.username = account.owner
       .toLowerCase()
       .split(` `)
       .map((word) => word[0])
-      .join(``); // ; sign
+      .join(``);
   });
 };
 
-const printBalance = (account) => {
-  account.balance = account.movements.reduce((prev, current) => {
+const printBalance = (acc) => {
+  acc.balance = acc.movements.reduce((prev, current) => {
     return (prev += current);
-  }, 0); // in last
+  }, 0);
 
-  labelBalance.textContent = formatCur(
-    account.balance,
-    account.locale,
-    account.currency
-  );
+  labelBalance.textContent = formatCur(acc.balance, acc.locale, acc.currency);
 };
 
 const calcDisplaySummary = (acc) => {
@@ -190,6 +183,7 @@ const updateUI = (acc) => {
   // Display Summary
   calcDisplaySummary(acc);
 };
+
 const formatMovementDate = (date, locale) => {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
@@ -198,11 +192,6 @@ const formatMovementDate = (date, locale) => {
   if (daysPassed === 0) return `Today`;
   if (daysPassed === 1) return `Yesterday`;
   if (daysPassed <= 7) return `${daysPassed} days ago`;
-
-  //   const day = `${date.getDate()}`.padStart(2, 0);
-  //   const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  //   const year = date.getFullYear();
-  // `${day}/${month}/${year}`;
 
   return Intl.DateTimeFormat(locale).format(date);
 };
@@ -289,21 +278,26 @@ btnTransfer.addEventListener("click", function (event) {
 btnLoan.addEventListener("click", function (event) {
   event.preventDefault();
 
+  //
+  // add loan value
   const amount = Math.floor(inputLoanAmount.value);
 
+  //
   if (
     amount > 0 &&
     currentAccount.movements.some((movement) => movement >= amount * 0.1)
   ) {
-    currentAccount.movements.push(amount);
-  } // 10%
+    setTimeout(() => {
+      currentAccount.movements.push(amount);
+      // 10%
 
-  //add transfer date
-  currentAccount.movementsDates.push(new Date().toISOString());
+      //add transfer date
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-  // update UI
-  updateUI(currentAccount);
-
+      // update UI
+      updateUI(currentAccount);
+    }, 3000);
+  }
   inputLoanAmount.value = ``;
 });
 
@@ -337,27 +331,11 @@ btnSort.addEventListener("click", function (event) {
   sortedState = !sortedState;
 });
 /////////////////////////////////////////////////
+////////////////////////////////////////////////
 
 currentAccount = account1;
 updateUI(currentAccount);
 containerApp.style.opacity = 100;
 
-//day/month/year
 /////////////////////////////////////////////////
-// LECTURES
-
-const num = 12345678.12;
-const options = {
-  style: "currency",
-  unit: "celsius",
-  currency: "EUR",
-};
-
-console.log("US:     ", new Intl.NumberFormat("en-US", options).format(num));
-console.log("Germany:", new Intl.NumberFormat("de-DE", options).format(num));
-console.log("Syria:  ", new Intl.NumberFormat("ar-SY", options).format(num));
-console.log(
-  navigator.language,
-  ": ",
-  new Intl.NumberFormat(navigator.language, options).format(num)
-);
+/////////////////////////////////////////////////
