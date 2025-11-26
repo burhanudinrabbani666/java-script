@@ -42,7 +42,7 @@ const account2 = {
     "2025-11-24T12:01:20.894Z",
   ],
   currency: "USD",
-  locale: "en-US",
+  locale: "id",
 };
 
 const accounts = [account1, account2];
@@ -100,7 +100,7 @@ const displayMovement = (acc, sort = false) => {
 
     // date
     const date = new Date(movementDate);
-    const displayDate = formatMovementDate(date);
+    const displayDate = formatMovementDate(date, acc.locale);
 
     //
 
@@ -166,7 +166,7 @@ const updateUI = (acc) => {
   // Display Summary
   calcDisplaySummary(acc);
 };
-const formatMovementDate = (date) => {
+const formatMovementDate = (date, locale) => {
   const calcDaysPassed = (date1, date2) =>
     Math.round(Math.abs(date2 - date1) / (1000 * 60 * 60 * 24));
   const daysPassed = calcDaysPassed(new Date(), date);
@@ -175,11 +175,12 @@ const formatMovementDate = (date) => {
   if (daysPassed === 1) return `Yesterday`;
   if (daysPassed <= 7) return `${daysPassed} days ago`;
 
-  const day = `${date.getDate()}`.padStart(2, 0);
-  const month = `${date.getMonth() + 1}`.padStart(2, 0);
-  const year = date.getFullYear();
+  //   const day = `${date.getDate()}`.padStart(2, 0);
+  //   const month = `${date.getMonth() + 1}`.padStart(2, 0);
+  //   const year = date.getFullYear();
+  // `${day}/${month}/${year}`;
 
-  return `${day}/${month}/${year}`;
+  return Intl.DateTimeFormat(locale).format(date);
 };
 
 // Event handler
@@ -200,15 +201,29 @@ btnLogin.addEventListener(`click`, function (event) {
 
     containerApp.style.opacity = 100;
 
-    // current date
     const currentDate = new Date();
-    const day = `${currentDate.getDate()}`.padStart(2, 0);
-    const month = `${currentDate.getMonth() + 1}`.padStart(2, 0);
-    const year = currentDate.getFullYear();
-    const hour = `${currentDate.getHours()}`.padStart(2, 0);
-    const min = `${currentDate.getMinutes()}`.padStart(2, 0);
+    const options = {
+      hour: "numeric",
+      minute: "numeric",
+      day: "numeric",
+      month: "numeric",
+      year: "numeric",
+    };
+    const locale = navigator.language;
 
-    labelDate.textContent = `${day}/${month}/${year} ${hour}:${min}`;
+    labelDate.textContent = new Intl.DateTimeFormat(
+      currentAccount.locale,
+      options
+    ).format(currentDate);
+
+    // current date
+    // const day = `${currentDate.getDate()}`.padStart(2, 0);
+    // const month = `${currentDate.getMonth() + 1}`.padStart(2, 0);
+    // const year = currentDate.getFullYear();
+    // const hour = `${currentDate.getHours()}`.padStart(2, 0);
+    // const min = `${currentDate.getMinutes()}`.padStart(2, 0);
+
+    // labelDate.textContent = `${day}/${month}/${year}, ${hour}:${min}`;
     // Clear Field
     inputLoginUsername.value = inputLoginPin.value = ``;
     inputLoginPin.blur();
