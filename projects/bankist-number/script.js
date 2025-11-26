@@ -42,7 +42,7 @@ const account2 = {
     "2025-11-24T12:01:20.894Z",
   ],
   currency: "USD",
-  locale: "id",
+  locale: "en-US",
 };
 
 const accounts = [account1, account2];
@@ -80,6 +80,14 @@ let currentAccount;
 // FAKE ALLWAYS LOGIN
 
 // Function
+
+const formatCur = (value, locale, currency) => {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(value);
+};
+
 const displayMovement = (acc, sort = false) => {
   // text Content = 0
   containerMovements.innerHTML = ``;
@@ -102,7 +110,13 @@ const displayMovement = (acc, sort = false) => {
     const date = new Date(movementDate);
     const displayDate = formatMovementDate(date, acc.locale);
 
-    //
+    // Currency internationaliize
+    const formattedMov = formatCur(obj.movement, acc.locale, acc.currency);
+
+    new Intl.NumberFormat(acc.locale, {
+      style: "currency",
+      currency: acc.currency,
+    }).format(obj.movement);
 
     const html = `
       <div class="movements__row">
@@ -110,7 +124,7 @@ const displayMovement = (acc, sort = false) => {
       index + 1
     } ${type}</div>
         <div class="movements__date">${displayDate}</div>
-        <div class="movements__value">${movement.toFixed(2)}€</div>
+        <div class="movements__value">${formattedMov}</div>
       </div>
     `;
 
@@ -133,7 +147,11 @@ const printBalance = (account) => {
     return (prev += current);
   }, 0); // in last
 
-  labelBalance.textContent = `${account.balance.toFixed(2)} EUR`;
+  labelBalance.textContent = formatCur(
+    account.balance,
+    account.locale,
+    account.currency
+  );
 };
 
 const calcDisplaySummary = (acc) => {
@@ -148,12 +166,18 @@ const calcDisplaySummary = (acc) => {
   const interest = acc.movements
     .filter((mov) => mov > 0)
     .map((deposite) => (deposite * acc.interestRate) / 100)
-    .filter((int, i, arr) => int >= 1)
+    .filter((int) => int >= 1)
     .reduce((acc, curr) => acc + curr, 0);
 
-  labelSumIn.textContent = `${incomes.toFixed(2)}€`;
-  labelSumOut.textContent = `${Math.abs(outcomes.toFixed(2))}€`;
-  labelSumInterest.textContent = `${interest.toFixed(2)}€`;
+  labelSumIn.textContent = formatCur(incomes, acc.locale, acc.currency);
+
+  labelSumOut.textContent = formatCur(
+    Math.abs(outcomes),
+    acc.locale,
+    acc.currency
+  );
+
+  labelSumInterest.textContent = formatCur(interest, acc.locale, acc.currency);
 };
 
 const updateUI = (acc) => {
@@ -322,5 +346,18 @@ containerApp.style.opacity = 100;
 /////////////////////////////////////////////////
 // LECTURES
 
-// const future = new Date(2037, 10, 19, 15, 23);
-// console.log(+future);
+const num = 12345678.12;
+const options = {
+  style: "currency",
+  unit: "celsius",
+  currency: "EUR",
+};
+
+console.log("US:     ", new Intl.NumberFormat("en-US", options).format(num));
+console.log("Germany:", new Intl.NumberFormat("de-DE", options).format(num));
+console.log("Syria:  ", new Intl.NumberFormat("ar-SY", options).format(num));
+console.log(
+  navigator.language,
+  ": ",
+  new Intl.NumberFormat(navigator.language, options).format(num)
+);
