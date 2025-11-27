@@ -33,6 +33,23 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
+const btnScroolTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScroolTo.addEventListener("click", function (event) {
+  const s1coords = section1.getBoundingClientRect();
+
+  // Old School
+  // window.scrollTo({
+  //   left: s1coords.left + window.screenX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: "smooth",
+  // });
+
+  // Modern ✅
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
@@ -127,19 +144,12 @@ logo.classList.contains("clasname");
 console.log(logo);
 */
 
-const btnScroolTo = document.querySelector(".btn--scroll-to");
-const section1 = document.querySelector("#section--1");
+const h1 = document.querySelector("h1");
 
-btnScroolTo.addEventListener("click", function (event) {
-  const s1coords = section1.getBoundingClientRect();
+const alert1 = function () {
+  alert("addEventListener: Great! Your reading the heading");
+};
 
-  // Old School
-  // window.scrollTo({
-  //   left: s1coords.left + window.screenX,
-  //   top: s1coords.top + window.scrollY,
-  //   behavior: "smooth",
-  // });
+h1.addEventListener("mouseenter", alert1);
 
-  // Modern ✅
-  section1.scrollIntoView({ behavior: "smooth" });
-});
+setTimeout(() => h1.removeEventListener("mouseenter", alert1), 3000);
