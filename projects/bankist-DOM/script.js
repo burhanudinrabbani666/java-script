@@ -33,26 +33,46 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-function TitleName(word) {
-  const final = word.split(` `).join(`-`).toLowerCase() + ".md";
-  console.log(final);
-}
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///////////////////////////////////////////////////////
 
-TitleName("Selecting Creating and Deleting");
-TitleName("Styles Attributes and Clases");
-TitleName("Implementing Smooth Scrolling");
-TitleName("Types of Events and Events Handlers");
-TitleName("Event Propagatio: Bubbling and");
-TitleName("Event Propagation in practice");
-TitleName("Event Delegation");
-TitleName("DOM Traversing");
-TitleName("Building a Tabbeb Componet");
-TitleName("Passing Argument to event handlers ");
-TitleName("Implement a Sticky Navigation");
-TitleName("A Better Way");
-TitleName("Revealing Elements on Scroll");
-TitleName("Fixing a small Bug");
-TitleName("Lazy Loading");
-TitleName("Building Slider Compponent: Part 1");
-TitleName("Building Slider Compponent: Part 2");
-TitleName("Lifecycle DOM Events");
+console.log(document.documentElement);
+console.log(document.head);
+console.log(document.body);
+
+const header = document.querySelector(".header");
+const allSection = document.querySelectorAll(".section");
+
+console.log(allSection);
+
+document.getElementById("section--1");
+const allButton = document.getElementsByTagName("button");
+console.log(allButton);
+
+console.log(document.getElementsByClassName("btn"));
+
+// creating and inserting element
+// insertAdjacemetnHTML
+
+const messsage = document.createElement("div");
+messsage.classList.add("cookie-message");
+messsage.textContent = "we use cookie to improve functionality adn analytics";
+messsage.innerHTML = `we use cookie to improve functionality adn analytics. <button class="btn btn--close--cookie">Got it!<buton/>`;
+
+// header.prepend(messsage);
+header.append(messsage);
+// header.append(messsage.cloneNode(true));
+
+// header.before(messsage);
+// header.after(messsage);
+
+// Deleting element
+
+document
+  .querySelector(".btn--close--cookie")
+  .addEventListener("click", function () {
+    messsage.remove(); // new one
+
+    messsage.parentElement.removeChild(messsage); // old method
+  });
