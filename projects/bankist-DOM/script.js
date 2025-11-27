@@ -19,9 +19,6 @@ const closeModal = function () {
   overlay.classList.add("hidden");
 };
 
-// for (let i = 0; i < btnsOpenModal.length; i++)
-//   btnsOpenModal[i].addEventListener("click", openModal);
-
 btnsOpenModal.forEach((btn) => btn.addEventListener("click", openModal));
 
 btnCloseModal.addEventListener("click", closeModal);
@@ -38,13 +35,6 @@ const section1 = document.querySelector("#section--1");
 
 btnScroolTo.addEventListener("click", function (event) {
   const s1coords = section1.getBoundingClientRect();
-
-  // Old School
-  // window.scrollTo({
-  //   left: s1coords.left + window.screenX,
-  //   top: s1coords.top + window.scrollY,
-  //   behavior: "smooth",
-  // });
 
   // Modern ✅
   section1.scrollIntoView({ behavior: "smooth" });
@@ -142,7 +132,6 @@ logo.classList.contains("clasname");
 // logo.className = "jonas";
 
 console.log(logo);
-*/
 
 const h1 = document.querySelector("h1");
 
@@ -153,3 +142,37 @@ const alert1 = function () {
 h1.addEventListener("mouseenter", alert1);
 
 setTimeout(() => h1.removeEventListener("mouseenter", alert1), 3000);
+*/
+
+// rgb(225,225,225)
+
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomColor = () =>
+  `rgb(${randomInt(0, 225)}, ${randomInt(0, 225)}, ${randomInt(0, 225)})`;
+
+document
+  .querySelector(".nav__link")
+  .addEventListener("click", function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("LINK", event.target, event.currentTarget);
+    console.log(event.currentTarget === this);
+
+    // Stop propagnation
+    // event.stopPropagation(); // Not good ❎
+  });
+
+document
+  .querySelector(".nav__links")
+  .addEventListener("click", function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("Container", event.target, event.currentTarget);
+  });
+document.querySelector(".nav").addEventListener(
+  "click",
+  function (event) {
+    this.style.backgroundColor = randomColor();
+    console.log("Nav", event.target, event.currentTarget);
+  },
+  true
+);
