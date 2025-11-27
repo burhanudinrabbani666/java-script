@@ -36,6 +36,8 @@ document.addEventListener("keydown", function (e) {
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
+
+/*
 // console.log(document.documentElement);
 // console.log(document.head);
 // console.log(document.body);
@@ -123,3 +125,21 @@ logo.classList.contains("clasname");
 // logo.className = "jonas";
 
 console.log(logo);
+*/
+
+const btnScroolTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScroolTo.addEventListener("click", function (event) {
+  const s1coords = section1.getBoundingClientRect();
+
+  // Old School
+  // window.scrollTo({
+  //   left: s1coords.left + window.screenX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: "smooth",
+  // });
+
+  // Modern ✅
+  section1.scrollIntoView({ behavior: "smooth" });
+});
