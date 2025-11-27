@@ -36,21 +36,20 @@ document.addEventListener("keydown", function (e) {
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
-
-console.log(document.documentElement);
-console.log(document.head);
-console.log(document.body);
+// console.log(document.documentElement);
+// console.log(document.head);
+// console.log(document.body);
 
 const header = document.querySelector(".header");
 const allSection = document.querySelectorAll(".section");
 
-console.log(allSection);
+// console.log(allSection);
 
 document.getElementById("section--1");
 const allButton = document.getElementsByTagName("button");
-console.log(allButton);
+// console.log(allButton);
 
-console.log(document.getElementsByClassName("btn"));
+// console.log(document.getElementsByClassName("btn"));
 
 // creating and inserting element
 // insertAdjacemetnHTML
@@ -76,3 +75,51 @@ document
 
     messsage.parentElement.removeChild(messsage); // old method
   });
+
+// styles
+messsage.style.backgroundColor = "#37383d";
+messsage.style.width = "120%";
+
+console.log(messsage.style.color); // <Empty string>
+console.log(messsage.style.backgroundColor);
+console.log(getComputedStyle(messsage).color);
+console.log(getComputedStyle(messsage).height);
+
+messsage.style.height =
+  Number.parseFloat(getComputedStyle(messsage).height, 10) + 40 + "px";
+
+document.documentElement.style.setProperty("--color-primary", "indigo");
+
+// atributes
+const logo = document.querySelector(".nav__logo");
+console.log(logo.alt);
+console.log(logo.src);
+console.log(logo.getAttribute("src"));
+console.log(logo.className);
+
+logo.alt = "Beutifull minimalist logo";
+
+console.log(logo.alt);
+
+// not standar
+console.log(logo.designer);
+console.log(logo.getAttribute("designer"));
+logo.setAttribute("company", "Bankist");
+
+const link = document.querySelector(".nav__link--btn");
+console.log(link.href);
+console.log(link.getAttribute("href"));
+
+// Data atributes
+console.log(logo.dataset.versionNumber);
+
+//classes
+logo.classList.add("clasname");
+logo.classList.remove("clasname");
+logo.classList.toggle("clasname");
+logo.classList.contains("clasname");
+
+// dont use this
+// logo.className = "jonas";
+
+console.log(logo);
