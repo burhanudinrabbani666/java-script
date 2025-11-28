@@ -175,45 +175,95 @@ imgTarget.forEach((img) => imgObserver.observe(img));
 // Slider
 // const slider = document.querySelectorAll(".slider");
 
-const slides = document.querySelectorAll(".slide");
-const slider = document.querySelector(".slider");
-const btnLeft = document.querySelector(".slider__btn--left");
-const btnRight = document.querySelector(".slider__btn--right");
-const maxSlide = slides.length;
-let currSlide = 0;
+function slider() {
+  const slides = document.querySelectorAll(".slide");
+  const btnLeft = document.querySelector(".slider__btn--left");
+  const btnRight = document.querySelector(".slider__btn--right");
+  const dotContainer = document.querySelector(".dots");
 
-function goToSlide(InitialSlide) {
-  slides.forEach((slide, index) => {
-    slide.style.transform = `translateX(${100 * (index - InitialSlide)}%)`;
+  const maxSlide = slides.length;
+  let currSlide = 0;
+
+  //// FUNC
+
+  function createDots() {
+    slides.forEach(function (_, index) {
+      dotContainer.insertAdjacentHTML(
+        `beforeend`,
+        `<button class="dots__dot" data-slide="${index}"></button>`
+      );
+    });
+  }
+
+  function goToSlide(InitialSlide) {
+    slides.forEach((slide, index) => {
+      slide.style.transform = `translateX(${100 * (index - InitialSlide)}%)`;
+    });
+  }
+
+  function nextSlide() {
+    // Next Slides
+    if (currSlide === maxSlide - 1) {
+      currSlide = 0;
+    } else {
+      currSlide++;
+    }
+
+    goToSlide(currSlide);
+    activedDots(currSlide);
+  }
+
+  // prev Slide
+  function prevSlide() {
+    if (currSlide === 0) {
+      currSlide = maxSlide - 1;
+    } else {
+      currSlide--;
+    }
+
+    goToSlide(currSlide);
+    activedDots(currSlide);
+  }
+
+  function activedDots(slide) {
+    document
+      .querySelectorAll(".dots__dot")
+      .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+    document
+      .querySelector(`.dots__dot[data-slide="${slide}"]`)
+      .classList.add(`dots__dot--active`);
+  }
+
+  function init() {
+    goToSlide(0); // initial side
+    createDots();
+    activedDots(0);
+  }
+  //
+
+  init();
+
+  // EventHandler
+  btnRight.addEventListener("click", nextSlide);
+  btnLeft.addEventListener("click", prevSlide);
+
+  document.addEventListener("keydown", function (event) {
+    event.key === "ArrowLeft" && prevSlide();
+    event.key === "ArrowRight" && nextSlide();
+  });
+
+  dotContainer.addEventListener("click", function (event) {
+    if (event.target.classList.contains("dots__dot")) {
+      const currSlide = Number(event.target.dataset.slide);
+
+      goToSlide(currSlide);
+      activedDots(currSlide);
+    }
   });
 }
 
-goToSlide(0); // initial side
-
-// Next Slides
-function nextSlide() {
-  if (currSlide === maxSlide - 1) {
-    currSlide = 0;
-  } else {
-    currSlide++;
-  }
-
-  goToSlide(currSlide);
-}
-
-// prev Slide
-function prevSlide() {
-  if (currSlide === 0) {
-    currSlide = maxSlide - 1;
-  } else {
-    currSlide--;
-  }
-
-  goToSlide(currSlide);
-}
-
-btnRight.addEventListener("click", nextSlide);
-btnLeft.addEventListener("click", prevSlide);
+slider();
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
