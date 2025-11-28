@@ -108,14 +108,46 @@ navigations.addEventListener("mouseout", handleOver.bind(1));
 
 // Sticky Navigation
 
-const initialCordinate = section1.getBoundingClientRect();
-console.log(initialCordinate);
+// const initialCordinate = section1.getBoundingClientRect();
+//
+// window.addEventListener("scroll", function (event) {
+// if (this.window.scrollY > initialCordinate.top)
+// navigations.classList.add("sticky");
+// else navigations.classList.remove("sticky");
+// });
 
-window.addEventListener("scroll", function (event) {
-  if (this.window.scrollY > initialCordinate.top)
-    navigations.classList.add("sticky");
+// Sticky navigation: Intersection Observer API
+
+// const obsCallback = function (entries, obrserver) {
+//   entries.forEach((entry) => {
+//     console.log(entry);
+//   });
+// };
+
+// const obsOptions = {
+//   root: null,
+//   threshold: [0, 0.2],
+// };
+
+// const observer = new IntersectionObserver(obsCallback, obsOptions);
+
+// observer.observe(section1);
+
+const header = document.querySelector(".header");
+
+const stickyNav = function (entries) {
+  const [entry] = entries;
+  console.log(entry);
+  if (!entry.isIntersecting) navigations.classList.add("sticky");
   else navigations.classList.remove("sticky");
+};
+
+const headerObs = new IntersectionObserver(stickyNav, {
+  root: null,
+  threshold: 0,
 });
+headerObs.observe(header);
+
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
