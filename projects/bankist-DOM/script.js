@@ -7,6 +7,10 @@ const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContet = document.querySelectorAll(".operations__content");
+const navigations = document.querySelector(".nav");
 
 ///////////////////////////////////////
 // Modal window
@@ -34,7 +38,7 @@ document.addEventListener("keydown", function (e) {
 });
 /////////////////////////////////////////////////////
 
-// Button scrolling
+// Button scrolling 🔘
 btnScroolTo.addEventListener("click", function (event) {
   const s1coords = section1.getBoundingClientRect();
 
@@ -42,10 +46,9 @@ btnScroolTo.addEventListener("click", function (event) {
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
-// Page navigation
+// Page navigation 📄
 // 1. Add eventlistener to common paretn element
 // 2, determine what element originated the event
-
 document
   .querySelector(".nav__links")
   .addEventListener("click", function (event) {
@@ -58,10 +61,7 @@ document
     }
   });
 
-// Tabbed Componenet
-const tabs = document.querySelectorAll(".operations__tab");
-const tabsContainer = document.querySelector(".operations__tab-container");
-const tabsContet = document.querySelectorAll(".operations__content");
+// Tabbed Componenet 📑
 
 tabsContainer.addEventListener("click", function (event) {
   const clicked = event.target.closest(".operations__tab");
@@ -86,6 +86,25 @@ tabsContainer.addEventListener("click", function (event) {
     .querySelector(`.operations__content--${clicked.dataset.tab}`)
     .classList.add(`operations__content--active`);
 });
+
+// Menu Fade Animations 🟦
+const handleOver = function (event) {
+  //use function
+  if (event.target.classList.contains("nav__link")) {
+    const link = event.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const logo = link.closest(".nav").querySelector("img");
+
+    siblings.forEach((sibling) => {
+      if (sibling !== link) sibling.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
+
+navigations.addEventListener(`mouseover`, handleOver.bind(0.5));
+
+navigations.addEventListener("mouseout", handleOver.bind(1));
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
