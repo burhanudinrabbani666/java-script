@@ -106,6 +106,16 @@ navigations.addEventListener(`mouseover`, handleOver.bind(0.5));
 
 navigations.addEventListener("mouseout", handleOver.bind(1));
 
+// Sticky Navigation
+
+const initialCordinate = section1.getBoundingClientRect();
+console.log(initialCordinate);
+
+window.addEventListener("scroll", function (event) {
+  if (this.window.scrollY > initialCordinate.top)
+    navigations.classList.add("sticky");
+  else navigations.classList.remove("sticky");
+});
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
