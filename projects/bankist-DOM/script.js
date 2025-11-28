@@ -32,6 +32,7 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+/////////////////////////////////////////////////////
 
 // Button scrolling
 btnScroolTo.addEventListener("click", function (event) {
@@ -41,7 +42,6 @@ btnScroolTo.addEventListener("click", function (event) {
   section1.scrollIntoView({ behavior: "smooth" });
 });
 
-/////////////////////////////////////////////////////
 // Page navigation
 // 1. Add eventlistener to common paretn element
 // 2, determine what element originated the event
@@ -54,10 +54,38 @@ document
     //Matching strategy
     if (event.target.classList.contains("nav__link")) {
       const id = event.target.getAttribute("href");
-      console.log(id);
       document.querySelector(id).scrollIntoView({ behavior: "smooth" });
     }
   });
+
+// Tabbed Componenet
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContet = document.querySelectorAll(".operations__content");
+
+tabsContainer.addEventListener("click", function (event) {
+  const clicked = event.target.closest(".operations__tab");
+
+  // Guard
+  if (!clicked) return;
+
+  // remove active classes
+  tabs.forEach((tab) => {
+    tab.classList.remove("operations__tab--active");
+  });
+
+  tabsContet.forEach((content) => {
+    content.classList.remove("operations__content--active");
+  });
+
+  // Active Tabs
+  clicked.classList.add("operations__tab--active");
+
+  // Active content tabs
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add(`operations__content--active`);
+});
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
