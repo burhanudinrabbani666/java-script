@@ -1,12 +1,15 @@
 "use strict";
 
-///////////////////////////////////////
-// Modal window
-
+//
+const btnScroolTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".btn--close-modal");
 const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
+
+///////////////////////////////////////
+// Modal window
 
 const openModal = function (event) {
   event.preventDefault();
@@ -30,15 +33,31 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-const btnScroolTo = document.querySelector(".btn--scroll-to");
-const section1 = document.querySelector("#section--1");
-
+// Button scrolling
 btnScroolTo.addEventListener("click", function (event) {
   const s1coords = section1.getBoundingClientRect();
 
   // Modern ✅
   section1.scrollIntoView({ behavior: "smooth" });
 });
+
+/////////////////////////////////////////////////////
+// Page navigation
+// 1. Add eventlistener to common paretn element
+// 2, determine what element originated the event
+
+document
+  .querySelector(".nav__links")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    //Matching strategy
+    if (event.target.classList.contains("nav__link")) {
+      const id = event.target.getAttribute("href");
+      console.log(id);
+      document.querySelector(id).scrollIntoView({ behavior: "smooth" });
+    }
+  });
 
 ///////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////
@@ -142,7 +161,6 @@ const alert1 = function () {
 h1.addEventListener("mouseenter", alert1);
 
 setTimeout(() => h1.removeEventListener("mouseenter", alert1), 3000);
-*/
 
 // rgb(225,225,225)
 
@@ -176,3 +194,4 @@ document.querySelector(".nav").addEventListener(
   },
   true
 );
+*/
