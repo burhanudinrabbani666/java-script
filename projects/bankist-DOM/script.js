@@ -431,3 +431,11 @@ console.log(h1.parentElement.children);
   if (event !== h1) event.style.transform = "scale(0.5)";
 });
 */
+
+document.addEventListener(`DOMContentLoaded`, function (event) {
+  console.log("HTML Parsed and DOM tree Build", event);
+});
+
+window.addEventListener("load", function (event) {
+  console.log("page fully load", event);
+});
