@@ -10,7 +10,7 @@ const user = {
   // Data
   user: "jonas",
   password: "dk23s",
-  // Bahavior
+  // Behavior
   login(password) {
     // Login logic
   },
@@ -27,7 +27,10 @@ const user = {
 
 ## Classes and Instances (Traditional OOP)
 
-classes is basically blue print
+- Class:
+  The blueprint for a house. It defines the number of rooms, the layout, the materials to be used, etc.
+- Instance:
+  An actual house built according to that blueprint. Each house is a distinct instance, even if they share the same blueprint. One house might have a red roof, another a blue roof, reflecting different values for their respective instance variables.
 
 ### Top 4 Fundamental OOP Principles
 
