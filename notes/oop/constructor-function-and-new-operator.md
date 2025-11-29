@@ -1,5 +1,6 @@
-"use strict";
+## Constructor Functions and the new Operator
 
+```js
 // arrow function not working ⚠️
 // Use Capital for naming Variable
 const Person = function (firstName, birthYear) {
@@ -26,3 +27,4 @@ const nico = new Person("Nico", 2001);
 
 console.log(bani, nurasia, nico);
 console.log(bani instanceof Person); // true
+```
