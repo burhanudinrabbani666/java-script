@@ -1,5 +1,5 @@
 "use strict";
-
+/*
 // arrow function not working ⚠️
 // Use Capital for naming Variable
 const Person = function (firstName, birthYear) {
@@ -50,3 +50,53 @@ console.log(bani.species, nurasia.species);
 
 console.log(bani.hasOwnProperty("firstName")); // true
 console.log(bani.hasOwnProperty("species")); // false
+
+console.log(bani.__proto__);
+// Obect.prototype (top of prototype)
+console.log(bani.__proto__.__proto__);
+console.log(bani.__proto__.__proto__.__proto__);
+
+console.log(Person.prototype.constructor); // Person
+console.dir(Person.prototype.constructor); // Person
+
+const arr = [1, 2, 3, 3, 2, 5, 1, 5, 3, 5]; // New Array === []
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+}; // Not Good Idea
+
+console.log(arr.unique());
+
+const h1 = document.querySelector("h1");
+console.dir((x) => x + 1);
+*/
+
+// Challenge #1
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} going at ${this.speed}km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed += 5;
+  console.log(`${this.make} going at ${this.speed}km/h`);
+};
+
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
+
+bmw.accelerate();
+bmw.brake();
+bmw.accelerate();
+
+mercedes.accelerate();
+mercedes.brake();
