@@ -26,3 +26,27 @@ const nico = new Person("Nico", 2001);
 
 console.log(bani, nurasia, nico);
 console.log(bani instanceof Person); // true
+
+// PROTOTYPES
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2025 - this.birthYear);
+};
+
+bani.calcAge();
+nurasia.calcAge();
+nico.calcAge();
+
+console.log(bani.__proto__);
+console.log(bani.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(bani));
+console.log(Person.prototype.isPrototypeOf(nurasia));
+console.log(Person.prototype.isPrototypeOf(Person)); // false
+
+Person.prototype.species = "Homo Sapiens";
+console.log(bani.species, nurasia.species);
+
+console.log(bani.hasOwnProperty("firstName")); // true
+console.log(bani.hasOwnProperty("species")); // false
