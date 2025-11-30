@@ -1,3 +1,5 @@
+![JavaScript banner](/public/java-script.svg)
+
 # 🧠 JavaScript Study Journey
 
 ![Status](https://img.shields.io/badge/Status-Ongoing-brightgreen?style=flat-square)
