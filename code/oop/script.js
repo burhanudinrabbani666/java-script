@@ -459,31 +459,33 @@ class Account {
     console.log(`Thanks to opening an account. ${this.owner}`);
   }
 
-  // Public interface (API)
-  getMovements() {
-    return this.#movements;
-  }
-
   // Private Method
   #approveLoan() {
     // Fake Method
     return true;
   }
 
-  // Pbulic Method
+  // Public Method (API)
+  getMovements() {
+    return this.#movements;
+  }
+
   deposit(val) {
     this.#movements.push(val);
+    return this; // return this so can chaining methods
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this; // return this so can chaining methods
   }
 
   requestLoan(val) {
-    if (this.approveLoan) {
+    if (this.#approveLoan) {
       this.deposit(val);
       console.log(`Loan approved`);
     }
+    return this; // return this so can chaining methods
   }
 
   static test() {
@@ -492,8 +494,16 @@ class Account {
 }
 
 const acc1 = new Account("Jonas", "EUR", 1111);
-acc1.deposit(500);
-acc1.withdraw(233);
+// acc1.deposit(500);
+// acc1.withdraw(233);
+
+acc1
+  .deposit(150)
+  .withdraw(300)
+  .deposit(400)
+  .requestLoan(20000)
+  .withdraw(400)
+  .getMovements(); // place last
 
 console.log(acc1);
 // console.log(acc1.#movements); // reference to undeclared private field or method #movements
