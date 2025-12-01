@@ -431,27 +431,52 @@ jay.introduce();
 jay.calcAge();
 */
 
+// Encapsulation: Private Class Fields and Methods
+
+// 1. Public  Fields
+// 2. Private Fields
+// 3. Public  Methods
+// 4. Private Methods
+// STATIC version of these 4
+
 class Account {
+  // Public Fields
+  locale = navigator.language;
+  bank = "Bankist";
+
+  // Private Fields // Use #
+  #movements = [];
+  #pin;
+
   constructor(owner, currency, pin) {
     this.owner = owner;
     this.currency = currency;
-    this.pin = pin;
-    this.movement = [];
-    this.local = navigator.language;
+    this.#pin = pin;
+
+    // this.movement = [];
+    // this.local = navigator.language;
 
     console.log(`Thanks to opening an account. ${this.owner}`);
   }
 
+  // Public interface (API)
+  getMovements() {
+    return this.#movements;
+  }
+
+  // Private Method
+  #approveLoan() {
+    // Fake Method
+    return true;
+  }
+
+  // Pbulic Method
   deposit(val) {
-    this.movement.push(val);
+    this.#movements.push(val);
   }
 
   withdraw(val) {
     this.deposit(-val);
-  }
-
-  approveLoan() {
-    return true;
   }
 
   requestLoan(val) {
@@ -460,20 +485,17 @@ class Account {
       console.log(`Loan approved`);
     }
   }
+
+  static test() {
+    return true;
+  }
 }
 
 const acc1 = new Account("Jonas", "EUR", 1111);
-console.log(acc1);
-
-// Dont do manually ❗
-// acc1.movement.push(250);
-// acc1.movement.push(-140);
-
-// make method first ✅
-acc1.deposit(250);
-acc1.withdraw(333);
-
-acc1.requestLoan(1000);
+acc1.deposit(500);
+acc1.withdraw(233);
 
 console.log(acc1);
-console.log(acc1.pin);
+// console.log(acc1.#movements); // reference to undeclared private field or method #movements
+
+// console.log(Account.test());
