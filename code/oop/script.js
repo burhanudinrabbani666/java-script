@@ -206,10 +206,47 @@ const steven = Object.create(PersonProto);
 console.log(steven);
 steven.name = "Steven";
 steven.birthYear = 2002;
-steven.calcAge();
+// steven.calcAge();
 
-console.log(steven.__proto__ === PersonProto); // true
+// console.log(steven.__proto__ === PersonProto); // true
 
 const sarah = Object.create(PersonProto);
 sarah.init("sarah", 1999);
-sarah.calcAge();
+// sarah.calcAge();
+
+// Challenge #2
+
+class Car2 {
+  constructor(carName, carSpeed) {
+    this.carName = carName;
+    this.carSpeed = carSpeed;
+  }
+
+  accelerate() {
+    this.carSpeed += 10;
+    console.log(`${this.carName} going at ${this.carSpeed}km/h`);
+  }
+
+  break() {
+    this.carSpeed -= 5;
+    console.log(`${this.carName} going at ${this.carSpeed}km/h`);
+  }
+
+  get speedUS() {
+    return this.carSpeed / 1.6;
+  }
+
+  set speedUS(carSpeed) {
+    this.carSpeed = carSpeed * 1.6;
+  }
+}
+
+const ford = new Car2("Ford", 120);
+console.log(ford);
+ford.accelerate();
+ford.break();
+console.log(ford.speedUS); // get
+
+ford.speedUS = 50;
+console.log(ford);
+console.log(ford.carSpeed);
