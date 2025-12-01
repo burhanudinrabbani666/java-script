@@ -1,5 +1,4 @@
 "use strict";
-/*
 // arrow function not working ⚠️
 // Use Capital for naming Variable
 const Person = function (firstName, birthYear) {
@@ -20,58 +19,66 @@ const Person = function (firstName, birthYear) {
 // 3. {} linked to protoype
 // 4. function automatically return {}
 
-const bani = new Person("Bani", 2002);
+// const bani = new Person("Bani", 2002);
 const nurasia = new Person("Nurasis", 2000);
 const nico = new Person("Nico", 2001);
 
-console.log(bani, nurasia, nico);
-console.log(bani instanceof Person); // true
+// console.log(bani, nurasia, nico);
+// console.log(bani instanceof Person); // true
+
+Person.hey = function () {
+  console.log("Hey There 😄");
+  console.log(this);
+};
+
+Person.hey();
+// nurasia.hey(); // error ❎
 
 // PROTOTYPES
-console.log(Person.prototype);
+// console.log(Person.prototype);
 
 Person.prototype.calcAge = function () {
   console.log(2025 - this.birthYear);
 };
 
-bani.calcAge();
-nurasia.calcAge();
-nico.calcAge();
+// bani.calcAge();
+// nurasia.calcAge();
+// nico.calcAge();
 
-console.log(bani.__proto__);
-console.log(bani.__proto__ === Person.prototype);
-
-console.log(Person.prototype.isPrototypeOf(bani));
-console.log(Person.prototype.isPrototypeOf(nurasia));
-console.log(Person.prototype.isPrototypeOf(Person)); // false
-
-Person.prototype.species = "Homo Sapiens";
-console.log(bani.species, nurasia.species);
-
-console.log(bani.hasOwnProperty("firstName")); // true
-console.log(bani.hasOwnProperty("species")); // false
-
-console.log(bani.__proto__);
+// console.log(bani.__proto__);
+// console.log(bani.__proto__ === Person.prototype);
+//
+// console.log(Person.prototype.isPrototypeOf(bani));
+// console.log(Person.prototype.isPrototypeOf(nurasia));
+// console.log(Person.prototype.isPrototypeOf(Person)); // false
+//
+// Person.prototype.species = "Homo Sapiens";
+// console.log(bani.species, nurasia.species);
+//
+// console.log(bani.hasOwnProperty("firstName")); // true
+// console.log(bani.hasOwnProperty("species")); // false
+//
+// console.log(bani.__proto__);
 // Obect.prototype (top of prototype)
-console.log(bani.__proto__.__proto__);
-console.log(bani.__proto__.__proto__.__proto__);
-
-console.log(Person.prototype.constructor); // Person
-console.dir(Person.prototype.constructor); // Person
+// console.log(bani.__proto__.__proto__);
+// console.log(bani.__proto__.__proto__.__proto__);
+//
+// console.log(Person.prototype.constructor); // Person
+// console.dir(Person.prototype.constructor); // Person
 
 const arr = [1, 2, 3, 3, 2, 5, 1, 5, 3, 5]; // New Array === []
-console.log(arr.__proto__);
-console.log(arr.__proto__ === Array.prototype);
-console.log(arr.__proto__.__proto__);
+// console.log(arr.__proto__);
+// console.log(arr.__proto__ === Array.prototype);
+// console.log(arr.__proto__.__proto__);
 
 Array.prototype.unique = function () {
   return [...new Set(this)];
 }; // Not Good Idea
 
-console.log(arr.unique());
+// console.log(arr.unique());
 
 const h1 = document.querySelector("h1");
-console.dir((x) => x + 1);
+// console.dir((x) => x + 1);
 
 // Challenge #1
 
@@ -93,13 +100,12 @@ Car.prototype.brake = function () {
 const bmw = new Car("BMW", 120);
 const mercedes = new Car("Mercedes", 95);
 
-bmw.accelerate();
-bmw.brake();
-bmw.accelerate();
+// bmw.accelerate();
+// bmw.brake();
+// bmw.accelerate();
 
-mercedes.accelerate();
-mercedes.brake();
-*/
+// mercedes.accelerate();
+// mercedes.brake();
 
 // ES6 Classes
 
@@ -135,15 +141,21 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // static
+  static hey() {
+    console.log("hey there 😀");
+    console.log(this);
+  }
 }
 
 const cicih = new PersonCl("Cicih Rosmawati", 2001);
-console.log(cicih);
-cicih.clacAge();
-console.log(cicih.age); // use get
-cicih.greeting();
+// console.log(cicih);
+// cicih.clacAge();
+// console.log(cicih.age); // use get
+// cicih.greeting();
 
-console.log(cicih.__proto__ === PersonCl.prototype);
+// console.log(cicih.__proto__ === PersonCl.prototype);
 
 // 1. Class are NOT hoisted
 // 2. Class are first-class citizen
@@ -169,3 +181,11 @@ console.log(account.latest); // get latest
 
 account.latest = 250; // set latest
 console.log(account.movements);
+
+// Static
+
+const arrh1 = Array.from(document.querySelectorAll("h1")); // .from is attached to Array constructor only
+console.log(arrh1);
+
+// exm : Number.parseFloat() ✅
+PersonCl.hey();
