@@ -429,7 +429,6 @@ const jay = Object.create(StudentProto);
 jay.init("Jay", 2001, "Law");
 jay.introduce();
 jay.calcAge();
-*/
 
 // Encapsulation: Private Class Fields and Methods
 
@@ -509,3 +508,6 @@ console.log(acc1);
 // console.log(acc1.#movements); // reference to undeclared private field or method #movements
 
 // console.log(Account.test());
+*/
+
+5
