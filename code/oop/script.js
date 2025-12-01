@@ -1,4 +1,5 @@
 "use strict";
+/*
 // arrow function not working ⚠️
 // Use Capital for naming Variable
 const Person = function (firstName, birthYear) {
@@ -242,11 +243,96 @@ class Car2 {
 }
 
 const ford = new Car2("Ford", 120);
-console.log(ford);
-ford.accelerate();
-ford.break();
-console.log(ford.speedUS); // get
+// console.log(ford);
+// ford.accelerate();
+// ford.break();
+// console.log(ford.speedUS); // get
+//
+// ford.speedUS = 50;
+// console.log(ford);
+// console.log(ford.carSpeed);
 
-ford.speedUS = 50;
-console.log(ford);
-console.log(ford.carSpeed);
+// Person (parent)
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2025 - this.birthYear);
+};
+
+// Student(child)
+const Student = function (firstName, birthYear, courses) {
+  Person.call(this, firstName, birthYear);
+  this.courses = courses;
+};
+
+Student.prototype = Object.create(Person.prototype); // Inherite Person.protype to Student.prototype
+
+Student.prototype.intro = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.courses}`);
+};
+
+const mike = new Student("mike", 2001, "Computer Science");
+console.log(mike);
+mike.intro();
+// mike.calcAge(); // 24 ✅
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+
+Student.prototype.constructor = Student;
+console.log(Student.prototype.constructor);
+*/
+
+// Parents
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} going at ${this.speed}km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed += 5;
+  console.log(`${this.make} going at ${this.speed}km/h`);
+};
+
+// Child
+const evCar = function (make, speed, currentBattery) {
+  Car.call(this, make, speed);
+  this.charge = currentBattery;
+};
+
+// Link the prototype
+evCar.prototype = Object.create(Car.prototype);
+
+// 2.
+evCar.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
+};
+
+// 3.
+evCar.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge -= 1;
+
+  console.log(
+    `${this.make} going at ${this.speed} km/h, with a charge of ${
+      this.charge + "%"
+    }`
+  );
+};
+
+const tesla = new evCar("Tesla", 120, 23);
+console.log(tesla);
+tesla.chargeBattery(90);
+console.log(tesla);
+tesla.accelerate();
