@@ -510,4 +510,76 @@ console.log(acc1);
 // console.log(Account.test());
 */
 
-5
+class carCl {
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`${this.make} is going at ${this.speed} kmh`);
+    return this;
+  }
+
+  break() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} kmh`);
+  }
+
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    this.speed = speed * 1.6;
+  }
+}
+
+// const EV = function (make, speed, charge) {
+//   carCl.call(this, make, speed);
+//   this.charge = charge;
+// };
+
+// EV.prototype.accelerate = function () {
+//   this.speed += 20;
+//   this.charge--;
+
+//   console.log(
+//     `${this.make} is going at ${this.speed} kmh, with charge of ${this.charge}`
+//   );
+// };
+
+class EV extends carCl {
+  #charge;
+  constructor(make, speed, charge) {
+    super(make, speed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(updateCharge) {
+    this.#charge = updateCharge;
+    return this;
+  }
+
+  accelerate() {
+    this.speed += 20;
+    this.#charge--;
+    console.log(
+      `${this.make} is going at ${this.speed} kmh, with charge of ${
+        this.#charge
+      }`
+    );
+    return this;
+  }
+
+  break() {
+    this.speed -= 5;
+    console.log(`${this.make} is going at ${this.speed} kmh`);
+    return this;
+  }
+}
+
+const rivian = new EV("Rivian", 120, 23);
+console.log(rivian);
+rivian.accelerate().break().accelerate();
