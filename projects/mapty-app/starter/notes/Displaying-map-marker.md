@@ -4,7 +4,7 @@ read the DOCS for another option:
 [leafletjs - DOCS](https://leafletjs.com/reference.html)
 
 ```js
-map.on('click', function (mapEvent) { // mapEvent or parameter in here otomaticly get the value
+map.on('click', function (mapEvent) { // mapEvent or parameter in here otomaticlly get the value
         const { lat, lng } = mapEvent.latlng; // distructuring to get cordinate
         console.log(lat, lng);
 
