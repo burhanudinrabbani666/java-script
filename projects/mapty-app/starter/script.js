@@ -13,6 +13,7 @@ const inputElevation = document.querySelector('.form__input--elevation');
 class Workout {
   date = new Date();
   id = self.crypto.randomUUID();
+  clicks = 0;
 
   constructor(coords, distance, duration) {
     this.coords = coords;
@@ -27,6 +28,10 @@ class Workout {
     this.description = `${this.type[0].toUpperCase()}${this.type.slice(1)} on ${
       months[this.date.getMonth()]
     } ${this.date.getDate()}`;
+  }
+
+  click() {
+    this.clicks++;
   }
 }
 
@@ -67,6 +72,7 @@ class Cycling extends Workout {
 class App {
   // Private fields
   #map;
+  #mapZoomLevel = 13;
   #mapEvent;
   #workout = [];
 
@@ -77,6 +83,7 @@ class App {
     // DOM
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevation);
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
   }
 
   //------------------ Horizon Line ---------------------//
@@ -97,16 +104,13 @@ class App {
     const { latitude } = position.coords;
     const { longitude } = position.coords;
     const coords = [latitude, longitude];
-    console.log(`https://www.google.com/maps/@${latitude},${longitude}`);
 
-    this.#map = L.map('map').setView(coords, 13); // set map
+    this.#map = L.map('map').setView(coords, this.#mapZoomLevel); // set map
 
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.#map);
-
-    L.marker(coords).addTo(this.#map).bindPopup('Hello World').openPopup();
 
     // Handling clicks on map
     this.#map.on('click', this._showForm.bind(this));
@@ -152,7 +156,6 @@ class App {
     // if workout running, create running object
     if (type === 'running') {
       const cadence = +inputCadence.value;
-      console.log(cadence);
       // console.log(distance, duration, cadence); // For Checking Data
       if (
         !validateInput(distance, duration, cadence) ||
@@ -258,6 +261,28 @@ class App {
     `;
 
     return form.insertAdjacentHTML(`afterend`, html);
+  }
+
+  _moveToPopup(event) {
+    const workoutEl = event.target.closest('.workout');
+    console.log(workoutEl);
+
+    if (!workoutEl) return;
+
+    const workout = this.#workout.find(
+      work => work.id === workoutEl.dataset.id
+    );
+    console.log(workout);
+
+    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+      animate: true,
+      pan: {
+        duration: 1,
+      },
+    });
+
+    // using public interface
+    workout.click();
   }
 }
 
