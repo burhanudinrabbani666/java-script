@@ -15,3 +15,5 @@ const renderError = msg => {
       countriesContainer.style.opacity = 1;
     });
 ```
+
+[Next: Throw error](./throw-error.md)

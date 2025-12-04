@@ -91,27 +91,76 @@ const request = fetch(`https://restcountries.com/v3.1/name/palestine`);
 // });
 // };
 
+const getJson = (url, errorMsg = 'Something went Wrong') => {
+  return fetch(url).then(response => {
+    // Error Handling
+    if (!response.ok)
+      throw new Error(`${errorMsg}Country Not Found (${response.status})`);
+
+    return response.json();
+  });
+};
+
+/*
 const getCountryData = country => {
   fetch(`https://restcountries.com/v3.1/name/${country}`)
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+
+      // Error Handling
+      if (!response.ok)
+        throw new Error(`Country Not Found (${response.status})`);
+
+      return response.json();
+    })
     .then(data => {
       renderCountry(data[0]);
 
       const neighbour = data[0].borders?.[0];
-
-      if (!neighbour) return;
+      if (!neighbour) throw new Error(`This Country Don't Have Neighbour`);
 
       // Country 2
       return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
     })
-    .then(response => response.json())
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
     .then(data => {
       renderCountry(data[0], 'neighbour');
     })
     .catch(err => {
       // Handling error
       console.error(`${err} 💥💥💥`);
-      renderError(`Something is wrong 💥💥💥 ${err.message}`);
+      renderError(`Something is wrong 💥💥💥 ${err.message}. Try Again!`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+};
+*/
+
+const getCountryData = country => {
+  getJson(`https://restcountries.com/v3.1/name/${country}`, `Country Not Found`)
+    .then(data => {
+      renderCountry(data[0]);
+
+      const neighbour = data[0].borders?.[0];
+      if (!neighbour) throw new Error(`No Neighbord Found`);
+
+      // Country 2
+      return getJson(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        `Contry Not Found`
+      );
+    })
+    .then(data => {
+      renderCountry(data[0], 'neighbour');
+    })
+    .catch(err => {
+      // Handling error
+      console.error(`${err} 💥💥💥`);
+      renderError(`Something is wrong 💥💥💥 ${err.message}. Try Again!`);
     })
     .finally(() => {
       countriesContainer.style.opacity = 1;
@@ -119,7 +168,5 @@ const getCountryData = country => {
 };
 
 btn.addEventListener('click', function () {
-  getCountryData('United Kingdom');
+  getCountryData('australia');
 });
-
-// getCountryData('hbvfhebjhwb');
