@@ -12,7 +12,7 @@ const countriesContainer = document.querySelector('.countries');
 ///////////////////////////////////////
 const renderCountry = function (data, className = ' ') {
   const langu = Object.values(data.languages);
-  const name = Object.values(data.currencies)[0].name;
+  const currencies = Object.values(data.currencies)[0].name;
 
   const html = `
     <article class="country ${className}">
@@ -24,7 +24,7 @@ const renderCountry = function (data, className = ' ') {
             +data.population / 1000000
           ).toFixed(1)} people</p>
           <p class="country__row"><span>🗣️</span>${langu}</p>
-          <p class="country__row"><span>💰</span>${name}</p>
+          <p class="country__row"><span>💰</span>${currencies}</p>
         </div>
     </article>`;
 
@@ -76,8 +76,6 @@ getCountryAndNeightbour('indonesia');
 // Using Fetch
 const request = fetch(`https://restcountries.com/v3.1/name/palestine`);
 
-console.log(request);
-
 // const getCountryData = country => {
 // fetch(`https://restcountries.com/v3.1/name/${country}`)
 // .then(response => {
@@ -91,7 +89,21 @@ console.log(request);
 const getCountryData = country => {
   fetch(`https://restcountries.com/v3.1/name/${country}`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+
+      const neighbour = data[0].borders?.[0];
+      console.log(neighbour);
+
+      if (!neighbour) return;
+
+      // Country 2
+      return fetch(`https://restcountries.com/v3.1/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => {
+      renderCountry(data[0], 'neighbour');
+    });
 };
 
-getCountryData('indonesia');
+getCountryData('Indonesia');
