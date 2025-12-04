@@ -29,7 +29,12 @@ const renderCountry = function (data, className = ' ') {
     </article>`;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  countriesContainer.style.opacity = 1;
+  // countriesContainer.style.opacity = 1;
+};
+
+const renderError = msg => {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  // countriesContainer.style.opacity = 1;
 };
 
 /*
@@ -93,7 +98,6 @@ const getCountryData = country => {
       renderCountry(data[0]);
 
       const neighbour = data[0].borders?.[0];
-      console.log(neighbour);
 
       if (!neighbour) return;
 
@@ -103,7 +107,19 @@ const getCountryData = country => {
     .then(response => response.json())
     .then(data => {
       renderCountry(data[0], 'neighbour');
+    })
+    .catch(err => {
+      // Handling error
+      console.error(`${err} 💥💥💥`);
+      renderError(`Something is wrong 💥💥💥 ${err.message}`);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
     });
 };
 
-getCountryData('Indonesia');
+btn.addEventListener('click', function () {
+  getCountryData('United Kingdom');
+});
+
+// getCountryData('hbvfhebjhwb');

@@ -23,3 +23,5 @@ const getCountryData = (country) => {
 
 getCountryData("Indonesia");
 ```
+
+[Next: Handling Rejected Promises](./handling-Rejected-promises.md)
