@@ -7,3 +7,5 @@ Imagine that you’re a top singer, and fans ask day and night for your upcoming
 To get some relief, you promise to send it to them when it’s published. You give your fans a list. They can fill in their email addresses, so that when the song becomes available, all subscribed parties instantly receive it. And even if something goes very wrong, say, a fire in the studio, so that you can’t publish the song, they will still be notified.
 
 [JavaScript.info: Promise](https://javascript.info/promise-basics)
+
+[Next: Consume Promise](./consume-promise.md)

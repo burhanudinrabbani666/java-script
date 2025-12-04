@@ -74,6 +74,24 @@ getCountryAndNeightbour('indonesia');
 // request`.send();
 
 // Using Fetch
-const request = fetch(`https://restcountries.com/v3.1/name/indonesia`);
+const request = fetch(`https://restcountries.com/v3.1/name/palestine`);
 
 console.log(request);
+
+// const getCountryData = country => {
+// fetch(`https://restcountries.com/v3.1/name/${country}`)
+// .then(response => {
+// return response.json();
+// })
+// .then(data => {
+// renderCountry(data[0]);
+// });
+// };
+
+const getCountryData = country => {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json())
+    .then(data => renderCountry(data[0]));
+};
+
+getCountryData('indonesia');
