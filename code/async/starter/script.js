@@ -32,6 +32,7 @@ const renderCountry = function (data, className = ' ') {
   countriesContainer.style.opacity = 1;
 };
 
+/*
 // OLD school
 const getCountryAndNeightbour = function (country) {
   // Ajax country 1
@@ -66,3 +67,13 @@ const getCountryAndNeightbour = function (country) {
 };
 
 getCountryAndNeightbour('indonesia');
+*/
+
+// const request = new XMLHttpRequest();
+// request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+// request`.send();
+
+// Using Fetch
+const request = fetch(`https://restcountries.com/v3.1/name/indonesia`);
+
+console.log(request);
