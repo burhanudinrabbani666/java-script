@@ -11,8 +11,13 @@ const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
 const renderCountry = function (data, className = ' ') {
+  // console.log(data);
+
   const langu = Object.values(data.languages);
+  const firstLangu = Object.values(langu).slice(0, 1);
   const currencies = Object.values(data.currencies)[0].name;
+
+  const result = langu.length > 1 ? firstLangu : langu;
 
   const html = `
     <article class="country ${className}">
@@ -23,7 +28,7 @@ const renderCountry = function (data, className = ' ') {
           <p class="country__row"><span>👫</span>${(
             +data.population / 1000000
           ).toFixed(1)} people</p>
-          <p class="country__row"><span>🗣️</span>${langu}</p>
+          <p class="country__row"><span>🗣️</span>${result}</p>
           <p class="country__row"><span>💰</span>${currencies}</p>
         </div>
     </article>`;
@@ -167,6 +172,39 @@ const getCountryData = country => {
     });
 };
 
+// btn.addEventListener('click', function () {
+//   getCountryData('australia');
+// });
+
+// https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}
+
+function whereAmI(lat, lng) {
+  return fetch(
+    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+  )
+    .then(res => res.json())
+    .then(data => {
+      // console.log(data);
+      // renderCountry(data);
+
+      console.log(`Your in ${data.city}, ${data.countryName}`);
+
+      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+    })
+    .then(res => res.json())
+    .then(data => {
+      renderCountry(data[0]);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+}
+
 btn.addEventListener('click', function () {
-  getCountryData('australia');
+  whereAmI(52.508, 13.381);
+  whereAmI(19.037, 72.873);
+  whereAmI(-33.933, 18.474);
 });
