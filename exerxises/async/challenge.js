@@ -28,3 +28,58 @@ btn.addEventListener("click", function () {
   whereAmI(19.037, 72.873);
   whereAmI(-33.933, 18.474);
 });
+
+const wait = (second) => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, second * 1000);
+  });
+};
+
+const imgContainer = document.querySelector(".images");
+
+const createImg = (imgPath) => {
+  return new Promise((res, rej) => {
+    const img = document.createElement("img");
+    img.src = imgPath;
+
+    img.addEventListener("load", () => {
+      imgContainer.append(img);
+      res(img);
+    });
+
+    img.addEventListener("error", () => {
+      rej(new Error("Image not Found"));
+    });
+  });
+};
+
+let currentImage;
+
+createImg(`img/img-1.jpg`)
+  .then((img) => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = "none";
+    return createImg("img/img-2.jpg");
+  })
+  .then((img) => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = "none";
+    return createImg("img/img-3.jpg");
+  })
+  .then((img) => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = "none";
+  })
+  .catch((err) => console.log(err));

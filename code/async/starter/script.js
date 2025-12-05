@@ -34,7 +34,7 @@ const renderCountry = function (data, className = ' ') {
     </article>`;
 
   countriesContainer.insertAdjacentHTML('beforeend', html);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 const renderError = msg => {
@@ -161,6 +161,7 @@ const getCountryData = country => {
     })
     .then(data => {
       renderCountry(data[0], 'neighbour');
+      // countriesContainer.style.opacity = 1;
     })
     .catch(err => {
       // Handling error
@@ -220,19 +221,8 @@ wait(2)
   .then(() => console.log('I waited for 5 second'));
 
 */
-const getPosition = () => {
-  return new Promise((resolve, reject) => {
-    // 1)
-    // navigator.geolocation.getCurrentPosition(
-    //   post => resolve(post),
-    //   err => reject(err)
-    // );
 
-    // 2)
-    navigator.geolocation.getCurrentPosition(resolve, reject);
-  });
-};
-
+/*
 function whereAmI() {
   getPosition()
     .then(pos => {
@@ -264,60 +254,56 @@ function whereAmI() {
 //   whereAmI(19.037, 72.873);
 //   whereAmI(-33.933, 18.474);
 // });
+*/
 
-btn.addEventListener('click', whereAmI);
+const getPosition = () => {
+  return new Promise((resolve, reject) => {
+    // 1)
+    // navigator.geolocation.getCurrentPosition(
+    //   post => resolve(post),
+    //   err => reject(err)
+    // );
 
-const wait = second => {
-  return new Promise(resolve => {
-    setTimeout(resolve, second * 1000);
+    // 2)
+    navigator.geolocation.getCurrentPosition(resolve, reject);
   });
 };
 
-const imgContainer = document.querySelector('.images');
+const whereAmI = async function () {
+  try {
+    // Geolocation
+    const pos = await getPosition();
+    const { latitud: lat, longitude: lng } = pos.coords;
 
-const createImg = imgPath => {
-  return new Promise((res, rej) => {
-    const img = document.createElement('img');
-    img.src = imgPath;
+    // Reverse GeoCoding
+    const geoCoding = await fetch(
+      `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+    );
+    const dataGeo = await geoCoding.json();
+    // console.log(dataGeo);
 
-    img.addEventListener('load', () => {
-      imgContainer.append(img);
-      res(img);
-    });
-
-    img.addEventListener('error', () => {
-      rej(new Error('Image not Found'));
-    });
-  });
+    // country data
+    const res = await fetch(
+      `https://restcountries.com/v3.1/name/${dataGeo.countryName}`
+    );
+    const data = await res.json();
+    // console.log(data);
+    renderCountry(data[0]);
+  } catch (err) {
+    console.error(`${err}`);
+    renderError(`Something wnet wrong ${err.message}`);
+  }
 };
 
-let currentImage;
+whereAmI();
+console.log('first');
 
-createImg(`img/img-1.jpg`)
-  .then(img => {
-    currentImage = img;
-    console.log(`image 1 loaded`);
-    return wait(2);
-  })
-  .then(() => {
-    currentImage.style.display = 'none';
-    return createImg('img/img-2.jpg');
-  })
-  .then(img => {
-    currentImage = img;
-    console.log(`image 1 loaded`);
-    return wait(2);
-  })
-  .then(() => {
-    currentImage.style.display = 'none';
-    return createImg('img/img-3.jpg');
-  })
-  .then(img => {
-    currentImage = img;
-    console.log(`image 1 loaded`);
-    return wait(2);
-  })
-  .then(() => {
-    currentImage.style.display = 'none';
-  })
-  .catch(err => console.log(err));
+// btn.addEventListener('click', whereAmI);
+
+// try {
+//   let y = 1;
+//   const x = 2;
+//   y = 3;
+// } catch (err) {
+//   alert(err);
+// }
