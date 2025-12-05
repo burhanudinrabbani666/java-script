@@ -341,4 +341,54 @@ const ge3Country = async function (c1, c2, c3) {
   }
 };
 
-ge3Country('indonesia', 'malaysia', 'japan');
+// ge3Country('indonesia', 'malaysia', 'japan');
+
+// Promise.race
+
+(async function () {
+  const res = await Promise.race([
+    getJson(`https://restcountries.com/v3.1/name/italy`),
+    getJson(`https://restcountries.com/v3.1/name/spain`),
+    getJson(`https://restcountries.com/v3.1/name/germany`),
+  ]);
+
+  console.log(res[0]);
+})();
+
+const timeout = function (sec) {
+  return new Promise(function (_, reject) {
+    setTimeout(() => {
+      reject(new Error('request took to long!'));
+    }, sec * 1000);
+  });
+};
+
+Promise.race([
+  getJson(`https://restcountries.com/v3.1/name/ireland`),
+  timeout(5),
+])
+  .then(res => console.log(res[0]))
+  .catch(err => console.error(err));
+
+/*
+// Promise.allSettled
+Promise.allSettled([
+  Promise.resolve('success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('another success'),
+]).then(res => console.log(res));
+
+Promise.all([
+  Promise.resolve('success'),
+  Promise.reject('ERROR'),
+  Promise.resolve('another success'),
+]).then(res => console.log(res));
+
+// Promise.any [ES2021]
+
+Promise.any([
+  Promise.reject('success'),
+  Promise.reject('ERROR'),
+  Promise.reject('another success'),
+]).then(res => console.log(res));
+*/

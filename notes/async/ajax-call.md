@@ -1,5 +1,20 @@
 ## First AJAX call: XMLHTTPREQUEST
 
+### XMLHHttpRequest
+
+XMLHttpRequest (XHR) objects are used to interact with servers. You can retrieve data from a URL without having to do a full page refresh. This enables a Web page to update just part of a page without disrupting what the user is doing.
+
+The XMLHttpRequest method open() initializes a newly-created request, or re-initializes an existing one.
+
+```js
+.open()
+
+open(method, url)
+open(method, url, async)
+open(method, url, async, user)
+open(method, url, async, user, password)
+```
+
 ```js
 // Old School
 const getCountryData = function (country) {
