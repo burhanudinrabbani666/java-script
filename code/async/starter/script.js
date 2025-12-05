@@ -39,7 +39,7 @@ const renderCountry = function (data, className = ' ') {
 
 const renderError = msg => {
   countriesContainer.insertAdjacentText('beforeend', msg);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 /*
@@ -84,7 +84,7 @@ getCountryAndNeightbour('indonesia');
 // request`.send();
 
 // Using Fetch
-const request = fetch(`https://restcountries.com/v3.1/name/palestine`);
+// const request = fetch(`https://restcountries.com/v3.1/name/palestine`);
 
 // const getCountryData = country => {
 // fetch(`https://restcountries.com/v3.1/name/${country}`)
@@ -281,29 +281,64 @@ const whereAmI = async function () {
     );
     const dataGeo = await geoCoding.json();
     // console.log(dataGeo);
-
     // country data
     const res = await fetch(
       `https://restcountries.com/v3.1/name/${dataGeo.countryName}`
     );
     const data = await res.json();
-    // console.log(data);
     renderCountry(data[0]);
+    // console.log(data);
+
+    return `Your  in ${dataGeo.city}, ${dataGeo.countryName}`;
   } catch (err) {
     console.error(`${err}`);
-    renderError(`Something wnet wrong ${err.message}`);
+    renderError(`💥 Something went wrong ${err.message}`);
+
+    throw err;
   }
 };
 
-whereAmI();
-console.log('first');
+/*
+console.log(`1: Will get location`);
+// const city = whereAmI(); // async function
+// promise not value
+// console.log(city.then(res => res));
 
-// btn.addEventListener('click', whereAmI);
+// whereAmI()
+//   .then(city => console.log(`2: ${city}`))
+//   .catch(err => console.log(`2: ${err.message}`))
+//   .finally(() => console.log(`3: Finished getting location`));
 
-// try {
-//   let y = 1;
-//   const x = 2;
-//   y = 3;
-// } catch (err) {
-//   alert(err);
-// }
+
+(async function () {
+  try {
+    const city = await whereAmI();
+    console.log(`2: ${city}`);
+  } catch (error) {
+    console.error(`2: ${error.message}`);
+  }
+  console.log(`3: Finished getting location`);
+})();
+*/
+
+const ge3Country = async function (c1, c2, c3) {
+  try {
+    // const [data1] = await getJson(`https://restcountries.com/v3.1/name/${c1}`);
+    // const [data2] = await getJson(`https://restcountries.com/v3.1/name/${c2}`);
+    // const [data3] = await getJson(`https://restcountries.com/v3.1/name/${c3}`);
+    //
+    const data = await Promise.all([
+      getJson(`https://restcountries.com/v3.1/name/${c1}`),
+      getJson(`https://restcountries.com/v3.1/name/${c2}`),
+      getJson(`https://restcountries.com/v3.1/name/${c3}`),
+    ]);
+
+    console.log(data.flatMap(data => data[0].capital));
+
+    // console.log([data1.capital, data2.capital, data3.capital].flat());
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+ge3Country('indonesia', 'malaysia', 'japan');
