@@ -13,7 +13,7 @@ const countriesContainer = document.querySelector('.countries');
 const renderCountry = (data, className = '') => {
   const langu = Object.values(data.languages)[0];
   const currencie = Object.values(data.currencies)[0].name;
-  console.log(langu);
+  // console.log(langu);
 
   const html = `
     <article class="country ${className}">
@@ -72,15 +72,28 @@ getCountryAndNeighbour('spain');
 // request.send();
 
 // Fetch
-
 const countryData = function (country) {
+  // Fetch Country (1)
   // make more meaningable with storing to variable
   const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
 
   // method
   request
     .then(respons => respons.json()) // json return promise
-    .then(data => renderCountry(data[0]));
-};
+    .then(data => {
+      renderCountry(data[0]);
 
-countryData('spain');
+      // Get neighbour data
+      const neighbour = data[0].borders?.[0];
+
+      // Fetch Country (2)
+      const request2 = fetch(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`
+      );
+
+      return request2;
+    })
+    .then(respons2 => respons2.json()) // promise request2
+    .then(data2 => renderCountry(data2[0], 'neighbour'));
+};
+countryData('finland');
