@@ -161,8 +161,32 @@ const countryData = function (country) {
     });
 };
 
-btn.addEventListener('click', function () {
-  countryData('australia');
-});
+// btn.addEventListener('click', function () {
+//   countryData('australia');
+// });
 
-// countryData('bbbb');
+// Challenge
+const WhereAmI = (lat, lng) => {
+  const location = fetch(
+    `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+  );
+  location
+    .then(res => res.json()) //
+    .then(data => {
+      // console.log(data);
+      console.log(`You are in ${data.city}, ${data.countryName}`);
+
+      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+    })
+    .then(res => res.json())
+    .then(data => {
+      renderCountry(data[0]);
+    })
+    .catch(error => console.log(error));
+};
+
+btn.addEventListener('click', function () {
+  WhereAmI(52.508, 13.381);
+  WhereAmI(19.037, 72.783);
+  WhereAmI(-33.933, 18.474);
+});
