@@ -39,6 +39,18 @@ const renderError = message => {
   countriesContainer.style.opacity = `1`;
 };
 
+const getJSON = (url, errorMessage = 'Something went wrong') => {
+  // make more meaningable with storing to variable
+  return fetch(url).then(respons => {
+    //Creating new Error
+    if (!respons.ok) {
+      throw new Error(`${errorMessage}: (${respons.status}).`);
+    }
+
+    return respons.json();
+  });
+};
+
 /*
 const getCountryAndNeighbour = country => {
   // Ajax Call 1
@@ -77,6 +89,7 @@ getCountryAndNeighbour('spain');
 // request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
 // request.send();
 
+/*
 // Fetch
 const countryData = function (country) {
   // Fetch Country (1)
@@ -85,10 +98,14 @@ const countryData = function (country) {
 
   // method
   request
-    .then(
-      respons => respons.json()
-      // err => alert(err) // render error manually ❗
-    ) // json return promise
+    .then(respons => {
+      //Creating new Error
+      if (!respons.ok) {
+        throw new Error(`Country Not Found (${respons.status}).`);
+      }
+
+      return respons.json();
+    }) // json return promise
     .then(data => {
       renderCountry(data[0]);
 
@@ -110,9 +127,42 @@ const countryData = function (country) {
       renderError(`⚠️ Something went wrong: ${error.message} Try Again!`);
     });
 };
+*/
+
+// Fetch
+const countryData = function (country) {
+  // Fetch Country (1)
+  getJSON(`https://restcountries.com/v3.1/name/${country}`, 'Country Not Found')
+    .then(data => {
+      renderCountry(data[0]);
+      console.log(data[0]);
+      // Get neighbour data
+      let neighbour;
+
+      if (!data[0].borders) {
+        throw new Error('No Neighbour for this Country.');
+      } else {
+        neighbour = data[0].borders[0];
+      }
+
+      // Fetch Country (2)
+      return getJSON(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`,
+        'Country Not Found'
+      );
+    })
+    .then(data2 => {
+      renderCountry(data2[0], 'neighbour');
+    })
+    .catch(error => {
+      // render any error ✔️
+      console.error(`💥 ${error.message}`);
+      renderError(`${error.message} Try Again!`);
+    });
+};
 
 btn.addEventListener('click', function () {
-  countryData('finland');
+  countryData('australia');
 });
 
-countryData('bbbb');
+// countryData('bbbb');
