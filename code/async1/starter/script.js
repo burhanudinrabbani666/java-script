@@ -33,6 +33,12 @@ const renderCountry = (data, className = '') => {
   countriesContainer.style.opacity = `1`;
 };
 
+const renderError = message => {
+  // DOM text only
+  countriesContainer.insertAdjacentText('beforeend', message);
+  countriesContainer.style.opacity = `1`;
+};
+
 /*
 const getCountryAndNeighbour = country => {
   // Ajax Call 1
@@ -79,7 +85,10 @@ const countryData = function (country) {
 
   // method
   request
-    .then(respons => respons.json()) // json return promise
+    .then(
+      respons => respons.json()
+      // err => alert(err) // render error manually ❗
+    ) // json return promise
     .then(data => {
       renderCountry(data[0]);
 
@@ -94,6 +103,16 @@ const countryData = function (country) {
       return request2;
     })
     .then(respons2 => respons2.json()) // promise request2
-    .then(data2 => renderCountry(data2[0], 'neighbour'));
+    .then(data2 => renderCountry(data2[0], 'neighbour'))
+    .catch(error => {
+      // render any error ✔️
+      console.error(`💥 ${error.message}`);
+      renderError(`⚠️ Something went wrong: ${error.message} Try Again!`);
+    });
 };
-countryData('finland');
+
+btn.addEventListener('click', function () {
+  countryData('finland');
+});
+
+countryData('bbbb');
