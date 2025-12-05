@@ -33,6 +33,7 @@ const renderCountry = (data, className = '') => {
   countriesContainer.style.opacity = `1`;
 };
 
+/*
 const getCountryAndNeighbour = country => {
   // Ajax Call 1
   const request = new XMLHttpRequest();
@@ -63,3 +64,23 @@ const getCountryAndNeighbour = country => {
 };
 
 getCountryAndNeighbour('spain');
+
+*/
+
+// const request = new XMLHttpRequest();
+// request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
+// request.send();
+
+// Fetch
+
+const countryData = function (country) {
+  // make more meaningable with storing to variable
+  const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
+
+  // method
+  request
+    .then(respons => respons.json()) // json return promise
+    .then(data => renderCountry(data[0]));
+};
+
+countryData('spain');
