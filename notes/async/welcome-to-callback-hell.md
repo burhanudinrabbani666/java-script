@@ -3,7 +3,8 @@
 > Goal: Rendering the second data after the first data complety
 
 [Geek: Understanding Callbacks and Callback Hell in JavaScript](https://www.geeksforgeeks.org/javascript/what-to-understand-callback-and-callback-hell-in-javascript/)
-In JavaScript, callbacks are used for handling operations like reading files and making API requests. When there is excessive nesting of the functions it leads to a problem known as the callback hell. Due to this, it becomes difficult to read the code, debug, and maintain. But when we implement the promises and async/await it helps in improving the code.
+
+In JavaScript, callbacks are used for handling operations like reading files and making API requests. When there is excessive nesting of the functions it leads to a problem known as the **callback hell**. Due to this, it becomes difficult to read the code, debug, and maintain. But when we implement the promises and async/await it helps in improving the code.
 
 ### Callback Hell (Pyramid of Doom)
 
