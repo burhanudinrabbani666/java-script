@@ -172,18 +172,152 @@ const getCountryData = country => {
     });
 };
 
-btn.addEventListener('click', function () {
-  getCountryData('indonesia');
-});
+// btn.addEventListener('click', function () {
+//   getCountryData('indonesia');
+// });
 //
 // https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}
 
-console.log('test start'); // first exxecute
-// this is the last
-setTimeout(() => console.log(`0 sec timer`), 0);
-Promise.resolve('Resolved Promise 1').then(res => console.log(res)); // this is microtask queue
-Promise.resolve('Resolved Promise 2').then(res => {
-  for (let index = 0; index < 10000000000; index++) {}
-  console.log(res);
-}); // this is microtask queue
-console.log('Test end'); // first exxecute
+/*
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lottery drawa is happening 🎲');
+
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve('You Win 💰');
+    } else {
+      reject(new Error('You loses your Money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisfyng setTimeout
+const wait = second => {
+  return new Promise(resolve => {
+    setTimeout(resolve, second * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('I waited for 1 second');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('I waited for 2 second');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('I waited for 3 second');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('I waited for 4 second');
+    return wait(1);
+  })
+  .then(() => console.log('I waited for 5 second'));
+
+*/
+const getPosition = () => {
+  return new Promise((resolve, reject) => {
+    // 1)
+    // navigator.geolocation.getCurrentPosition(
+    //   post => resolve(post),
+    //   err => reject(err)
+    // );
+
+    // 2)
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+function whereAmI() {
+  getPosition()
+    .then(pos => {
+      const { latitud: lat, longitude: lng } = pos.coords;
+      return fetch(
+        `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
+      );
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log(`Your in ${data.city}, ${data.countryName}`);
+
+      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+    })
+    .then(res => res.json())
+    .then(data => {
+      renderCountry(data[0]);
+    })
+    .catch(err => {
+      console.log(err);
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
+}
+
+// btn.addEventListener('click', function () {
+//   whereAmI(52.508, 13.381);
+//   whereAmI(19.037, 72.873);
+//   whereAmI(-33.933, 18.474);
+// });
+
+btn.addEventListener('click', whereAmI);
+
+const wait = second => {
+  return new Promise(resolve => {
+    setTimeout(resolve, second * 1000);
+  });
+};
+
+const imgContainer = document.querySelector('.images');
+
+const createImg = imgPath => {
+  return new Promise((res, rej) => {
+    const img = document.createElement('img');
+    img.src = imgPath;
+
+    img.addEventListener('load', () => {
+      imgContainer.append(img);
+      res(img);
+    });
+
+    img.addEventListener('error', () => {
+      rej(new Error('Image not Found'));
+    });
+  });
+};
+
+let currentImage;
+
+createImg(`img/img-1.jpg`)
+  .then(img => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = 'none';
+    return createImg('img/img-2.jpg');
+  })
+  .then(img => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = 'none';
+    return createImg('img/img-3.jpg');
+  })
+  .then(img => {
+    currentImage = img;
+    console.log(`image 1 loaded`);
+    return wait(2);
+  })
+  .then(() => {
+    currentImage.style.display = 'none';
+  })
+  .catch(err => console.log(err));
