@@ -161,32 +161,51 @@ const countryData = function (country) {
     });
 };
 
-// btn.addEventListener('click', function () {
-//   countryData('australia');
-// });
+btn.addEventListener('click', function () {
+  countryData('australia');
+});
 
-// Challenge
+// Challenge #1
 const WhereAmI = (lat, lng) => {
+  // Challenge Part(1)
   const location = fetch(
     `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}`
   );
   location
     .then(res => res.json()) //
     .then(data => {
-      // console.log(data);
       console.log(`You are in ${data.city}, ${data.countryName}`);
 
-      return fetch(`https://restcountries.com/v3.1/name/${data.countryName}`);
+      // Challenge Part (2)
+      // Country Data for Render
+      const getCountryAPI = fetch(
+        `https://restcountries.com/v3.1/name/${data.countryName}`
+      );
+
+      return getCountryAPI;
     })
     .then(res => res.json())
     .then(data => {
       renderCountry(data[0]);
     })
-    .catch(error => console.log(error));
+    .catch(error => {
+      const newError = new Error('to many Refreshing page');
+      console.error(`💥 ${newError}`);
+    });
 };
 
-btn.addEventListener('click', function () {
-  WhereAmI(52.508, 13.381);
-  WhereAmI(19.037, 72.783);
-  WhereAmI(-33.933, 18.474);
+// The Event Loop in Practice (Advance Topics)
+
+console.log(`Test Start`); // executed First
+setTimeout(() => console.log(`0 Second timer`), 0); // executed Last
+Promise.resolve('Promise 1').then(res => console.log(res)); // MicroTask
+Promise.resolve('Promise 2').then(res => {
+  console.log(res);
 });
+console.log(`Test End`); // executed First
+
+/* List Execute
+1. JavaScript Engine function
+2. MicroTask Queue
+3. WEB APIs
+*/
