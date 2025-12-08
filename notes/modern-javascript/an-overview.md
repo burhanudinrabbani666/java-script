@@ -7,3 +7,5 @@ modern developer divide project into multiple modules and share between them. th
 3rd party package avaible in "npm".
 
 [NPM](https://www.npmjs.com/) is stand for "Node Package Manager".
+
+[Next: exporting and importing in es6 modules](./exporting-and-importing-in-es6-modules.md)
