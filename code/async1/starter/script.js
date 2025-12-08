@@ -88,7 +88,6 @@ getCountryAndNeighbour('spain');
 // const request = new XMLHttpRequest();
 // request.open('GET', `https://restcountries.com/v3.1/name/${country}`);
 // request.send();
-
 /*
 // Fetch
 const countryData = function (country) {
@@ -127,6 +126,63 @@ const countryData = function (country) {
       renderError(`⚠️ Something went wrong: ${error.message} Try Again!`);
     });
 };
+*/
+/* The Event Loop in Practice (Advance Topics)
+
+console.log(`Test Start`); // executed First
+setTimeout(() => console.log(`0 Second timer`), 0); // executed Last
+Promise.resolve('Promise 1').then(res => console.log(res)); // MicroTask
+Promise.resolve('Promise 2').then(res => {
+  console.log(res);
+});
+console.log(`Test End`); // executed First
+
+/* List Execute
+1. JavaScript Engine function
+2. MicroTask Queue
+3. WEB APIs
+*/
+
+// Building New Promise
+const lotteryPromise = new Promise((resolve, reject) => {
+  // console.log(`Lottery Draw is Happening  🔮`);
+
+  setTimeout(() => {
+    if (Math.random() >= 0.5) resolve(` You WIN 💰`);
+    else reject(new Error(`You Lose ☠️`));
+  }, 2000);
+});
+/*
+lotteryPromise
+  .then(res => console.log(res)) //
+  .catch(err => console.error(err));
+
+// function returning promise or promisifying
+const wait = second => {
+  const promise = new Promise(resolve => {
+    setTimeout(resolve, second * 1000);
+  });
+
+  return promise;
+};
+
+
+wait(1)
+  .then(() => {
+    console.log(`I waited for 1 Second`);
+    return wait(2);
+  })
+  .then(() => {
+    console.log(`I waited for 2 Second`);
+    return wait(3);
+  })
+  .then(() => {
+    console.log(`I waited for 3 Second`);
+    return wait(4);
+  })
+  .then(() => {
+    console.log(`I waited for 4 Second`);
+  });
 */
 
 // Fetch
@@ -194,18 +250,15 @@ const WhereAmI = (lat, lng) => {
     });
 };
 
-// The Event Loop in Practice (Advance Topics)
+// promisifying Geolocation API
 
-console.log(`Test Start`); // executed First
-setTimeout(() => console.log(`0 Second timer`), 0); // executed Last
-Promise.resolve('Promise 1').then(res => console.log(res)); // MicroTask
-Promise.resolve('Promise 2').then(res => {
-  console.log(res);
-});
-console.log(`Test End`); // executed First
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    navigator.geolocation.getCurrentPosition(
+      posotion => resolve(posotion),
+      error => reject(error)
+    );
+  });
+};
 
-/* List Execute
-1. JavaScript Engine function
-2. MicroTask Queue
-3. WEB APIs
-*/
+getPosition().then(pos => console.log(pos));

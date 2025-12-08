@@ -52,6 +52,12 @@ console.log(`Test End`); // executed First
 ## Building a simple promise
 
 ```js
+new Promise((resolve, reject) => {})
+  .then((res) => {}) //
+  .catch((err) => {});
+```
+
+```js
 const lotteryPromise = new Promise(function (resolve, reject) {
   console.log("Lottery drawa is happening 🎲");
 
