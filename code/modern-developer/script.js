@@ -63,3 +63,19 @@ console.log(lastPost);
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
 */
+import cloneDeep from "../../node_modules/lodash-es/cloneDeep.js";
+
+const state = {
+  cart: [
+    { product: "breed", quantity: 5 },
+    { product: "Milk", quantity: 2 },
+  ],
+  user: { LoggedIn: true },
+};
+
+const stateClone = Object.assign({}, state);
+const staterDeepCLone = cloneDeep(state);
+
+stateClone.user.LoggedIn = false;
+console.log(stateClone);
+console.log(staterDeepCLone);

@@ -1,0 +1,23 @@
+{
+  "name": "java-script",
+  "version": "1.0.0",
+  "description": "![JavaScript banner](/public/java-script.svg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/burhanudinrabbani666/java-script.git"
+  },
+  "author": "burhanudin rabbani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/burhanudinrabbani666/java-script/issues"
+  },
+  "homepage": "https://github.com/burhanudinrabbani666/java-script#readme",
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "lodash-es": "^4.17.21"
+  }
+}
