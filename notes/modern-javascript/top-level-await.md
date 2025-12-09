@@ -24,3 +24,5 @@ console.log(lastPost);
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
 ```
+
+[Next: Commonjs modules](./Commonjs-modules.md)

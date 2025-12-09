@@ -20,7 +20,6 @@ console.log(price, qty);
 import * as ShoppingCart from "./shoppingCrat.js";
 ShoppingCart.addCart("Milk", 10);
 console.log(ShoppingCart.totalPrice, ShoppingCart.qty);
-*/
 
 console.log("Importing Module");
 
@@ -63,3 +62,4 @@ console.log(lastPost);
 
 const lastPost2 = await getLastPost();
 console.log(lastPost2);
+*/
