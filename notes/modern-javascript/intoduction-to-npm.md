@@ -7,3 +7,5 @@ NPM (Node Package Manager) is a package manager for NodeJS modules. It helps dev
 - It is mainly used to manage packages or modules—these are pre-built pieces of code that extend the functionality of your NodeJS application.
 - The NPM registry hosts millions of free packages that you can download and use in your project.
 - NPM is installed automatically when you install NodeJS, so you don’t need to set it up manually.
+
+[Next: Bundling With Parcel and NPM Scripts](./Bundling-With-Parcel-and-NPM-Scripts.md)
