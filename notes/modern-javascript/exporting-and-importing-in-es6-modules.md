@@ -75,3 +75,5 @@ export default function (product, quantity) {
   console.log(`${quantity} ${product} added to cart`);
 }
 ```
+
+[Next: Top Level Await](./top-level-await.md)
