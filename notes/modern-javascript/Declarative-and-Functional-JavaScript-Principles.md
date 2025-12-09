@@ -42,3 +42,12 @@ const doubled = arr.map((n) => n * 2);
 - 👉 Use build-in method that dont produce side effects
 - 👉 Do data transformations with the methods such as .map(), .filter(), and .replace()
 - 👉 Try Avoid side effects in functions; this is of course not always possible.
+
+### Declarative syntax
+
+- Use array and object destructing
+- Use the spread operator (...)
+- Use the ternary (Conditional) operator
+- Use template literals
+
+[Next: ]()
