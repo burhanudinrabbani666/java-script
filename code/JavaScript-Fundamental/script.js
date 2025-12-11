@@ -8,7 +8,6 @@ let firstName = "Burhanudin";
 const lastName = "Rabbani";
 
 console.log(Greeting, firstName, lastName); // Hello, Burhanudin Rabbani
-*/
 
 const javaScriptIsFun = true;
 console.log(javaScriptIsFun); // true
@@ -18,3 +17,4 @@ console.log(typeof "Burhanudin Rabbani"); // String
 console.log(typeof 1411); // Number
 console.log(typeof true); // Boolean
 console.log(typeof { firsName: "Burhanudin" }); // Object
+*/
