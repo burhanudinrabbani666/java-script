@@ -23,7 +23,6 @@ const ageBani = now - 2002;
 const ageAisa = now - 2000;
 
 console.log(ageBani > ageAisa); // False
-*/
 
 const markWeight = 78;
 const markHeight = 1.69;
@@ -38,3 +37,14 @@ const markHigherBMI = markBMI > jhonBMI;
 console.log(markBMI);
 console.log(jhonBMI);
 console.log(markHigherBMI);
+*/
+
+const firstName = "jonas";
+const job = "teacher";
+const birthYear = 1991;
+const year = 2025;
+
+// Template Literals
+const jonas = `I'm ${firstName} a ${year - birthYear} years old ${job}`; // I'm jonas a 34 years old teacher
+
+console.log(jonas);
