@@ -7,3 +7,5 @@ JavaScript (JS) is a lightweight interpreted (or just-in-time compiled) programm
 ## The Role of JavaScript in web development
 
 JavaScript its allows developers to add dynamic and interactive effects to any webpage we also use it to manipulate the content or the CSS, load data from remote serves, and build the entire applications in the browser, wihch we the call the web applications.
+
+[Next: Linking a JavaScript File](./03.md)
