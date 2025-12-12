@@ -67,3 +67,23 @@ else century = "21th Century";
 
 console.log(`he is birth in ${century}`);
 */
+
+const inputYear = "2002";
+
+console.log(inputYear + 10); //200210 not 2012
+console.log(Number(inputYear) + 10); // 2012
+
+console.log(Number("jonas")); // NaN
+console.log(typeof NaN); // number
+
+console.log(String(23)); // "23"
+
+// Type Coercion
+console.log(`I am ` + 23 + ` Years Old`); // I am 23 Years Old
+console.log("23" - "10" - 3);
+console.log("23" * "10"); //230
+
+let n = "1" + 1; // "11"
+n = n - 1; // 11 -1
+
+console.log(n); // 10
