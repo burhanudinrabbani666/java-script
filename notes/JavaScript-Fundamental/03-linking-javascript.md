@@ -27,4 +27,4 @@
 console.log("Hello World");
 ```
 
-[Next: Values and Variables](./04.md)
+[Next: Values and Variables](./04-Values-and-Variables.md)

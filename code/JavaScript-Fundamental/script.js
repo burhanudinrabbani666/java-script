@@ -37,7 +37,6 @@ const markHigherBMI = markBMI > jhonBMI;
 console.log(markBMI);
 console.log(jhonBMI);
 console.log(markHigherBMI);
-*/
 
 const firstName = "jonas";
 const job = "teacher";
@@ -48,3 +47,23 @@ const year = 2025;
 const jonas = `I'm ${firstName} a ${year - birthYear} years old ${job}`; // I'm jonas a 34 years old teacher
 
 console.log(jonas);
+
+// If else
+const age = 15;
+const isOldEnough = age >= 18; // false
+
+// Control structed
+if (isOldEnough) console.log("sarah can start driving license 🚗");
+else {
+  const yearsLeft = 18 - age;
+  console.log(`Sarah is too young, Wait another ${yearsLeft} Years ⚠️`);
+}
+
+const birthYear = 2002;
+let century;
+
+if (birthYear <= 1000) century = "20th Century";
+else century = "21th Century";
+
+console.log(`he is birth in ${century}`);
+*/

@@ -50,4 +50,4 @@ console.log(n); //30
 | Logical OR assignment           | x \|\|= f() | x \|\| (x = f()) |
 | Nullish coalescing assignment   | x ??= f()   | x ?? (x = f())   |
 
-[Next: Operator Precedence](./08.md)
+[Next: Operator Precedence](./08-Operator-Precedence.md)

@@ -7,8 +7,8 @@
 value is piece of **Data.**
 
 ```js
-console.log("jonas"); // Jonas is valeu
-console.log(21); // 21 is valeu
+console.log("jonas"); // Jonas is value
+console.log(21); // 21 is value
 ```
 
 #### Variable
@@ -46,4 +46,4 @@ let function = "Hello" // function is reserved keyword of JavaScript
 let Person = "Bani" // using capital Letter
 ```
 
-[Next: Data Types](./05.md)
+[Next: Data Types](./05-Data-Types.md)

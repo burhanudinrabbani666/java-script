@@ -4,4 +4,4 @@
 
 Operator precedence determines how operators are parsed concerning each other. Operators with higher precedence become the operands of operators with lower precedence.
 
-[Next: String and Template Literals](./09.md)
+[Next: String and Template Literals](./10-String-and-Template-Literals.md)

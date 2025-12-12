@@ -18,4 +18,4 @@ const jonas = `I'm ${firstName} a ${year - birthYear} years old ${job}`; // I'm 
 console.log(jonas);
 ```
 
-[Next: Taking Decisions: if / else Statements](./011.md)
+[Next: Taking Decisions: if / else Statements](./11-Taking-Decisions-if-else-Statements.md)

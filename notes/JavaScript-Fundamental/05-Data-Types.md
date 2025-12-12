@@ -33,4 +33,4 @@ console.log(typeof { firsName: "Burhanudin" }); // Object
 | Object               |     |
 | Array                |     |
 
-[Next: let,const,var](./06.md)
+[Next: let,const,var](./06-let-const-var.md)

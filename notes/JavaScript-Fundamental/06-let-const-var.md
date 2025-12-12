@@ -47,4 +47,4 @@ const birtYear = ; // Error canot undefined
 const birtYear = null; // not Error can null
 ```
 
-[Next: Basic Operators](./07.md)
+[Next: Basic Operators](./07-Basic-Operators.md)
