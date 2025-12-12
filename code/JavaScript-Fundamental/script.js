@@ -66,7 +66,6 @@ if (birthYear <= 1000) century = "20th Century";
 else century = "21th Century";
 
 console.log(`he is birth in ${century}`);
-*/
 
 const inputYear = "2002";
 
@@ -87,3 +86,19 @@ let n = "1" + 1; // "11"
 n = n - 1; // 11 -1
 
 console.log(n); // 10
+
+console.log(Boolean(0)); // False
+console.log(Boolean(undefined)); // False
+console.log(Boolean(null)); // False
+console.log(Boolean("")); // False
+console.log(Boolean(NaN)); // False
+console.log(Boolean({})); // true
+console.log(Boolean([]));   // true
+
+
+const money = 0; // falsy value
+
+if (money) console.log("Don't speend it All"); // executed when truthy value
+if (money === 0) console.log("Your money is 0");
+else console.log("You Should get a Job");
+*/
