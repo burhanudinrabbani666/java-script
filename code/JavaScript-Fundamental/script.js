@@ -113,7 +113,28 @@ console.log(age == "10"); // true
 
 // Strict Equality
 console.log(age === "10"); // False
-*/
 
 // ----------------------------------------- //
 // Boolean Logic
+
+const hasDriverLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriverLicense && hasGoodVision); // false
+console.log(hasDriverLicense || hasGoodVision); // true
+console.log(!hasDriverLicense); // false
+
+// if (hasDriverLicense && hasGoodVision) {
+//   // false
+//   console.log("Sarah is able to drive!");
+// } else {
+//   console.log("Someone else should Drive... ");
+// }
+
+const isTired = false; // C
+console.log(hasDriverLicense && hasGoodVision && isTired); // true
+
+if (hasDriverLicense && hasGoodVision && !isTired)
+  console.log("Sarah is able to drive!");
+else console.log("Someone else should Drive... ");
+*/
