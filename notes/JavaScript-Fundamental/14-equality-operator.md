@@ -23,3 +23,5 @@ console.log(age == "10"); // true
 // Strict Equality
 console.log(age === "10"); // False
 ```
+
+[Next: Boolean Logic](./15-boolean-logic.md)

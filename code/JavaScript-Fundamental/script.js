@@ -97,11 +97,10 @@ console.log(Boolean([]));   // true
 
 
 const money = 0; // falsy value
-
+j
 if (money) console.log("Don't speend it All"); // executed when truthy value
 if (money === 0) console.log("Your money is 0");
 else console.log("You Should get a Job");
-*/
 
 // --------------------------------------- //
 
@@ -114,3 +113,7 @@ console.log(age == "10"); // true
 
 // Strict Equality
 console.log(age === "10"); // False
+*/
+
+// ----------------------------------------- //
+// Boolean Logic
