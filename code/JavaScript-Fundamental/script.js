@@ -102,3 +102,15 @@ if (money) console.log("Don't speend it All"); // executed when truthy value
 if (money === 0) console.log("Your money is 0");
 else console.log("You Should get a Job");
 */
+
+// --------------------------------------- //
+
+// Equality operator
+const age = 10;
+if (age === 10) console.log("You just becoming an Adult :D");
+
+// Equality
+console.log(age == "10"); // true
+
+// Strict Equality
+console.log(age === "10"); // False
