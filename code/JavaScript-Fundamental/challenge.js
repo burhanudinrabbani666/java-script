@@ -14,10 +14,19 @@ const markHigherBMI = markBMI > jhonBMI;
 // else
 // console.log(`John's BMI (${jhonBMI} is higher than Mark BMI (${markBMI}))`);
 
-const scoreDolphins = (96 + 108 + 89) / 3;
-const scoreKoalas = (88 + 91 + 110) / 3;
+const scoreDolphins = (109 + 95 + 123) / 3;
+const scoreKoalas = (109 + 95 + 123) / 3;
 
-console.log(scoreDolphins, scoreKoalas);
-if (scoreDolphins === scoreKoalas) console.log("Both Win the Trophy");
-if (scoreDolphins > scoreKoalas) console.log("Dolphins win the Trophy");
-if (scoreKoalas > scoreDolphins) console.log("Koalas win the Trophy");
+// console.log(`score Dolphins: ${scoreDolphins} \nscore Koalas: ${scoreKoalas}`);
+// if (scoreDolphins === scoreKoalas) console.log("Both Win the Trophy");
+// if (scoreDolphins > scoreKoalas) console.log("Dolphins win the Trophy");
+// if (scoreKoalas > scoreDolphins) console.log("Koalas win the Trophy");
+
+// if (scoreDolphins === scoreKoalas && scoreDolphins > 100 && scoreKoalas > 100)
+//   console.log("Both Win the Trophy");
+
+// if (scoreDolphins > scoreKoalas && scoreDolphins > 100)
+//   console.log("Dolphins win the Trophy");
+
+// if (scoreKoalas > scoreDolphins && scoreKoalas > 100)
+//   console.log("Koalas win the Trophy");

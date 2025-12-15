@@ -137,4 +137,76 @@ console.log(hasDriverLicense && hasGoodVision && isTired); // true
 if (hasDriverLicense && hasGoodVision && !isTired)
   console.log("Sarah is able to drive!");
 else console.log("Someone else should Drive... ");
+console.log(2 % 3);
+
+let results = [];
+const fizz = "fizz";
+const buzz = "buzz";
+const fizzBuzz = "fizz-buzz";
+
+for (let index = 1; index <= 100; index++) {
+  results = [...results, index];
+}
+
+const Task = results.map((result) => {
+  if (result % 3 === 0 && result % 5 === 0) {
+    return fizzBuzz;
+  } else if (result % 5 === 0) {
+    return buzz;
+  } else if (result % 3 === 0) {
+    return fizz;
+  } else {
+    return result;
+  }
+});
+
+console.log(`${Task.join(", ")}.`);
 */
+
+// Switch Statement
+
+const day = "thursday";
+
+switch (day) {
+  // day === "monday"
+  case "monday":
+    console.log("Plan Courses structure");
+    console.log("Go to coding meetup");
+    break; // To stop the code
+
+  case "tuesday":
+    console.log("Perpare My video");
+    break;
+
+  case "wednesday":
+  case "thursday":
+    console.log("Write code examples");
+    break;
+
+  case "friday":
+    console.log("record Videos");
+    break;
+
+  case "saturday":
+  case "sunday":
+    console.log("enjoy the weekend");
+    break;
+
+  default:
+    console.log("Not A valid day");
+}
+
+if (day === "monday") {
+  console.log("Plan Courses structure");
+  console.log("Go to coding meetup");
+} else if (day === "tuesday") {
+  console.log("Perpare My video");
+} else if (day === "wednesday" || "thursday") {
+  console.log("write exm videos");
+} else if (day === "friday") {
+  console.log("record videos");
+} else if (day === "saturday" || "sunday") {
+  console.log("enjoy the weekend");
+} else {
+  console.log("not a valid day");
+}

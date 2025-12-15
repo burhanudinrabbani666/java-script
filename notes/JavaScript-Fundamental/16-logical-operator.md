@@ -5,7 +5,7 @@
 const hasDriverLicense = true; // A
 const hasGoodVision = true; // B
 
-console.log(hasDriverLicense && hasGoodVision); // false
+console.log(hasDriverLicense && hasGoodVision); // true
 console.log(hasDriverLicense || hasGoodVision); // true
 console.log(!hasDriverLicense); // false
 
@@ -17,7 +17,7 @@ console.log(!hasDriverLicense); // false
 // }
 
 const isTired = false; // C
-console.log(hasDriverLicense && hasGoodVision && isTired); // true
+console.log(hasDriverLicense && hasGoodVision && isTired); // false
 
 if (hasDriverLicense && hasGoodVision && !isTired)
   console.log("Sarah is able to drive!");
