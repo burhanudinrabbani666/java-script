@@ -13,7 +13,6 @@ if (hasDriversLicense) console.log(`I can Drive`);
 // const interface = "Audio";
 // const private = 534;
 // const if =23
-*/
 
 // Function
 
@@ -31,3 +30,46 @@ function fruitProccesor(apples, oranges) {
 
 const appleJuice = fruitProccesor(3, 7);
 console.log(appleJuice);
+
+// Declaration Vs Expressions
+
+//Declaration
+function calcAge1(birthYear) {
+  return 2025 - birthYear;
+}
+
+// save value function to variable
+const baniAge = calcAge1(2002);
+console.log(`${baniAge} Years Old`);
+
+// Expression
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+const age2 = calcAge2(2000);
+console.log(`${age2} Years Old`);
+*/
+
+// Expression
+const calcAge2 = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+// Arrow Function ES6
+const calcAge3 = (birthYear) => 2025 - birthYear;
+
+const age3 = calcAge3(2002);
+console.log(age3);
+
+const yearsUntilRetirement = (birthYear, firstName) => {
+  const age = 2025 - birthYear;
+  const retirement = 65 - age;
+
+  // return retirement;
+
+  return `${firstName} retires in ${retirement} years`;
+};
+
+console.log(yearsUntilRetirement(2002, "Bani"));
+console.log(yearsUntilRetirement(2001, "Nico"));
