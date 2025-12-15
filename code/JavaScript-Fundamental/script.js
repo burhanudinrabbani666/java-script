@@ -161,7 +161,6 @@ const Task = results.map((result) => {
 });
 
 console.log(`${Task.join(", ")}.`);
-*/
 
 // Switch Statement
 
@@ -210,3 +209,17 @@ if (day === "monday") {
 } else {
   console.log("not a valid day");
 }
+
+// Conditional Statement
+const age = 23;
+
+age > 18
+  ? console.log("I Like to Drink Wine")
+  : console.log("I Like to Drink Water");
+
+const drink = age >= 18 ? "Wine" : "Water";
+
+console.log(drink);
+
+console.log(`I like to drink ${age > 18 ? "Wine" : "Water"}`);
+*/

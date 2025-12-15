@@ -30,3 +30,15 @@ const scoreKoalas = (109 + 95 + 123) / 3;
 
 // if (scoreKoalas > scoreDolphins && scoreKoalas > 100)
 //   console.log("Koalas win the Trophy");
+
+// Challenge #4
+const bill = 40;
+
+const tip =
+  bill >= 50 && bill <= 300
+    ? bill * (15 / 100) //
+    : bill * (20 / 100);
+
+// console.log(
+//   `The Bill was ${bill}, the tip was ${tip}, and total value ${bill + tip}`
+// );
