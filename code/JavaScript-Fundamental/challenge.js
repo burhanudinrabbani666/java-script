@@ -42,3 +42,32 @@ const tip =
 // console.log(
 //   `The Bill was ${bill}, the tip was ${tip}, and total value ${bill + tip}`
 // );
+
+const calcAverage = (firstScore, secondScore, thirdScore) =>
+  (firstScore + secondScore + thirdScore) / 3;
+
+const averageDolphins = calcAverage(44, 23, 71);
+const averageKoalas = calcAverage(65, 54, 49);
+
+const averageDolphins2 = calcAverage(85, 54, 41);
+const averageKoalas2 = calcAverage(23, 34, 27);
+
+function checkWinner(averageDolphins, averageKoalas) {
+  // const winner =
+  //   averageDolphins > averageKoalas
+  //     ? `dolphins win (${averageDolphins} vs ${averageKoalas})`
+  //     : `koala's win (${averageKoalas} vs ${averageDolphins})`;
+
+  // return winner;
+
+  if (averageDolphins >= 2 * averageKoalas) {
+    return `dolphins win (${averageDolphins} vs ${averageKoalas})`;
+  }
+
+  if (averageKoalas >= 2 * averageDolphins) {
+    `koala's win (${averageKoalas} vs ${averageDolphins})`;
+  } else return `No Winner`;
+}
+
+console.log(checkWinner(averageDolphins, averageKoalas));
+console.log(checkWinner(averageDolphins2, averageKoalas2));

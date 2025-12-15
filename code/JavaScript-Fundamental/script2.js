@@ -49,7 +49,6 @@ const calcAge2 = function (birthYear) {
 
 const age2 = calcAge2(2000);
 console.log(`${age2} Years Old`);
-*/
 
 // Expression
 const calcAge2 = function (birthYear) {
@@ -73,3 +72,44 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 console.log(yearsUntilRetirement(2002, "Bani"));
 console.log(yearsUntilRetirement(2001, "Nico"));
+
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProccesor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+
+  const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces} pieces of oranges`;
+
+  return juice;
+}
+
+console.log(fruitProccesor(2, 3));
+// Juice with 8 pieces of apple and 12 pieces of oranges
+
+const calcAge = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+const calcRetirement = function (age) {
+  return 65 - age;
+};
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+  const age = calcAge(birthYear);
+  const retirement = calcRetirement(age);
+
+  if (retirement > 0) {
+    return `${firstName} retires in ${retirement} years`;
+  }
+
+  if (retirement < 0) {
+    return `${firstName} is already retirement`;
+  }
+};
+
+console.log(yearsUntilRetirement(1999, "Aziz"));
+console.log(yearsUntilRetirement(1950, "Farhan"));
+*/
