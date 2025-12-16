@@ -1,3 +1,5 @@
+`use stirct`;
+
 // For Challenge in JavaScript Fundamental topic
 const markWeight = 78;
 const markHeight = 1.69;
@@ -32,12 +34,6 @@ const scoreKoalas = (109 + 95 + 123) / 3;
 //   console.log("Koalas win the Trophy");
 
 // Challenge #4
-const bill = 40;
-
-const tip =
-  bill >= 50 && bill <= 300
-    ? bill * (15 / 100) //
-    : bill * (20 / 100);
 
 // console.log(
 //   `The Bill was ${bill}, the tip was ${tip}, and total value ${bill + tip}`
@@ -72,3 +68,20 @@ let averageKoalas = calcAverage(100, 100, 100);
 averageDolphins = calcAverage(85, 54, 41);
 averageKoalas = calcAverage(23, 34, 27);
 // console.log(checkWinner(averageDolphins, averageKoalas));
+
+const calcTip = (bill) => {
+  const tip =
+    bill >= 50 && bill <= 300
+      ? bill * (15 / 100) //
+      : bill * (20 / 100);
+
+  return tip;
+};
+
+const bill = [125, 555, 44];
+
+const tips = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
+// console.log(tips);
+
+const total = [tips[0] + bill[0], tips[1] + bill[1], tips[2] + bill[2]];
+// console.log(total);

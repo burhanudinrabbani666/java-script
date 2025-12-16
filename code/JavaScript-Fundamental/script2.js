@@ -157,7 +157,6 @@ const age5 = calcAge(years[4]);
 
 const ages = [age1, age2, age3, age4, age5];
 console.log(ages);
-*/
 
 const friends = ["aziz", "risaldi", "farhan"];
 
@@ -192,3 +191,19 @@ const seacrName = `juned`;
 if (friends.includes(seacrName))
   console.log(`You have friend called ${friends[friends.indexOf(seacrName)]}`);
 else console.log(`you dont have name called ${seacrName}`);
+*/
+
+// Object
+
+const bani = {
+  firstName: "Burhanudin",
+  lastName: "Rabbani",
+  birthYear: 2002,
+  get age() {
+    return new Date().getFullYear() - this.birthYear;
+  },
+  job: "unemployed",
+  friends: [`Aziz`, `Farhan`, `Risaldi`],
+};
+
+console.log(bani.age);
