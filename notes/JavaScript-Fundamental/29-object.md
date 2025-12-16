@@ -15,4 +15,4 @@ const bani = {
 };
 ```
 
-[Next: Iteration](./30-iteration-the-for-loop.md)
+[Next: Iteration](./29-a-dot-vs-bracket.md)
