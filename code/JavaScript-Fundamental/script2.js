@@ -140,7 +140,6 @@ const jonas = [firstName, LastName, 2025 - 1991, friends];
 
 console.log(jonas);
 console.log(jonas.length);
-*/
 
 // Exercies
 
@@ -158,3 +157,38 @@ const age5 = calcAge(years[4]);
 
 const ages = [age1, age2, age3, age4, age5];
 console.log(ages);
+*/
+
+const friends = ["aziz", "risaldi", "farhan"];
+
+// Add Element
+// Push
+friends.push(`Rian`);
+console.log(friends);
+// ['aziz', 'risaldi', 'farhan', 'Rian']
+
+// shift
+friends.unshift(`Herri`);
+console.log(friends);
+// ['Herri', 'aziz', 'risaldi', 'farhan', 'Rian']
+
+// Remove Element
+// Pop
+friends.pop(); // remove Last Element
+console.log(friends);
+// ['Herri', 'aziz', 'risaldi', 'farhan']
+
+// Unshift
+friends.shift(); // Remove First Elemenet
+console.log(friends);
+//['aziz', 'risaldi', 'farhan']
+
+// Checking index of element
+console.log(friends.indexOf("risaldi")); // 1
+console.log(friends.includes(`aziz`)); // true
+
+const seacrName = `juned`;
+
+if (friends.includes(seacrName))
+  console.log(`You have friend called ${friends[friends.indexOf(seacrName)]}`);
+else console.log(`you dont have name called ${seacrName}`);

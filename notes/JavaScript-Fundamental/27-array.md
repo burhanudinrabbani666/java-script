@@ -15,3 +15,5 @@ we can change array value because array is not primitive variable
 friends[2] = "Khan";
 console.log(friends);
 ```
+
+[Next: Basic Array method](./28-basic-array-methods.md)
