@@ -112,4 +112,49 @@ const yearsUntilRetirement = function (birthYear, firstName) {
 
 console.log(yearsUntilRetirement(1999, "Aziz"));
 console.log(yearsUntilRetirement(1950, "Farhan"));
+
+// const friend1 = "aziz";
+// const friend2 = "risaldi";
+// const friend3 = "farhan";
+
+const friends = ["aziz", "risaldi", "farhan"];
+const year = new Array(2000, 2001, 2002);
+
+console.log(friends); // ["aziz", "risaldi", "farhan"]
+console.log(friends[0]); // aziz
+console.log(friends[2]); // farhan
+
+console.log(friends.length); // 3
+
+// Get Last value
+console.log(friends[friends.length - 1]); // farhan
+
+friends[2] = "Khan";
+console.log(friends);
+
+// save different value
+const firstName = `Jonas`;
+const LastName = `Schedmant`;
+
+const jonas = [firstName, LastName, 2025 - 1991, friends];
+
+console.log(jonas);
+console.log(jonas.length);
 */
+
+// Exercies
+
+const calcAge = function (birthYear) {
+  return 2025 - birthYear;
+};
+
+const years = [1999, 1990, 2001, 2005, 2010];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[2]);
+const age4 = calcAge(years[3]);
+const age5 = calcAge(years[4]);
+
+const ages = [age1, age2, age3, age4, age5];
+console.log(ages);
