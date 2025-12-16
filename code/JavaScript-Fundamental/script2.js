@@ -206,7 +206,6 @@ const bani = {
 };
 
 console.log(bani.age);
-*/
 
 const bani = {
   firstName: "Burhanudin",
@@ -244,3 +243,36 @@ console.log(bani);
 console.log(
   `${bani.firstName} has ${bani.friends.length} friends, and his best friend is called ${bani.friends[0]}`
 );
+*/
+
+const bani = {
+  firstName: "Burhanudin",
+  lastName: "Rabbani",
+  birthYear: 2002,
+  job: "unemployed",
+  friends: [`Aziz`, `Farhan`, `Risaldi`],
+  hasDriverLicense: true,
+
+  // calcAge: function () {
+  //   return 2025 - this.birthYear;
+  // },
+
+  calcAge: function () {
+    this.age = 2025 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${
+      this.job
+    }, and he ${
+      this.hasDriverLicense
+        ? `has` //
+        : `Dont Have`
+    } Driver license`;
+  },
+};
+
+console.log(bani.calcAge());
+console.log(bani.age);
+console.log(bani.getSummary());
