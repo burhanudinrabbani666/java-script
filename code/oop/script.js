@@ -698,7 +698,9 @@ const PersonCLEx = class {};
 // class declartion. Use This ❗
 class PersonCL {
   constructor(firstName, birthYear) {
-    this.firstName = firstName;
+    // validate data
+    this._fullName = firstName;
+
     this.birthYear = birthYear;
   }
 
@@ -710,15 +712,48 @@ class PersonCL {
   greeting() {
     console.log(`Hi, My name is ${this.firstName}`);
   }
+
+  get age() {
+    return 2025 - this.birthYear;
+  }
+
+  // Validate
+  set _fullName(name) {
+    if (name.includes(" ")) this.fullName = name;
+    else alert(`${name} is not Full Name`);
+  }
 }
 
-const bani = new PersonCL("Burhanudin", 2002);
-console.log(bani);
+const bani = new PersonCL("Burhanudin Rabbani", 2002);
 
-bani.calcAge();
-bani.greeting();
+console.log(bani);
+console.log(bani.fullName);
+
+const aziz = new PersonCL("Muhammad Aziz", 1999);
+console.log(aziz.fullName);
+console.log(aziz);
 
 // still can adding ouside declaration but dont do that
 // PersonCL.prototype.greeting = function () {
 // console.log(`Hi, My name is ${this.firstName}`);
 // };
+
+const accounts = {
+  owner: "Burhanudin",
+  movements: [200, 150, 120, 300],
+
+  get latest() {
+    const [latest] = this.movements.slice(-1);
+
+    return latest;
+  },
+
+  set latest(mov) {
+    this.movements = [...this.movements, mov];
+  },
+};
+
+console.log(accounts.latest);
+
+accounts.latest = 500;
+console.log(accounts.movements);
