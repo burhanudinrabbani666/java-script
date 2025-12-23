@@ -1,4 +1,5 @@
 "use strict";
+
 /*
 // arrow function not working ⚠️
 // Use Capital for naming Variable
@@ -629,3 +630,30 @@ Person.prototype.species = "Homo Sapiens";
 
 // console.log(bani.hasOwnProperty("first__name")); // true
 // console.log(bani.hasOwnProperty("species")); // false
+
+// 06) Prototype inherence
+
+console.log(bani.__proto__);
+
+// Object.prototype (top of prototype chain)
+console.log(bani.__proto__.__proto__);
+console.log(bani.__proto__.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+
+const arr = [2, 3, 3, 1, 2]; // new Array === []
+
+console.log(arr.__proto__);
+console.log(arr.__proto__ === Array.prototype);
+
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+// Dont make self method in real project
+console.log(arr.unique());
+
+const h1 = document.querySelector("h1");
+console.dir((x) => x + 1);
