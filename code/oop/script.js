@@ -658,7 +658,6 @@ console.log(arr.unique());
 
 const h1 = document.querySelector("h1");
 console.dir((x) => x + 1);
-*/
 
 // Challenge 1
 
@@ -689,3 +688,37 @@ mercedes.accelaeration(); // Mercedes has 135km/h
 mercedes.accelaeration(); // Mercedes has 145km/h
 mercedes.break(); // Mercedes has 135km/h
 mercedes.break(); // Mercedes has 130km/h
+*/
+
+// ES6 Class
+
+// class expression
+const PersonCLEx = class {};
+
+// class declartion. Use This ❗
+class PersonCL {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // unique method will be added to the PersonCL prototype
+  calcAge() {
+    console.log(2025 - this.birthYear);
+  }
+
+  greeting() {
+    console.log(`Hi, My name is ${this.firstName}`);
+  }
+}
+
+const bani = new PersonCL("Burhanudin", 2002);
+console.log(bani);
+
+bani.calcAge();
+bani.greeting();
+
+// still can adding ouside declaration but dont do that
+// PersonCL.prototype.greeting = function () {
+// console.log(`Hi, My name is ${this.firstName}`);
+// };

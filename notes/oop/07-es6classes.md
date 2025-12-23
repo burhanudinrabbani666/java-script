@@ -1,36 +1,42 @@
 ## ES6 Classes
 
+Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are unique to classes.
+
 1. Class are NOT hoisted
 2. Class are first-class citizen
 3. Class are executed in strict mode
 
 ```js
-// ES6 Classes
+// ES6 Class
 
-//class expression
-// const PersonCl = class {}
+// class expression
+const PersonCLEx = class {};
 
-//class declaration
-class PersonCl {
-  constructor(firstName, BirthYear) {
+// class declartion. Use This ❗
+class PersonCL {
+  constructor(firstName, birthYear) {
     this.firstName = firstName;
-    this.BirthYear = BirthYear;
+    this.birthYear = birthYear;
   }
 
-  // will be prototype of the object
-  clacAge() {
-    console.log(2025 - this.BirthYear);
+  // unique method will be added to the PersonCL prototype
+  calcAge() {
+    console.log(2025 - this.birthYear);
   }
 
   greeting() {
-    console.log(`Hi ${this.firstName}`);
+    console.log(`Hi, My name is ${this.firstName}`);
   }
 }
 
-const cicih = new PersonCl("Cicih", 2001);
-console.log(cicih);
-cicih.clacAge();
-cicih.greeting();
+const bani = new PersonCL("Burhanudin", 2002);
+console.log(bani);
 
-console.log(cicih.__proto__ === PersonCl.prototype);
+bani.calcAge();
+bani.greeting();
+
+// still can adding ouside declaration but dont do that
+// PersonCL.prototype.greeting = function () {
+// console.log(`Hi, My name is ${this.firstName}`);
+// };
 ```
