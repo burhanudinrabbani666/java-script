@@ -585,6 +585,7 @@ console.log(rivian);
 rivian.accelerate().break().accelerate();
 */
 
+/*
 // 03) Function and new operator
 
 // - Using Capital letter
@@ -657,3 +658,34 @@ console.log(arr.unique());
 
 const h1 = document.querySelector("h1");
 console.dir((x) => x + 1);
+*/
+
+// Challenge 1
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelaeration = function () {
+  this.speed += 10;
+  console.log(`${this.make} has ${this.speed}km/h`);
+};
+
+Car.prototype.break = function () {
+  this.speed -= 5;
+  console.log(`${this.make} has ${this.speed}km/h`);
+};
+
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 120);
+
+bmw.accelaeration(); // BMW has 130km/h
+bmw.break(); // BMW has 125km/h
+bmw.break(); // BMW has 120km/h
+bmw.accelaeration(); // BMW has 125km/h
+
+mercedes.accelaeration(); // Mercedes has 135km/h
+mercedes.accelaeration(); // Mercedes has 145km/h
+mercedes.break(); // Mercedes has 135km/h
+mercedes.break(); // Mercedes has 130km/h
