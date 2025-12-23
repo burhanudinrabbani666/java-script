@@ -243,7 +243,6 @@ console.log(bani);
 console.log(
   `${bani.firstName} has ${bani.friends.length} friends, and his best friend is called ${bani.friends[0]}`
 );
-*/
 
 const bani = {
   firstName: "Burhanudin",
@@ -276,3 +275,4 @@ const bani = {
 console.log(bani.calcAge());
 console.log(bani.age);
 console.log(bani.getSummary());
+*/

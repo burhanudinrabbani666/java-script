@@ -1,5 +1,11 @@
 ## OOP in JavaScript
 
+Clasic OOP Classes
+
+    🟨 Class --Instantion--> Instance
+
+Object (instance) are **instantied** from a class, which functions lie a blue print.
+
     🟨 Prototype (Contains Methods) <---PROTOTYPE INHERITANCE/DELEGATION--- Object (Can Access Methods)
 
 - Object are linked to prototype object.
@@ -13,7 +19,7 @@ num.map((n) => n * 2); // array delegating map prototype
 
 ### 3 Ways of Implementing Prototypal Inheritance in JavaScript
 
-how to we actually ccreate prtoypes? and how do we link objects to prototypes? how can we create new object, without having classes?
+how to we actually ccreate protoypes? and how do we link objects to prototypes? how can we create new object, without having classes?
 
 ##### 1️⃣ Constructor functions
 

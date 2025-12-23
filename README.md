@@ -27,12 +27,12 @@ but by truly understanding the logic, patterns, and inner workings behind the co
 
 | Section | Topic                                                                                                                      | Status | Notes                           |
 | ------- | -------------------------------------------------------------------------------------------------------------------------- | ------ | ------------------------------- |
-| 1       | [JavaScript Fundamentals (Variables, Data Types, Functions)](./notes/JavaScript-Fundamental/02-Introduction-JavaScript.md) | ✍️     | Restart Again: 10 December 2025 |
+| 1       | [JavaScript Fundamentals (Variables, Data Types, Functions)](./notes/JavaScript-Fundamental/02-Introduction-JavaScript.md) | ✅     | Restart Again: 10 December 2025 |
 | 2       | [DOM Manipulation & Events ]()                                                                                             | ⏳     |                                 |
 | 3       | [Scope, Hoisting, Closures, `this`, Prototype ]()                                                                          | ⏳     |                                 |
 | 4       | [Data Structure, Modern Operator and Strings ]()                                                                           | ✅     |                                 |
 | 5       | [Deep Dive Function, Array, Numbers ]()                                                                                    | ✅     |                                 |
-| 6       | [Object Oriented Programing(OOP) With JavaScript]()                                                                        | ✅     |                                 |
+| 6       | [Object Oriented Programing(OOP) With JavaScript](./notes/oop/)                                                            | ✅✍️   |                                 |
 | 7       | [External Libraries]()                                                                                                     | ✅     |                                 |
 | 8       | [Asynchronus JavaScript: Promises, Async/Await, and Ajax ]()                                                               | ✅     |                                 |
 

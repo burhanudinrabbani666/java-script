@@ -69,6 +69,7 @@ averageDolphins = calcAverage(85, 54, 41);
 averageKoalas = calcAverage(23, 34, 27);
 // console.log(checkWinner(averageDolphins, averageKoalas));
 
+// Challeng #2
 const calcTip = (bill) => {
   const tip =
     bill >= 50 && bill <= 300
@@ -85,3 +86,41 @@ const tips = [calcTip(bill[0]), calcTip(bill[1]), calcTip(bill[2])];
 
 const total = [tips[0] + bill[0], tips[1] + bill[1], tips[2] + bill[2]];
 // console.log(total);
+
+//Challenge #3
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBmi: function () {
+    this.bmi = this.mass / (this.height * this.height);
+
+    return this.bmi;
+  },
+};
+
+const jhon = {
+  fullName: "Jhon Smiths",
+  mass: 92,
+  height: 1.95,
+  calcBmi: function () {
+    this.bmi = this.mass / (this.height * this.height);
+
+    return this.bmi;
+  },
+};
+
+/*
+mark.calcBmi() > jhon.calcBmi()
+  ? console.log(
+      `${mark.fullName} BMI ${mark.calcBmi()} is higher than ${
+        jhon.fullName
+      } BMI ${jhon.calcBmi()}`
+    )
+  : console.log(
+      `${jhon.fullName} BMI ${jhon.calcBmi()} is higher than ${
+        mark.fullName
+      } BMI ${mark.calcBmi()}`
+    );
+*/

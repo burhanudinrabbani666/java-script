@@ -10,8 +10,7 @@ const user = {
   // Data
   user: "jonas",
   password: "dk23s",
-  // Behavior
-  login(password) {
+  // Behavior login(password) {
     // Login logic
   },
   sendMessages(str) {
@@ -38,7 +37,7 @@ const user = {
 
 #### 1️⃣ Abstraction
 
-Ignoring or hiding details thta **don't matter**, allowing us to get an **overview** prespective of the _thing_ we're implemting, instead of messing with detail that don't really matter to our implementation.
+Ignoring or hiding details that **don't matter**, allowing us to get an **overview** prespective of the _thing_ we're implemting, instead of messing with detail that don't really matter to our implementation.
 
 #### 2️⃣ Encapsulataion
 
