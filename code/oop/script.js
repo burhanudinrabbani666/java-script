@@ -599,11 +599,6 @@ rivian.accelerate().break().accelerate();
 const Person = function (firstName, birthYear) {
   this.first__name = firstName;
   this.birth__year = birthYear;
-
-  // Never create methods inside constructor
-  // this.calcAge = function () {
-  //   console.log(2025 - this.birth__year);
-  // };
 };
 
 // use new
@@ -611,5 +606,26 @@ const bani = new Person("Burhanudin", 2002);
 const aisa = new Person("Nuraisa", 2000);
 const nico = new Person("Nico", 2001);
 
-console.log(bani);
-// Person {first__name: 'Burhanudin', birth__year: 2002}
+// console.log(bani);
+
+// 04) Prototype
+
+Person.prototype.calcAge = function () {
+  console.log(`${2025 - this.birth__year} Years old`);
+};
+// console.log(Person.prototype);
+
+// bani.calcAge();
+// aisa.calcAge();
+// nico.calcAge();
+
+// console.log(bani.__proto__);
+// console.log(bani.__proto__ === Person.prototype); // true
+
+// console.log(Person.prototype.isPrototypeOf(bani)); // true
+
+Person.prototype.species = "Homo Sapiens";
+// console.log(bani.species, aisa.species);
+
+// console.log(bani.hasOwnProperty("first__name")); // true
+// console.log(bani.hasOwnProperty("species")); // false

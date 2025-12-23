@@ -28,3 +28,5 @@ console.log(bani.species, nurasia.species);
 console.log(bani.hasOwnProperty("firstName")); // true
 console.log(bani.hasOwnProperty("species")); // false
 ```
+
+[Next: Prototype innhentance](./05-proto-inhertance-and-proto-chain.md)
