@@ -688,9 +688,13 @@ mercedes.accelaeration(); // Mercedes has 135km/h
 mercedes.accelaeration(); // Mercedes has 145km/h
 mercedes.break(); // Mercedes has 135km/h
 mercedes.break(); // Mercedes has 130km/h
-*/
 
 // ES6 Class
+
+const Person = function (firstName, birthYear) {
+  this.first__name = firstName;
+  this.birth__year = birthYear;
+};
 
 // class expression
 const PersonCLEx = class {};
@@ -757,3 +761,25 @@ console.log(accounts.latest);
 
 accounts.latest = 500;
 console.log(accounts.movements);
+
+const PersonProto = {
+  calcAge() {
+    console.log(`${2025 - this.birthYear} Years old`);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const farhan = Object.create(PersonProto);
+farhan.name = "Farhan";
+farhan.birthYear = 2000;
+
+farhan.calcAge();
+
+const sarah = Object.create(PersonProto);
+sarah.init("Sarah", 1999);
+sarah.calcAge();
+*/

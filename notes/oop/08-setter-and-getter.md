@@ -39,3 +39,5 @@ const aziz = new PersonCL("Aziz", 1999); // Error
 console.log(aziz.fullName); // undefined
 console.log(aziz);
 ```
+
+[Next: Static](./09-statis.md)

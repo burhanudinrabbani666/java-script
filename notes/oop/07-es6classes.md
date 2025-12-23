@@ -40,3 +40,5 @@ bani.greeting();
 // console.log(`Hi, My name is ${this.firstName}`);
 // };
 ```
+
+[Next: Setter and Getter](./08-setter-and-getter.md)
