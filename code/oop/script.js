@@ -603,6 +603,9 @@ const Person = function (firstName, birthYear) {
   this.birth__year = birthYear;
 };
 
+Person.prototype.calcAge = function () {
+  console.log(`${2025 - this.birth__year} Years old`);
+};
 // use new
 const bani = new Person("Burhanudin", 2002);
 const aisa = new Person("Nuraisa", 2000);
@@ -612,9 +615,6 @@ const nico = new Person("Nico", 2001);
 
 // 04) Prototype
 
-Person.prototype.calcAge = function () {
-  console.log(`${2025 - this.birth__year} Years old`);
-};
 // console.log(Person.prototype);
 
 // bani.calcAge();
@@ -797,7 +797,6 @@ Car.prototype.break = function () {
   this.speed -= 5;
   console.log(`${this.make} has ${this.speed}km/h`);
 };
-*/
 
 class Car {
   constructor(make, speed) {
@@ -836,5 +835,100 @@ ford.break();
 ford.break();
 ford.break();
 
-ford.speedUS = 200;
+ford.speedUS = 200
 console.log(ford.speedUS);
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(`${2025 - this.birthYear} Years old`);
+};
+
+const Student = function (firstName, birthYear, course) {
+  //this.firstName = firstName;
+  //this.birthYear = birthYear;
+
+  // Using call method
+  Person.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+// Linking Prototype
+Student.prototype = Object.create(Person.prototype);
+
+Student.prototype.introduce = function () {
+  console.log(`Hi my name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student("mike", 1990, "Compuet Science");
+mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+console.log(mike instanceof Student);
+console.log(mike instanceof Person);
+
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
+*/
+
+/*
+// Challenge #3
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.acceleration = function () {
+  this.speed += 10;
+  console.log(`${this.make} has ${this.speed}km/h`);
+};
+
+Car.prototype.break = function () {
+  this.speed -= 5;
+  console.log(`${this.make} has ${this.speed}km/h`);
+};
+
+const EV = function (make, speed, charge) {
+  Car.call(this, make, speed);
+
+  this.charge = charge;
+};
+
+EV.prototype = Object.create(Car.prototype);
+EV.prototype.constructor = EV;
+
+EV.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
+};
+
+// polymorphism Effect
+EV.prototype.acceleration = function () {
+  this.speed += 20;
+  this.charge -= 1;
+
+  console.log(
+    `${this.make} going at ${this.speed}km/h with Charge ${this.charge}%`
+  );
+};
+
+const tesla = new EV("Telsa", 120, 23);
+tesla.chargeBattery(90);
+
+console.log(tesla);
+
+tesla.acceleration(); // Telsa going at 140km/h with Charge 89%
+tesla.acceleration(); // Telsa going at 160km/h with Charge 88%
+tesla.acceleration(); // Telsa going at 180km/h with Charge 87%
+tesla.acceleration();
+tesla.break();
+tesla.break();
+tesla.break();
+tesla.break();
+tesla.break();
+*/
