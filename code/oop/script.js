@@ -878,6 +878,7 @@ console.dir(Student.prototype.constructor);
 */
 
 /*
+
 // Challenge #3
 const Car = function (make, speed) {
   this.make = make;
@@ -932,3 +933,59 @@ tesla.break();
 tesla.break();
 tesla.break();
 */
+
+// Inheritance Between "Classes": ES6 Classes
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    // validate data
+    this._fullName = fullName;
+
+    this.birthYear = birthYear;
+  }
+
+  // unique method will be added to the PersonCL prototype
+  calcAge() {
+    console.log(2025 - this.birthYear);
+  }
+
+  greeting() {
+    console.log(`Hi, My name is ${this.fullName}`);
+  }
+
+  get age() {
+    return 2025 - this.birthYear;
+  }
+
+  // Validate
+  set _fullName(name) {
+    if (name.includes(" ")) this.fullName = name;
+    else alert(`${name} is not Full Name`);
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // Always needs to Happen First
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`Hi my name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  //
+  calcAge() {
+    console.log(
+      `Im ${2025 - this.birthYear} years old, but i'm fell like ${
+        2025 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const ayu = new StudentCl("ayu lestari", 2001, "Computer Science");
+console.log(ayu);
+ayu.introduce();
+ayu.calcAge();

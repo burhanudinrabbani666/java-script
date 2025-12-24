@@ -39,3 +39,5 @@ console.log(mike instanceof Person);
 Student.prototype.constructor = Student;
 console.log(Student.prototype.constructor);
 ```
+
+[Next: Inheritance ES6 ](./12-inherite-in-es6.md)

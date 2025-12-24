@@ -1,5 +1,7 @@
 ## Inherite in es6
 
+in ES6 classes. using _super_ for inheritance
+
 ```js
 class PersonCl {
   constructor(fullName, BirthYear) {
@@ -63,3 +65,5 @@ const martha = new Student("Martha Jonas", 2002, "Art");
 martha.introduce();
 martha.clacAge();
 ```
+
+[Next: Inherite Object.create](./13-inherite-object-create.md)
