@@ -988,7 +988,6 @@ const ayu = new StudentCl("ayu lestari", 2001, "Computer Science");
 console.log(ayu);
 ayu.introduce();
 ayu.calcAge();
-*/
 
 // inheritance Between "Classes": Object.create
 const PersonProto = {
@@ -1018,3 +1017,75 @@ const jay = Object.create(StudentProto);
 jay.init("Jay", 1945, "Biology");
 jay.introduce();
 jay.calcAge();
+*/
+
+// Encapsulation: Private Class Fields and Methods
+
+// 1) Public Fields
+// 2) Private Fields
+// 3) Public Methods
+// 4) Private Methods
+// STATIC version of these 4
+
+class Account {
+  // Public Fields
+  locale = navigator.language;
+  bank = "BANKIST";
+
+  // Private Fields
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.#pin = pin;
+    this.currency = currency;
+
+    console.log(`Thank For Opening Account ${owner}`);
+  }
+
+  // Public (API)
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposite(value) {
+    if (!value) return;
+
+    this.#movements = [...this.#movements, value];
+  }
+
+  withdrawal(value) {
+    this.deposite(-value);
+  }
+
+  requestLoan(value) {
+    if (this.#approveLoan) {
+      this.deposite(value);
+
+      console.log(`Loan Approved`);
+    }
+  }
+
+  // Private Methods
+  #approveLoan() {
+    return true;
+  }
+
+  // Static
+  static hello() {
+    console.log(`Welcome to Bankist`);
+  }
+}
+
+const acc1 = new Account("jonas", "EUR", 1111);
+
+// Using API
+acc1.deposite(230);
+acc1.withdrawal(1400);
+
+acc1.requestLoan(10000);
+
+console.log(acc1);
+// console.log(acc1.#movements);
+// acc1.#approveLoan(3232);

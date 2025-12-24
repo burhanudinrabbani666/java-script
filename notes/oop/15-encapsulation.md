@@ -77,3 +77,5 @@ console.log(acc1);
 
 // console.log(Account.test());
 ```
+
+[Next: Chaining Methods](./16-chaining-methods.md)

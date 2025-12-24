@@ -35,3 +35,5 @@ jay.init("Jay", 2001, "Law");
 jay.introduce();
 jay.calcAge();
 ```
+
+[Next: Another Example](./14-anothe-class-example.md)
