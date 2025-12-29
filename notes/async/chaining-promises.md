@@ -1,32 +1,37 @@
 ## Chaning Promises
 
-```js
-// Fetch
-const countryData = function (country) {
-  // Fetch Country (1)
-  // make more meaningable with storing to variable
-  const request = fetch(`https://restcountries.com/v3.1/name/${country}`);
+Dont chaining .then() inside the callback!
 
-  // method
-  request
-    .then((respons) => respons.json()) // json return promise
+```js
+function getCountryAndNeighbor(country) {
+  const country1 = fetch(`https://restcountries.com/v3.1/name/${country}`);
+
+  country1
+    .then((response) => response.json()) // .json() is also async
     .then((data) => {
       renderCountry(data[0]);
 
-      // Get neighbour data
+      // Rendering neighbour inside then
       const neighbour = data[0].borders?.[0];
 
-      // Fetch Country (2)
-      const request2 = fetch(
+      if (!neighbour) return;
+
+      // Rendering country 2
+      const country2 = fetch(
         `https://restcountries.com/v3.1/alpha/${neighbour}`
       );
 
-      return request2;
+      // Always return and handling outside
+      return country2;
     })
-    .then((respons2) => respons2.json()) // promise request2
-    .then((data2) => renderCountry(data2[0], "neighbour"));
-};
-countryData("finland");
+    .then((response) => response.json()) // still returning promises
+    .then((data) => {
+      // console.log(data);
+      renderCountry(data[0], "neighbour");
+    });
+}
+
+getCountryAndNeighbor("sweden");
 ```
 
 [Next: Handling Rejected Promises](./handling-Rejected-promises.md)

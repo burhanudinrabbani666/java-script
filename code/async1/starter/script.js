@@ -11,12 +11,11 @@ const countriesContainer = document.querySelector('.countries');
 
 ///////////////////////////////////////
 
-/*
 function renderCountry(data, classNeighbour = '') {
   const lang = Object.values(data.languages);
   const cur = Object.values(data.currencies)[0].name;
 
-  console.log(data);
+  // console.log(data);
 
   const html = `
     <article class="country ${classNeighbour}">
@@ -36,6 +35,7 @@ function renderCountry(data, classNeighbour = '') {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 }
+/*
 
 function getCountryAndNeighbor(countrie) {
   // AJAX Call country 1
@@ -79,12 +79,34 @@ request.send();
 
 const request = fetch(`https://restcountries.com/v3.1/name/indonesia`); // promise <Pending>
 
-console.log(request);
+// console.log(request);
 
 function getCountryAndNeighbor(country) {
-  fetch(`https://restcountries.com/v3.1/name/${country}`)
+  const country1 = fetch(`https://restcountries.com/v3.1/name/${country}`);
+
+  country1
     .then(response => response.json()) // .json() is also async
-    .then(data => console.log(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+
+      // Rendering neighbour inside then
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) return;
+
+      // Rendering country 2
+      const country2 = fetch(
+        `https://restcountries.com/v3.1/alpha/${neighbour}`
+      );
+
+      // Always return and handling outside
+      return country2;
+    })
+    .then(response => response.json()) // still returning promises
+    .then(data => {
+      // console.log(data);
+      renderCountry(data[0], 'neighbour');
+    });
 }
 
-getCountryAndNeighbor('indonesia');
+getCountryAndNeighbor('sweden');
