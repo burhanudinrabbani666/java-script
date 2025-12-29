@@ -10,6 +10,8 @@ const countriesContainer = document.querySelector('.countries');
 // https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}
 
 ///////////////////////////////////////
+
+/*
 function renderCountry(data, classNeighbour = '') {
   const lang = Object.values(data.languages);
   const cur = Object.values(data.currencies)[0].name;
@@ -59,6 +61,30 @@ function getCountryAndNeighbor(countrie) {
       renderCountry(data2, 'neighbour');
     });
   });
+}
+
+getCountryAndNeighbor('indonesia');
+
+const request = new XMLHttpRequest();
+request.open('GET', `https://restcountries.com/v3.1/name/${countrie}`);
+request.send();
+*/
+
+// Promise and fetch API
+
+/*
+1. Get Pending after storing fetch
+2. if [[PromiseState]]: fulfilled, fetch success.
+*/
+
+const request = fetch(`https://restcountries.com/v3.1/name/indonesia`); // promise <Pending>
+
+console.log(request);
+
+function getCountryAndNeighbor(country) {
+  fetch(`https://restcountries.com/v3.1/name/${country}`)
+    .then(response => response.json()) // .json() is also async
+    .then(data => console.log(data[0]));
 }
 
 getCountryAndNeighbor('indonesia');

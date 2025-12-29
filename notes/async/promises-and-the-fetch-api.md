@@ -1,12 +1,15 @@
 ## What is promises?
 
-An Object that is used as a placeholder for the future result on asynchronus operation. ==Less Formal==> A container for an asynchronus delivered value. ==Less Formal==> container for a future value.
+An Object that is used as a placeholder for the future result on asynchronus operation.
+==Less Formal==>
+A container for an asynchronus delivered value.
+==Less Formal==> container for a future value.
 
 A Promise is a proxy for a value not necessarily known when the promise is created. It allows you to associate handlers with an asynchronous action's eventual success value or failure reason. This lets asynchronous methods return values like synchronous methods: instead of immediately returning the final value, the asynchronous method returns a promise to supply the value at some point in the future.
 
 A Promise is in one of these states:
 
-- pending: initial state, neither fulfilled nor rejected.
+- pending: initial state, neither fulfilled or rejected.
 - fulfilled: meaning that the operation was completed successfully.
 - rejected: meaning that the operation failed.
 
