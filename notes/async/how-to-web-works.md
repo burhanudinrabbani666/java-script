@@ -1,1 +1,1 @@
-## How to web works: Request ans Response
+## How to web works: Request and Response
