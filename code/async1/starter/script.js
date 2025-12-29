@@ -10,21 +10,14 @@ const countriesContainer = document.querySelector('.countries');
 // https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}
 
 ///////////////////////////////////////
-function getCountrydata(countrie) {
-  const request = new XMLHttpRequest();
+function renderCountry(data, classNeighbour = '') {
+  const lang = Object.values(data.languages);
+  const cur = Object.values(data.currencies)[0].name;
 
-  request.open('GET', `https://restcountries.com/v3.1/name/${countrie}`);
-  request.send();
+  console.log(data);
 
-  request.addEventListener('load', function () {
-    const [data] = JSON.parse(this.responseText);
-    const lang = Object.values(data.languages);
-    const cur = Object.values(data.currencies)[0].name;
-
-    console.log(data);
-
-    const html = `
-    <article class="country">
+  const html = `
+    <article class="country ${classNeighbour}">
     <img class="country__img" src=${data.flags.svg} />
     <div class="country__data">
       <h3 class="country__name">${data.name.official}</h3>
@@ -38,11 +31,34 @@ function getCountrydata(countrie) {
   </article>
   `;
 
-    countriesContainer.insertAdjacentHTML('beforeend', html);
-    countriesContainer.style.opacity = 1;
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+}
+
+function getCountryAndNeighbor(countrie) {
+  // AJAX Call country 1
+  const request = new XMLHttpRequest();
+  request.open('GET', `https://restcountries.com/v3.1/name/${countrie}`);
+  request.send();
+
+  request.addEventListener('load', function () {
+    const [data] = JSON.parse(this.responseText);
+    renderCountry(data);
+
+    // Get Neigbour country
+    const neighbour = data.borders?.[0];
+
+    if (!neighbour) return;
+    const request2 = new XMLHttpRequest();
+    request2.open('GET', `https://restcountries.com/v3.1/alpha/${neighbour}`);
+    request2.send();
+
+    request2.addEventListener('load', function () {
+      const [data2] = JSON.parse(this.responseText);
+
+      renderCountry(data2, 'neighbour');
+    });
   });
 }
 
-getCountrydata('indonesia');
-getCountrydata('usa');
-getCountrydata('malaysia');
+getCountryAndNeighbor('indonesia');
