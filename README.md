@@ -42,8 +42,6 @@ Through this journey, I aim to:
 - Build and publish my own **JavaScript library**
 - Create a portfolio that reflects **real technical skill**, not just projects
 
----
-
 ## Udemy Course Progress
 
 ### The Complete JavaScript Course 2025: From Zero to Expert!
@@ -59,14 +57,10 @@ Through this journey, I aim to:
 | 7       | External Libraries                                                                                                         | ✅ Completed |
 | 8       | Asynchronous JavaScript: Promises, Async/Await & AJAX                                                                      | ✅ Completed |
 
----
-
 ### JavaScript Algorithms & Data Structures
 
 Notes and implementations are stored here:  
 👉 [JavaScript Algorithms & Data Structures Repository]()
-
----
 
 ## Topics I’m Exploring
 
@@ -77,8 +71,6 @@ Notes and implementations are stored here:
 - Asynchronous JavaScript (callbacks, promises, async/await)
 - Writing **modular, reusable, and maintainable code**
 - JavaScript Canvas & basic automation
-
----
 
 ## Project Repositories
 
@@ -95,8 +87,6 @@ Some hands-on projects built during this journey:
 
 - 🍴 **Forkify App**  
    [Forkify](https://github.com/burhanudinrabbani666/forky-app)
-
----
 
 ## Final Notes
 
